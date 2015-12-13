@@ -89,7 +89,7 @@ class Manager {
     /**
      * Return all given arguments.
      *
-     * @return Argument[]
+     * @return array
      */
     public function all() {
         return $this->arguments;
