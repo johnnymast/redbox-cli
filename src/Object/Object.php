@@ -51,7 +51,7 @@ class Object {
 
         // Hard initialise simple types, lazy load more complex ones.
         foreach ($array as $key => $val) {
-            if ( !property_exists($this, $this->keyType($key)) &&
+            if (!property_exists($this, $this->keyType($key)) &&
                 property_exists($this, $key)) {
                 $this->$key = $val;
                 unset($array[$key]);
@@ -66,12 +66,12 @@ class Object {
 
     protected function keyType($key)
     {
-        return $key . "Type";
+        return $key."Type";
     }
 
     protected function dataType($key)
     {
-        return $key . "DataType";
+        return $key."DataType";
     }
 
     public function __isset($key)

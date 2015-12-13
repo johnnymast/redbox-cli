@@ -21,7 +21,7 @@ class Argument extends ArgumentObject {
         if ($this->defaultValue)
             $arg[] = '(default: '.$this->defaultValue.')';
         if (!$this->prefix && !$this->longPrefix)
-            $arg[]  = $this->name;
+            $arg[] = $this->name;
 
         $arg = implode(', ', $arg);
 

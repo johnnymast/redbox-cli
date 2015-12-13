@@ -14,6 +14,7 @@ class ArgumentsTest extends TestBase
     /**
      * @expectedException        \Exception
      * @expectedExceptionMessage The following arguments are required: user.
+     * @coversDefaultClass       \Redbox\Cli\Parser
      */
     public function testRequiredArgumentIsNotFound()
     {

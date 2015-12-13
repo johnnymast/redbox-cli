@@ -15,7 +15,7 @@ class Cli {
 
     public function __construct()
     {
-        $this->setManager( new ArgumentManager() );
+        $this->setManager(new ArgumentManager());
     }
 
     /**
