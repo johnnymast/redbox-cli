@@ -1,5 +1,6 @@
 <?php
 namespace Redbox\Cli\Tests;
+use Redbox\Cli\Cli;
 
 
 /**
@@ -10,24 +11,34 @@ namespace Redbox\Cli\Tests;
  */
 class ArgumentsTest extends TestBase
 {
-    public function testRequiredArgumentIsNotFound() {
-        $rules = array([
+    /**
+     * @expectedException        \Exception
+     * @expectedExceptionMessage The following arguments are required: user.
+     */
+    public function testRequiredArgumentIsNotFound()
+    {
+
+       /**
+         * This test will fail because the test didn't set the require -u or --user
+         * argument.
+         *
+         */
+        global $argv;
+        $argv = array(
+            self::OUR_APP,
+        );
+
+        $cli = new Cli();
+        $cli->arguments->add([
             'user' => [
-                'prefix'       => 'u',
-                'longPrefix'   => 'user',
-                'description'  => 'Username',
+                'prefix' => 'u',
+                'longPrefix' => 'user',
+                'description' => 'Username',
                 'defaultValue' => 'me_myself_i',
-                'required'     => true,
+                'required' => true,
             ]
         ]);
 
-        $argv = array(
-            $arg[0],
-        );
-
-        /**
-         * We need to tell the parser to start.
-         */
-        $this->cli->arguments->parse();
+        $cli->arguments->parse();
     }
 }

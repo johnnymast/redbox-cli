@@ -15,39 +15,13 @@ try {
      * Setup the rules of engagement
      */
     $cli->arguments->add([
-        'user' => [
-            'prefix'       => 'u',
-            'longPrefix'   => 'user',
-            'description'  => 'Username',
-            'defaultValue' => 'me_myself_i',
+        'targetpath' => [
+            'prefix'       => 't',
+            'longPrefix'   => 'targetpath',
+            'description'  => 'Path',
+            'defaultValue' => '/var/log',
             'required'     => true,
-        ],
-        'password' => [
-            'prefix'      => 'p',
-            'longPrefix'  => 'password',
-            'description' => 'Password',
-            'required'    => true,
-        ],
-        'iterations' => [
-            'prefix'      => 'i',
-            'longPrefix'  => 'iterations',
-            'description' => 'Number of iterations',
-            'castTo'      => 'int',
-        ],
-        'verbose' => [
-            'prefix'      => 'v',
-            'longPrefix'  => 'verbose',
-            'description' => 'Verbose output',
-            'noValue'     => true,
-        ],
-        'help' => [
-            'longPrefix'  => 'help',
-            'description' => 'Prints a usage statement',
-            'noValue'     => true,
-        ],
-        'path' => [ /* NOT YET SUPPORTED */
-            'description' => 'The path to push',
-        ],
+        ]
     ]);
 
     /**
@@ -58,8 +32,8 @@ try {
     /**
      * If we dont get an exception of us missing things we can handle stuff.
      */
-    echo "You entered password: ".$cli->arguments->get('password')."\n";
-    echo "You entered username: ".$cli->arguments->get('user')."\n";
+    echo "You entered path: ".$cli->arguments->get('targetpath')."\n";
+
 
 
 } catch (Exception $e) {

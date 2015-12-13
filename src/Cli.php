@@ -25,7 +25,4 @@ class Cli {
     {
         $this->arguments = $manager;
     }
-
-
-
 }

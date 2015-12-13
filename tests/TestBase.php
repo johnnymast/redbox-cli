@@ -3,13 +3,19 @@ namespace Redbox\Cli\Tests;
 
 use Redbox\Cli\Cli as CLI;
 
+
 class TestBase extends \PHPUnit_Framework_TestCase
 {
-    protected $cli = NULL;
+    CONST OUR_APP = 'test.php';
 
-    public function __construct()
+    public function setUp()
     {
-        parent::__construct();
-        $this->cli = new CLI;
+
+    }
+
+    /** @test */
+    public function it_does_nothing()
+    {
+        // nada
     }
 }
