@@ -33,9 +33,9 @@ class Parser {
      * Set the filter for the parser.
      *
      * @param Filter $filter
-     * @param Argument[] $arguments
+     * @param Array[] $arguments
      */
-    public function setFilter(Filter $filter, $arguments) {
+    public function setFilter(Filter $filter, array $arguments = []) {
         $this->filter    = $filter;
         $this->arguments = $arguments;
         $this->filter->setArguments($arguments);
