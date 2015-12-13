@@ -8,7 +8,7 @@ This is a command line parser based on [Climate](https://github.com/thephpleague
 
 ## Installation
 
-Using [composer](https://packagist.org/packages/league/climate):
+Using [composer](https://packagist.org/packages/redbox/cli):
 
 ```bash
 $ composer require league/climate
