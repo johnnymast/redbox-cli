@@ -11,7 +11,7 @@ This is a command line parser based on [Climate](https://github.com/thephpleague
 Using [composer](https://packagist.org/packages/redbox/cli):
 
 ```bash
-$ composer require league/climate
+$ composer require redbox/cli
 ```
 ## Requirements
 
