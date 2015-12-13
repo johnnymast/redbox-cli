@@ -6,7 +6,7 @@ This is a command line parser
 
 ## Author
 
-This package is created and maintained by [Johnny Mast](mastjohnny@gmail.com) but it was based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). For feature requests and suggestions
+This package is created and maintained by [Johnny Mast](https://github.com/johnnymast) but it was based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). For feature requests and suggestions
 you could consider sending me an e-mail.
 
 ## License
