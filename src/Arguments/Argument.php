@@ -15,13 +15,13 @@ class Argument extends ArgumentObject {
     public function usageInfo() {
         $arg = array();
         if ($this->prefix) {
-            $arg[] = '-' . $this->prefix . ' ' . $this->name;
+            $arg[] = '-'.$this->prefix.' '.$this->name;
         }
         if ($this->longPrefix) {
-            $arg[] = '--' . $this->longPrefix . ' ' . $this->name;
+            $arg[] = '--'.$this->longPrefix.' '.$this->name;
         }
         if ($this->defaultValue) {
-            $arg[] = '(default: ' . $this->defaultValue . ')';
+            $arg[] = '(default: '.$this->defaultValue . ')';
         }
         if (!$this->prefix && !$this->longPrefix) {
             $arg[] = $this->name;
