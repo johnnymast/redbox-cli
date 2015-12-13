@@ -1,6 +1,6 @@
 {
-  "name": "league/climate",
-  "description": "PHP's best friend for the terminal. CLImate allows you to easily output colored text, special formats, and more.",
+  "name": "redbox/cli",
+  "description": "Simple cli argument parser written in and for PHP.",
   "keywords": [],
   "license": "MIT",
   "authors": [
