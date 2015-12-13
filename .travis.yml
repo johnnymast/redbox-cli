@@ -10,8 +10,7 @@ php:
   - hhvm
 
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer update $COMPOSER_OPTS
+  - /home/travis/.phpenv/versions/hhvm/bin/composer self-update
 
 script:
   - if [ "$TRAVIS_PHP_VERSION" == 7 ]; then vendor/bin/phpunit; fi
