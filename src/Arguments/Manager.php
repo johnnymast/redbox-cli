@@ -57,7 +57,7 @@ class Manager {
                 echo $argument->usageLine();
             }
         }
-        if (count($requiredArguments) and count($optionalArguments)) {
+        if (count($requiredArguments) && count($optionalArguments)) {
             echo "\n";
         }
 
@@ -105,7 +105,7 @@ class Manager {
      */
     public function add($argument, $options = [])
     {
-        if (is_array($argument) == true) {
+        if (is_array($argument) === true) {
             $this->addMany($argument);
             return;
         }
