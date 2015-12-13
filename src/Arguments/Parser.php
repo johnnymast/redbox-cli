@@ -47,8 +47,7 @@ class Parser {
      * @return mixed
      */
     public function getCommand() {
-        //global $argv;
-        print_r($argv); exit;
+        global $argv;
         return $argv[0];
     }
 
