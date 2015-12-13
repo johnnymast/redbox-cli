@@ -6,7 +6,7 @@ class Manager {
     /**
      * An array of arguments passed to the program.
      *
-     * @var Argument[] $arguments
+     * @var array $arguments
      */
     protected $arguments = [];
 
