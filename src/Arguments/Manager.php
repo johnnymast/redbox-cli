@@ -1,6 +1,5 @@
 <?php
 namespace Redbox\Cli\Arguments;
-use Redbox\Cli\Object;
 
 class Manager {
 
