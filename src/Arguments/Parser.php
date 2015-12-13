@@ -33,7 +33,7 @@ class Parser {
      * Set the filter for the parser.
      *
      * @param Filter $filter
-     * @param Array[] $arguments
+     * @param Array $arguments
      */
     public function setFilter(Filter $filter, array $arguments = []) {
         $this->filter    = $filter;
@@ -47,7 +47,8 @@ class Parser {
      * @return mixed
      */
     public function getCommand() {
-        global $argv;
+        //global $argv;
+        print_r($argv); exit;
         return $argv[0];
     }
 
