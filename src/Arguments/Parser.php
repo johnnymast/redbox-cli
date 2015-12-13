@@ -96,7 +96,7 @@ class Parser {
             if (isset($results[$argument->prefix]) == false and isset($results[$argument->longPrefix]) == false) {
                 throw new \Exception(
                     'The following arguments are required: '
-                    . print_r($argument->name, true) . '.'
+                    .print_r($argument->name, true).'.'
                 );
             }
         }
@@ -115,7 +115,7 @@ class Parser {
         $short = '';
         $long  = array();
 
-        foreach($short_prefixes as $argument) {
+        foreach ($short_prefixes as $argument) {
             $short .= $argument->prefix;
             if ($argument->required) {
                 $short .= ':';
@@ -124,7 +124,7 @@ class Parser {
             }
         }
 
-        foreach($long_prefixes as $argument) {
+        foreach ($long_prefixes as $argument) {
             $rule = $argument->longPrefix;
             if ($argument->required) {
                 $rule .= ':';

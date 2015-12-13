@@ -38,14 +38,14 @@ class Manager {
      * @eturn void
      */
     public function usage() {
-        $requiredArguments  = $this->filter->required();
-        $optionalArguments  = $this->filter->optional();
-        $allArguments       = array_merge($requiredArguments, $optionalArguments);
-        $command            = $this->parser->getCommand();
+        $requiredArguments = $this->filter->required();
+        $optionalArguments = $this->filter->optional();
+        $allArguments      = array_merge($requiredArguments, $optionalArguments);
+        $command           = $this->parser->getCommand();
 
         echo "Usage: ".$command;
         $args = array();
-        foreach($allArguments as $argument) {
+        foreach ($allArguments as $argument) {
             $args[] = '['.$argument->usageInfo().']';
         }
         $args = implode(' ', $args);
@@ -57,8 +57,9 @@ class Manager {
                 echo $argument->usageLine();
             }
         }
-        if (count($requiredArguments) and count($optionalArguments))
+        if (count($requiredArguments) and count($optionalArguments)) {
             echo "\n";
+        }
 
         if (count($optionalArguments) > 0) {
             echo "Optional Arguments:\n";
