@@ -93,7 +93,7 @@ class Parser {
 
 
         foreach ($requiredArguments as $argument) {
-            if (isset($results[$argument->prefix]) == false and isset($results[$argument->longPrefix]) == false) {
+            if (isset($results[$argument->prefix]) === false && isset($results[$argument->longPrefix]) === false) {
                 throw new \Exception(
                     'The following arguments are required: '
                     .print_r($argument->name, true).'.'
