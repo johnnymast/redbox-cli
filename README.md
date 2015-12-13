@@ -21,6 +21,12 @@ The following versions of PHP are supported by this version.
 + PHP 5.6
 + HHVM
 
+## Unit Testing
+
+I was about to write a load of unit tests. There is a litle but on phpunit <= 5.0. Apearently in later versions you could debug commandline arguments but with the current version required in composer.json (Thats 4.6) we currently cannot debug commandline arugments.
+
+
+
 ## Author
 
 This package is created and maintained by [Johnny Mast](https://github.com/johnnymast) but it was based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). For feature requests and suggestions
