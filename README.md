@@ -38,6 +38,6 @@ you could consider sending me an e-mail.
 
 ## License
 
-CalculateDistance is released under the MIT public license.
+Cli is released under the MIT public license.
 
 <https://github.com/johnnymast/CalculateDistance/blob/master/LICENSE.txt>
