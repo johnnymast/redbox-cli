@@ -45,7 +45,7 @@ try {
             'description' => 'Prints a usage statement',
             'noValue'     => true,
         ],
-        'path' => [ /* NOT YET SUPPORTED */
+        'path' => [/* NOT YET SUPPORTED */
             'description' => 'The path to push',
         ],
     ]);

@@ -53,7 +53,7 @@ class Manager {
 
         if (count($requiredArguments) > 0) {
             echo "Required Arguments:\n";
-            foreach($requiredArguments as $argument) {
+            foreach ($requiredArguments as $argument) {
                 echo $argument->usageLine();
             }
         }
@@ -62,7 +62,7 @@ class Manager {
 
         if (count($optionalArguments) > 0) {
             echo "Optional Arguments:\n";
-            foreach($optionalArguments as $argument) {
+            foreach ($optionalArguments as $argument) {
                 echo $argument->usageLine();
             }
         }
@@ -115,7 +115,7 @@ class Manager {
         if (!($arg instanceof Argument)) {
             throw new \Exception('Please provide an argument name or object.');
         }
-        $this->arguments[$argument] =  $arg;
+        $this->arguments[$argument] = $arg;
     }
 
     /**
@@ -127,7 +127,7 @@ class Manager {
      */
     protected function addMany(array $arguments = [])
     {
-        foreach($arguments as $name => $options) {
+        foreach ($arguments as $name => $options) {
             $this->add($name, $options);
         }
     }

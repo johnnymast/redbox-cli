@@ -11,12 +11,6 @@ class Object {
         $this->gapiInit();
     }
 
-    public function __call($name, $arguments = [])
-    {
-        if (isset($this->$name))
-            return $this->$name;
-    }
-
     /**
      * Blank initialiser to be used in subclasses to do  post-construction initialisation - this
      * avoids the need for subclasses to have to implement the variadics handling in their

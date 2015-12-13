@@ -22,9 +22,9 @@ class Parser {
 
     /**
      * Parser constructor.
-     * @param null $manager
+     * @param Manager $manager
      */
-    public function __construct($manager=NULL)
+    public function __construct(Manager $manager = NULL)
     {
         $this->manager = $manager;
     }
@@ -33,7 +33,7 @@ class Parser {
      * Set the filter for the parser.
      *
      * @param Filter $filter
-     * @param $arguments
+     * @param Argument[] $arguments
      */
     public function setFilter(Filter $filter, $arguments) {
         $this->filter    = $filter;
@@ -62,15 +62,16 @@ class Parser {
         /**
          * We need to do this so our Unit test will work.
          */
-        if ($argv == null)
+        if ($argv == null) {
             global $argv;
+        }
 
         $requiredArguments  = $this->filter->required();
         list($shortOptions, $longOptions) = $this->buildOptions();
 
         $results = getopt($shortOptions, $longOptions);
 
-        foreach($this->arguments as $argument) {
+        foreach ($this->arguments as $argument) {
             if (isset($results[$argument->prefix])) {
                 $this->manager->set($argument->name, $results[$argument->prefix]);
             } elseif (isset($results[$argument->longPrefix])) {
@@ -91,7 +92,7 @@ class Parser {
         }
 
 
-        foreach($requiredArguments as $argument) {
+        foreach ($requiredArguments as $argument) {
             if (isset($results[$argument->prefix]) == false and isset($results[$argument->longPrefix]) == false) {
                 throw new \Exception(
                     'The following arguments are required: '
