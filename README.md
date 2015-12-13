@@ -12,6 +12,7 @@ Using [composer](https://packagist.org/packages/league/climate):
 ```bash
 $ composer require league/climate
 ```
+## Requirements
 
 The following versions of PHP are supported by this version.
 
