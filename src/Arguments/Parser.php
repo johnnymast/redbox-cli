@@ -16,7 +16,7 @@ class Parser {
 
     /**
      * Parser constructor.
-     * @var \Redbox\Cli\Arguments\Argument $arguments;
+     * @var array $arguments;
      */
     protected $arguments;
 
