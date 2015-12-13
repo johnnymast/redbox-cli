@@ -59,17 +59,14 @@ class Parser {
      */
     public function parse(array $argv = null)
     {
-        /**
-         * We need to do this so our Unit test will work.
-         */
-        if ($argv == null) {
-            global $argv;
-        }
+
 
         $requiredArguments = $this->filter->required();
         list($shortOptions, $longOptions) = $this->buildOptions();
 
+
         $results = getopt($shortOptions, $longOptions);
+
 
         foreach ($this->arguments as $argument) {
             if (isset($results[$argument->prefix])) {

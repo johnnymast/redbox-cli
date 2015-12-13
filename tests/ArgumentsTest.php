@@ -12,6 +12,9 @@ use Redbox\Cli\Cli;
 class ArgumentsTest extends TestBase
 {
     /**
+     * This test will fail because the test didn't set the require -u or --user
+     * argument.
+     *
      * @expectedException        \Exception
      * @expectedExceptionMessage The following arguments are required: user.
      * @coversDefaultClass       \Redbox\Cli\Parser
@@ -19,11 +22,6 @@ class ArgumentsTest extends TestBase
     public function testRequiredArgumentIsNotFound()
     {
 
-       /**
-         * This test will fail because the test didn't set the require -u or --user
-         * argument.
-         *
-         */
         global $argv;
         $argv = array(
             self::OUR_APP,
@@ -38,7 +36,7 @@ class ArgumentsTest extends TestBase
                 'required' => true,
             ]
         ]);
-
         $cli->arguments->parse();
     }
 }
+
