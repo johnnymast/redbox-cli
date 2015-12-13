@@ -34,7 +34,6 @@ class ArgumentsTest extends TestBase
                 'prefix' => 'u',
                 'longPrefix' => 'user',
                 'description' => 'Username',
-                'defaultValue' => 'me_myself_i',
                 'required' => true,
             ]
         ]);
