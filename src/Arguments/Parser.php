@@ -115,8 +115,8 @@ class Parser {
         $long  = array();
 
         foreach($short_prefixes as $argument) {
-            $short .= $argument->prefix();
-            if ($argument->required()) {
+            $short .= $argument->prefix;
+            if ($argument->required) {
                 $short .= ':';
             } elseif ($argument->required == false) {
                 $short .= '::';
@@ -124,8 +124,8 @@ class Parser {
         }
 
         foreach($long_prefixes as $argument) {
-            $rule = $argument->longPrefix();
-            if ($argument->required()) {
+            $rule = $argument->longPrefix;
+            if ($argument->required) {
                 $rule .= ':';
             } elseif ($argument->required == false) {
                 $rule .= '::';

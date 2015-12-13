@@ -24,7 +24,7 @@ class Filter
      * @return mixed
      */
     public function hasShortPrefix($argument) {
-        return ($argument->prefix());
+        return ($argument->prefix);
     }
 
     /**
@@ -34,7 +34,7 @@ class Filter
      * @return mixed
      */
     public function hasLongPrefix($argument) {
-        return ($argument->prefix());
+        return ($argument->prefix);
     }
 
     /**
@@ -45,7 +45,7 @@ class Filter
      */
     protected function isRequired($argument)
     {
-        return $argument->required();
+        return $argument->required;
     }
 
     /**
@@ -56,7 +56,7 @@ class Filter
      */
     protected function isOptional($argument)
     {
-        return ($argument->required() == false);
+        return ($argument->required == false);
     }
 
     /**
