@@ -8,17 +8,6 @@ class Object {
     public function __construct($array)
     {
         $this->mapTypes($array);
-        $this->gapiInit();
-    }
-
-    /**
-     * Blank initialiser to be used in subclasses to do  post-construction initialisation - this
-     * avoids the need for subclasses to have to implement the variadics handling in their
-     * constructors.
-     */
-    protected function gapiInit()
-    {
-        return;
     }
 
     /**
