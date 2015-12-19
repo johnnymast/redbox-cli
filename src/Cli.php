@@ -5,10 +5,6 @@ use Redbox\Cli\Arguments;
 
 class Cli {
 
-
-
-
-
     /**
      * An instance of the Argument Manager class
      *

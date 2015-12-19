@@ -85,7 +85,7 @@ class Manager {
      * @return boolean
      */
     public function hasDefaultValue($argument) {
-        if (isset($this->defaultvalues[$argument]) == true) {
+        if (isset($this->defaultvalues[$argument]) === true) {
             return $this->defaultvalues[$argument];
         }
         return false;
