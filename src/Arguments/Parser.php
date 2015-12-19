@@ -83,6 +83,7 @@ class Parser {
                  */
                 if ($argument->defaultValue) {
                     $this->manager->set($argument->name, $argument->defaultValue);
+                    $this->manager->hasDefaultValue($argument->name, true);
                     $results[$argument->name] = $this->manager->get($argument->name);
                 }
             }

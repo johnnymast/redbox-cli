@@ -18,6 +18,11 @@ class Manager {
     protected $values = [];
 
     /**
+     * @var array
+     */
+    protected $defaultvalues = [];
+
+    /**
      * @var \Redbox\Cli\Arguments\Parser $parser;
      */
     protected $parser;
@@ -67,6 +72,27 @@ class Manager {
                 echo $argument->usageLine();
             }
         }
+
+        echo "\n";
+    }
+
+    /**
+     * Determine if a given argument has a default value or not.
+     * One thing to note is that if having no info about the argument
+     * (being a key in xx is not set) we will return false as well.
+     *
+     * @param $argument
+     * @return boolean
+     */
+    public function hasDefaultValue($argument) {
+        if (isset($this->defaultvalues[$argument]) == true) {
+            return $this->defaultvalues[$argument];
+        }
+        return false;
+    }
+
+    public function setHasDefaultValue($argument = "", bool $default) {
+        $this->defaultvalues[$argument] = $default;
     }
 
     /**
