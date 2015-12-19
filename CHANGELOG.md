@@ -2,6 +2,8 @@
 
 * Updated the CHANGELOG.md to also contain the missing 1.0 changelog entry. fixed #3
 * Added a new line to Redbox\Cli\Arguments::usage() so it would look better. fixed #2 
+* Added Redbox\Cli\Manager::hasDefaultValue() so the user
+
 
 ## 1.1 - 2015-13-12 
 
