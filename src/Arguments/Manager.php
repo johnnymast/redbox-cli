@@ -67,6 +67,8 @@ class Manager {
                 echo $argument->usageLine();
             }
         }
+
+        echo "\n";
     }
 
     /**
