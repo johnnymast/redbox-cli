@@ -2,14 +2,10 @@
 namespace Redbox\Cli\Tests;
 use Redbox\Cli\Cli;
 
-
 /**
- * Created by PhpStorm.
- * User: johnny
- * Date: 12-12-15
- * Time: 16:51
+ * @@coversDefaultClass  \Redbox\Cli\Arguments\Arguments
  */
-class ArgumentsTest extends TestBase
+class ArgumentsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * This test will fail because the test didn't set the require -u or --user
@@ -21,10 +17,9 @@ class ArgumentsTest extends TestBase
      */
     public function testRequiredArgumentIsNotFound()
     {
-
         global $argv;
         $argv = array(
-            self::OUR_APP,
+            './myscript.php',
         );
 
         $cli = new Cli();
@@ -38,5 +33,28 @@ class ArgumentsTest extends TestBase
         ]);
         $cli->arguments->parse();
     }
-}
 
+    /**
+     * This test will ensure that a default value will be set even if it wasnt passwd to the
+     * commandline and that Redbox\Cli\Arguments\Arguments\Manager::hasDefaultValue will inform us that the default value has been set.
+     */
+    public function test_if_default_value_isset_when_no_argument_is_passed() {
+
+        $cli = new Cli();
+
+        /**
+         * Setup the rules of engagement
+         */
+        $cli->arguments->add([
+            'targetpath' => [
+                'prefix'       => 't',
+                'longPrefix'   => 'targetpath',
+                'description'  => 'Path',
+                'defaultValue' => '/var/log',
+            ]
+        ]);
+        $cli->arguments->parse();
+        $this->assertEquals($cli->arguments->get('targetpath'), '/var/log');
+        $this->assertTrue($cli->arguments->hasDefaultValue('targetpath'));
+    }
+}

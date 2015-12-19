@@ -5,7 +5,7 @@ use Redbox\Cli\Cli as CLI;
 
 /**
  * Run this script like
- * $ php ./yourscript.php -p=abc --user=abcd
+ * $ php ./baisc.php -p=abc --user=abcd
  */
 
 try {

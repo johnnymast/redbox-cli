@@ -2,7 +2,8 @@
 namespace Redbox\Cli\Arguments;
 use Redbox\Cli\Object\Object as ArgumentObject;
 
-class Argument extends ArgumentObject {
+class Argument extends ArgumentObject
+{
     public $prefix;
     public $defaultValue;
     public $longPrefix;
@@ -11,7 +12,12 @@ class Argument extends ArgumentObject {
     public $noValue;
     public $name;
 
-
+    /**
+     * Returns the usage information for this argument something like
+     * -u user, --user user, (default: me_myself_i)
+     *
+     * @return string
+     */
     public function usageInfo() {
         $arg = array();
         if ($this->prefix) {
@@ -27,9 +33,16 @@ class Argument extends ArgumentObject {
             $arg[] = $this->name;
         }
         $arg = implode(', ', $arg);
-
         return $arg;
     }
+
+    /**
+     * Returns a usage line something like.
+     * -u user, --user user, (default: me_myself_i)
+     *   Username
+     *
+     * @return string
+     */
     public function usageLine()
     {
         $arg = $this->usageInfo();

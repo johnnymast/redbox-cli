@@ -1,8 +1,8 @@
 <?php
 namespace Redbox\Cli\Arguments;
 
-class Manager {
-
+class Manager
+{
     /**
      * An array of arguments passed to the program.
      *
@@ -72,7 +72,6 @@ class Manager {
                 echo $argument->usageLine();
             }
         }
-
         echo "\n";
     }
 
@@ -85,17 +84,25 @@ class Manager {
      * @return boolean
      */
     public function hasDefaultValue($argument) {
-        if (isset($this->defaultvalues[$argument]) == true) {
-            return $this->defaultvalues[$argument];
+        if (isset($this->defaultvalues[$argument]) === true) {
+            return true;
         }
         return false;
     }
 
-    public function setHasDefaultValue($argument = "", bool $default) {
+    /**
+     * Set if a argument has defaulted to the default argument or not.
+     *
+     * @param string $argument
+     * @param bool $default
+     */
+    public function setHasDefaultValue($argument = "", $default = false) {
         $this->defaultvalues[$argument] = $default;
     }
 
     /**
+     * Set a parsed argument.
+     *
      * @param $argument
      * @param $value
      */
@@ -105,11 +112,16 @@ class Manager {
     }
 
     /**
+     * Return any set argument or false if the argument is unknown.
+     *
      * @param $argument
-     * @return mixed
+     * @return bool
      */
     public function get($argument)
     {
+        if (isset($this->values[$argument]) === false) {
+            return false;
+        }
         return $this->values[$argument];
     }
 

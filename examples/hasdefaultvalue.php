@@ -4,11 +4,8 @@ require '../vendor/autoload.php';
 use Redbox\Cli\Cli as CLI;
 
 /**
- * To see the different restults run this script like.
- *
- * $ php ./hasdefaultvalue.php
- * OR
- * $ php ./hasdefaultvalue.php --targetpath=/etc
+ * Run this script like
+ * $ php ./yourscript.php
  */
 
 try {
@@ -23,7 +20,6 @@ try {
             'longPrefix'   => 'targetpath',
             'description'  => 'Path',
             'defaultValue' => '/var/log',
-            'required'     => true,
         ]
     ]);
 
@@ -33,10 +29,10 @@ try {
     $cli->arguments->parse();
 
     /**
-     * If we dont get an exception of us missing things we can handle stuff.
+     * If we don't get an exception of us missing things we can handle stuff.
      */
-    echo "The default value for path is: ".$cli->arguments->get('targetpath')."\n";
-
+    echo "You entered path: ".$cli->arguments->get('targetpath')."\n";
+    echo "Is this the default value?: ".($cli->arguments->hasDefaultValue('targetpath') ? 'Yes' : 'No')."\n";
 
 
 } catch (Exception $e) {

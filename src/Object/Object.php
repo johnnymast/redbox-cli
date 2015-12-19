@@ -2,6 +2,7 @@
 namespace Redbox\Cli\Object;
 
 class Object {
+
     protected $modelData = array();
     protected $processed = array();
 
