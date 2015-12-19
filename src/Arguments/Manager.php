@@ -91,7 +91,7 @@ class Manager {
         return false;
     }
 
-    public function setHasDefaultValue($argument = "", bool $default) {
+    public function setHasDefaultValue($argument = "", $default = false) {
         $this->defaultvalues[$argument] = $default;
     }
 

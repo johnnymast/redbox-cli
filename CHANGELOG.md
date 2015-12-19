@@ -3,6 +3,8 @@
 * Updated the CHANGELOG.md to also contain the missing 1.0 changelog entry. fixed #3
 * Added a new line to Redbox\Cli\Arguments::usage() so it would look better. fixed #2 
 * Added Redbox\Cli\Manager::hasDefaultValue() so you know if the default value was set #fixed #5
+* Removed the comment about default arguments and if its a good thing in Redbox\Cli\Arguments\Parser::parse()
+* Changed the comments in examples/defaultvalue.php and examples/default.php to mimic the test case better.
 
 
 ## 1.1 - 2015-13-12 

@@ -77,13 +77,10 @@ class Parser {
                 /**
                  * If we set the default value for this argument we also add it to
                  * the result array or it will fail the argument has the option required by mistake.
-                 *
-                 * If you think i should not do this please report it on the boards and explain why.
-                 * (I'm a little in doubt here)
                  */
                 if ($argument->defaultValue) {
                     $this->manager->set($argument->name, $argument->defaultValue);
-                    $this->manager->hasDefaultValue($argument->name, true);
+                    $this->manager->setHasDefaultValue($argument->name, true);
                     $results[$argument->name] = $this->manager->get($argument->name);
                 }
             }
