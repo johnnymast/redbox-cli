@@ -11,6 +11,7 @@
 * Added more tests, also for the Manager class.
 * Cleaned up the code and added more comments.
 * Commented on all functions specially in Manager.php.
+* Fixed all the open issues for the 1.1.1 milestone.
 
 ## 1.1 - 2015-13-12 
 
