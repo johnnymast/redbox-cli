@@ -91,6 +91,10 @@ class Manager {
         return false;
     }
 
+    /**
+     * @param string $argument
+     * @param bool $default
+     */
     public function setHasDefaultValue($argument = "", $default = false) {
         $this->defaultvalues[$argument] = $default;
     }
@@ -104,12 +108,16 @@ class Manager {
         $this->values[$argument] = $value;
     }
 
+
     /**
      * @param $argument
-     * @return mixed
+     * @return bool
      */
     public function get($argument)
     {
+        if (isset($this->values[$argument]) == false) {
+            return false;
+        }
         return $this->values[$argument];
     }
 

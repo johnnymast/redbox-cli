@@ -20,7 +20,6 @@ try {
             'longPrefix'   => 'targetpath',
             'description'  => 'Path',
             'defaultValue' => '/var/log',
-            'required'     => true,
         ]
     ]);
 
