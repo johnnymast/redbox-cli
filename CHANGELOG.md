@@ -6,9 +6,11 @@
 * Removed the comment about default arguments and if its a good thing in Redbox\Cli\Arguments\Parser::parse()
 * Changed the comments in examples/defaultvalue.php and examples/default.php to mimic the testcase better.
 * Added examples/hasdefaultvalue.php to show the Redbox\Cli\Manager::hasDefaultValue() fature.
-* redbox\Cli\Arguments::get() now returns false if the argument is unknown.
+* Redbox\Cli\Arguments::get() now returns false if the argument is unknown.
 * Removed TestBase.php as it was an unused class.
 * Added more tests, also for the Manager class.
+* Cleaned up the code and added more comments.
+* Commented on all functions specially in Manager.php.
 
 ## 1.1 - 2015-13-12 
 

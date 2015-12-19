@@ -2,8 +2,8 @@
 namespace Redbox\Cli\Arguments;
 
 
-class Parser {
-
+class Parser
+{
     /**
      * @var \Redbox\Cli\Arguments\Filter $filter;
      */
@@ -33,7 +33,7 @@ class Parser {
      * Set the filter for the parser.
      *
      * @param Filter $filter
-     * @param Array $arguments
+     * @param array $arguments
      */
     public function setFilter(Filter $filter, array $arguments = []) {
         $this->filter    = $filter;
@@ -60,13 +60,10 @@ class Parser {
     public function parse(array $argv = null)
     {
 
-
         $requiredArguments = $this->filter->required();
         list($shortOptions, $longOptions) = $this->buildOptions();
 
-
         $results = getopt($shortOptions, $longOptions);
-
 
         foreach ($this->arguments as $argument) {
             if (isset($results[$argument->prefix])) {
@@ -85,7 +82,6 @@ class Parser {
                 }
             }
         }
-
 
         foreach ($requiredArguments as $argument) {
             if (isset($results[$argument->prefix]) === false && isset($results[$argument->longPrefix]) === false) {
