@@ -15,3 +15,4 @@ class ManagerTest extends TestBase
         $this->assertEquals($manager->get('key'), 'val');
     }
 }
+
