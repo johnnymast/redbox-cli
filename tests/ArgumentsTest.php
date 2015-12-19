@@ -4,10 +4,7 @@ use Redbox\Cli\Cli;
 
 
 /**
- * Created by PhpStorm.
- * User: johnny
- * Date: 12-12-15
- * Time: 16:51
+ * @@coversDefaultClass  \Redbox\Cli\Arguments\Arguments
  */
 class ArgumentsTest extends TestBase
 {
@@ -21,7 +18,6 @@ class ArgumentsTest extends TestBase
      */
     public function testRequiredArgumentIsNotFound()
     {
-
         global $argv;
         $argv = array(
             self::OUR_APP,
