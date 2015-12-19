@@ -2,7 +2,7 @@
 
 * Updated the CHANGELOG.md to also contain the missing 1.0 changelog entry. fixed #3
 * Added a new line to Redbox\Cli\Arguments::usage() so it would look better. fixed #2 
-* Added Redbox\Cli\Manager::hasDefaultValue() so the user
+* Added Redbox\Cli\Manager::hasDefaultValue() so you know if the default value was set #fixed #5
 
 
 ## 1.1 - 2015-13-12 
