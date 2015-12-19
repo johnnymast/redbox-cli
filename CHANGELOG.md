@@ -1,7 +1,7 @@
 ## 1.1.1 2015-19-12
 
-* Updated the CHANGELOG.md to also contain the missing 1.0 changelog entry. fixing #3
-* Added a new line to Redbox\Cli\Arguments::usage() so it would look better. fxing #2 
+* Updated the CHANGELOG.md to also contain the missing 1.0 changelog entry. fixed #3
+* Added a new line to Redbox\Cli\Arguments::usage() so it would look better. fixed #2 
 
 ## 1.1 - 2015-13-12 
 
