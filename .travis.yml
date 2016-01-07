@@ -17,6 +17,7 @@ before_install:
 
 before_script:
   - composer install
+  - patch vendor/phpunit/phpunit/src/Util/Getopt.php -i tests/patch/phpunit_4.6_Getopt.patch
 
 script:
   - if [ "$TRAVIS_PHP_VERSION" == 7 ]; then vendor/bin/phpunit; fi

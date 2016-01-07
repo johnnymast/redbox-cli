@@ -57,7 +57,7 @@ class Parser
      * @param array|null $argv
      * @throws \Exception
      */
-    public function parse(array $argv = null)
+    public function parse()
     {
 
         $requiredArguments = $this->filter->required();

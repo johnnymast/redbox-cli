@@ -17,17 +17,26 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
      */
     public function testRequiredArgumentIsNotFound()
     {
-        global $argv;
-        $argv = array(
-            './myscript.php',
-        );
-
         $cli = new Cli();
         $cli->arguments->add([
             'user' => [
                 'prefix' => 'u',
                 'longPrefix' => 'user',
                 'description' => 'Username',
+                'required' => true,
+            ]
+        ]);
+        $cli->arguments->parse();
+    }
+
+
+    public function testRequiredParameterHasCorrectValue()
+    {
+        $cli = new Cli();
+        $cli->arguments->add([
+            'tux' => [
+                'prefix' => 'tux',
+                'description' => 'Tux',
                 'required' => true,
             ]
         ]);

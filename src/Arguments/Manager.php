@@ -177,9 +177,9 @@ class Manager
      * @param array|null $argv
      * @throws \Exception
      */
-    public function parse(array $argv = null)
+    public function parse()
     {
         $this->parser->setFilter($this->filter, $this->all());
-        $this->parser->parse($argv);
+        $this->parser->parse();
     }
 }
