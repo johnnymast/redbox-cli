@@ -21,3 +21,5 @@ This is it the first non zero release of redbox-cli is here.
 
 This is version 1.0. I'm committing all over the place because i didn't add any tests yet. This is soon to change.
 As with any software its better to wait for the 1.1 release.
+
+  
