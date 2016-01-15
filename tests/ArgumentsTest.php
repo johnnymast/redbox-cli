@@ -30,17 +30,20 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
     }
 
 
+
     public function testRequiredParameterHasCorrectValue()
     {
         $cli = new Cli();
         $cli->arguments->add([
-            'tux' => [
-                'prefix' => 'tux',
-                'description' => 'Tux',
+            'q' => [
+                'description' => 'q',
                 'required' => true,
             ]
         ]);
         $cli->arguments->parse();
+        die ('@@'.$cli->arguments->get('q'));
+        $this->assertEquals($cli->arguments->get('q'), 'brownfox');
+
     }
 
     /**

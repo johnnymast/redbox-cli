@@ -64,7 +64,7 @@ class Parser
         list($shortOptions, $longOptions) = $this->buildOptions();
 
         $results = getopt($shortOptions, $longOptions);
-
+        print_r($results);
         foreach ($this->arguments as $argument) {
             if (isset($results[$argument->prefix])) {
                 $this->manager->set($argument->name, $results[$argument->prefix]);

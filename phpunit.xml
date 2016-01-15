@@ -10,7 +10,6 @@
          stopOnFailure="false"
          syntaxCheck="false"
 >
-
     <testsuites>
         <testsuite name="Redbox Cli test suite">
             <directory suffix=".php">./tests/</directory>
