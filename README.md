@@ -1,3 +1,6 @@
+![redbox-logo_img](https://cloud.githubusercontent.com/assets/121194/12361629/934d37e4-bbbf-11e5-8fc7-704383de34eb.png)
+
+
 [![Build Status](https://travis-ci.org/johnnymast/redbox-cli.svg)](https://travis-ci.org/johnnymast/redbox-cli) 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master)
@@ -31,7 +34,7 @@ The following versions of PHP are supported by this version.
 I was about to write a load of unit tests. There is a litle but on phpunit <= 5.0. Apearently in later versions you could debug commandline arguments but with the current version required in composer.json (Thats 4.6) we currently cannot debug commandline arugments.
 I am really sorry about this BUT you can run the tests from the [examples/](https://github.com/johnnymast/redbox-cli/tree/master/examples) directory to see if the package fits your needs.
 
- 
+  
   
 ## Author
 
