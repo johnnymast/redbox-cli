@@ -26,3 +26,4 @@ This is it the first non zero release of redbox-cli is here.
 
 ## 1.0 - 2015-12-12
 
+   
