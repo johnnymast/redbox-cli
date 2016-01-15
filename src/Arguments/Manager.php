@@ -48,7 +48,7 @@ class Manager
         $allArguments      = array_merge($requiredArguments, $optionalArguments);
         $command           = $this->parser->getCommand();
 
-        echo "Usage: ".$command;
+        echo "Usage: ".$command." ";
         $args = array();
         foreach ($allArguments as $argument) {
             $args[] = '['.$argument->usageInfo().']';
