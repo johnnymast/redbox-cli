@@ -1,5 +1,4 @@
-![redbox-logo_img](https://cloud.githubusercontent.com/assets/121194/12361629/934d37e4-bbbf-11e5-8fc7-704383de34eb.png)
-
+![redbox-logo-klein-done](https://cloud.githubusercontent.com/assets/121194/12361710/fa995040-bbbf-11e5-8490-09412e1e3cd8.png)
 
 [![Build Status](https://travis-ci.org/johnnymast/redbox-cli.svg)](https://travis-ci.org/johnnymast/redbox-cli) 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master)
