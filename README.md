@@ -32,7 +32,7 @@ I was about to write a load of unit tests. There is a litle but on phpunit <= 5.
 I am really sorry about this BUT you can run the tests from the [examples/](https://github.com/johnnymast/redbox-cli/tree/master/examples) directory to see if the package fits your needs.
 
  
-
+  
 ## Author
 
 This package is created and maintained by [Johnny Mast](https://github.com/johnnymast) but it was based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). For feature requests and suggestions
@@ -40,7 +40,8 @@ you could consider sending me an e-mail.
 
 ## License
 
-Cli is released under the MIT public license.
+Redbox-cli is released under the MIT public license.
 
-<https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md>
+[LICENSE](LICENSE.md)
  
+  
