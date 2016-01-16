@@ -40,8 +40,6 @@ class Object {
                 $this->$key = $val;
                 unset($array[$key]);
             } elseif (property_exists($this, $camelKey = self::camelCase($key))) {
-                // This checks if property exists as camelCase, leaving it in array as snake_case
-                // in case of backwards compatibility issues.
                 $this->$camelKey = $val;
             }
         }

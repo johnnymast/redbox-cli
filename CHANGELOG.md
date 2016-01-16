@@ -1,3 +1,9 @@
+## 1.2
+
+* Fixed a typo in examples/basic.php
+* Added a logo to README.md
+
+
 ## 1.1.1 2015-19-12
 
 * Updated the CHANGELOG.md to also contain the missing 1.0 changelog entry. fixed #3

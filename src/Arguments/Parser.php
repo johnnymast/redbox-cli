@@ -54,7 +54,7 @@ class Parser
     /**
      * This is it, we parse the given arguments.
      *
-     * @param array|null $argv
+     * @param bool $test
      * @throws \Exception
      */
     public function parse()
@@ -64,7 +64,7 @@ class Parser
         list($shortOptions, $longOptions) = $this->buildOptions();
 
         $results = getopt($shortOptions, $longOptions);
-        print_r($results);
+
         foreach ($this->arguments as $argument) {
             if (isset($results[$argument->prefix])) {
                 $this->manager->set($argument->name, $results[$argument->prefix]);

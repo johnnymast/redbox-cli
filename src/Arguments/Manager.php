@@ -174,7 +174,6 @@ class Manager
     /**
      * Go ahead and parse the arguments given.
      *
-     * @param array|null $argv
      * @throws \Exception
      */
     public function parse()
