@@ -10,7 +10,6 @@ use Redbox\Cli\Cli as CLI;
  * OR
  * $ php ./hasdefaultvalue.php --targetpath=/etc
  */
-
 try {
     $cli = new CLI;
 

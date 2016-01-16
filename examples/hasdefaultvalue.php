@@ -7,7 +7,6 @@ use Redbox\Cli\Cli as CLI;
  * Run this script like
  * $ php ./hasdefaultvalue.php
  */
-
 try {
     $cli = new CLI;
 
