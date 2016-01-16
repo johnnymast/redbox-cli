@@ -1,11 +1,11 @@
 <?php
-require dirname(__FILE__).'/../vendor/autoload.php';
+require 'common.php';
 
 use Redbox\Cli\Cli as CLI;
 
 /**
  * Run this script like
- * $ php ./yourscript.php
+ * $ php ./hasdefaultvalue.php
  */
 
 try {
