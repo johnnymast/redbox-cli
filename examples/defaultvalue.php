@@ -1,5 +1,5 @@
 <?php
-require 'common.php';
+require 'autoload.php';
 
 use Redbox\Cli\Cli as CLI;
 
