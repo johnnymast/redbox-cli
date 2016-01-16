@@ -54,7 +54,6 @@ class Parser
     /**
      * This is it, we parse the given arguments.
      *
-     * @param bool $test
      * @throws \Exception
      */
     public function parse()

@@ -2,6 +2,8 @@
 
 * Fixed a typo in examples/basic.php
 * Added a logo to README.md
+* Updated the markdown on the README.md file
+
 
 
 ## 1.1.1 2015-19-12
