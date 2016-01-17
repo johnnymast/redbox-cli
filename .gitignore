@@ -1,4 +1,5 @@
 vendor
 index.php
 index_bk.php
-composer.lockgir
+composer.lock
+
