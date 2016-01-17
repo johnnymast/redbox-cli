@@ -9,11 +9,11 @@ php:
   - hhvm
 
 env:
-  - COMPOSER_OPTS=""
-  - COMPOSER_OPTS="--prefer-lowest"
+#  - COMPOSER_OPTS=""
+#  - COMPOSER_OPTS="--prefer-lowest"
 
 before_install:
-  - php /home/travis/.phpenv/versions/hhvm/bin/composer self-update
+  - /home/travis/.phpenv/versions/5.4/bin/composer self-update
 
 before_script:
   - composer install
