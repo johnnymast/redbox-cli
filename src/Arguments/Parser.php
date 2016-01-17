@@ -2,6 +2,11 @@
 namespace Redbox\Cli\Arguments;
 
 
+/**
+ * This class will parse the given arguments.
+ *
+ * @package Redbox\Cli\Arguments
+ */
 class Parser
 {
     /**

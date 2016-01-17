@@ -1,6 +1,12 @@
 <?php
 namespace Redbox\Cli\Arguments;
 
+/**
+ * The manager clas is the main interface for interacting
+ * with the arguments part of Redbox-cli.
+ *
+ * @package Redbox\Cli\Arguments
+ */
 class Manager
 {
     /**
@@ -32,6 +38,9 @@ class Manager
      */
     protected $filter;
 
+    /**
+     * Manager constructor.
+     */
     public function __construct()
     {
         $this->parser = new Parser($this);
