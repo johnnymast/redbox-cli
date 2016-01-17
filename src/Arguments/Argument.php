@@ -2,6 +2,13 @@
 namespace Redbox\Cli\Arguments;
 use Redbox\Cli\Object\Object as ArgumentObject;
 
+/**
+ * The Argument class represents one single argument
+ * set to the Manager. To make sure its universal we use
+ * the ArgumentObject as an abstract to this class.
+ *
+ * @package Redbox\Cli\Arguments
+ */
 class Argument extends ArgumentObject
 {
     public $prefix;

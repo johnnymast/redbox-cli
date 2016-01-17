@@ -61,8 +61,9 @@ class Parser
 
         $requiredArguments = $this->filter->required();
         list($shortOptions, $longOptions) = $this->buildOptions();
-
+        global $argv;
         $results = getopt($shortOptions, $longOptions);
+
 
         foreach ($this->arguments as $argument) {
             if (isset($results[$argument->prefix])) {

@@ -3,9 +3,23 @@ namespace Redbox\Cli\Object;
 
 class Object {
 
-    protected $modelData = array();
-    protected $processed = array();
+    /**
+     * @var array
+     */
+    protected $modelData = [];
 
+    /**
+     * @var array
+     */
+    protected $processed = [];
+
+    /**
+     * Construct this magic object. Give it a array amd
+     * it will turn into an object. Its a hidrator.
+     *
+     * Object constructor.
+     * @param $array
+     */
     public function __construct($array)
     {
         $this->mapTypes($array);
@@ -32,8 +46,6 @@ class Object {
      */
     protected function mapTypes($array)
     {
-
-        // Hard initialise simple types, lazy load more complex ones.
         foreach ($array as $key => $val) {
             if (!property_exists($this, $this->keyType($key)) &&
                 property_exists($this, $key)) {
@@ -46,21 +58,44 @@ class Object {
         $this->modelData = $array;
     }
 
+    /**
+     * Return the keyType for a given key.
+     *
+     * @param $key
+     * @return string
+     */
     protected function keyType($key)
     {
         return $key."Type";
     }
 
+    /**
+     * Return the dataType for a key.
+     *
+     * @param $key
+     * @return string
+     */
     protected function dataType($key)
     {
         return $key."DataType";
     }
 
+    /**
+     * Check to see if a given key is set or not.
+     *
+     * @param $key
+     * @return bool
+     */
     public function __isset($key)
     {
         return isset($this->modelData[$key]);
     }
 
+    /**
+     * Unset a given key.
+     *
+     * @param $key
+     */
     public function __unset($key)
     {
         unset($this->modelData[$key]);

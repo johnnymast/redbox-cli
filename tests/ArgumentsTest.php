@@ -30,26 +30,23 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    /*
+
     public function testRequiredParameterHasCorrectValue()
     {
         $cli = new Cli();
         $cli->arguments->add([
             'q' => [
-                'description' => 'q',
+                'prefix'      => 'q',
+                'description' => 'Set php values',
                 'required' => true,
             ]
         ]);
-        global $argv;
-        $argv = array (
-            'q' => '1',
-        );
 
         $cli->arguments->parse();
         $this->assertEquals($cli->arguments->get('q'), 'brownfox');
 
     }
-    */
+
 
     /**
      * This test will ensure that a default value will be set even if it wasnt passwd to the

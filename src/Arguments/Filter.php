@@ -1,6 +1,12 @@
 <?php
 namespace Redbox\Cli\Arguments;
 
+/**
+ * Okey its hard to explain this one you dot not know array_filter.
+ * What it does (this class)
+ *
+ * @package Redbox\Cli\Arguments
+ */
 class Filter
 {
     /**
