@@ -3,7 +3,9 @@
 * Fixed a typo in examples/basic.php
 * Added a logo to README.md
 * Updated the markdown on the README.md file
-
+* Improved code comments
+* Finally we can debug getopt() parser.php
+* Improved code coverage
 
 
 ## 1.1.1 2015-19-12
