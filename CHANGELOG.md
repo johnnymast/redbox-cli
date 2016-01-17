@@ -6,6 +6,7 @@
 * Improved code comments
 * Finally we can debug getopt() parser.php
 * Improved code coverage
+* Removed composer.lock from repo
 
 
 ## 1.1.1 2015-19-12
