@@ -5,7 +5,7 @@ First of all thanks for you consideration. There is a couple steps to take.
 ### Setup
 
  * First things first you will need a fork of the code you can use the fork button on github to accomplish this.
- * Create a new branch with your awsome feature name
+ * Create a new branch with **your awsome feature name**
  * Make your changes.
  * Commit them
  * And dont forget to push them to your repo
