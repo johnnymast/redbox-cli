@@ -30,7 +30,10 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
     }
 
 
-
+    /**
+     * Test that a required argument has the correct values. This might look
+     * silly but it is required to be tested.
+     */
     public function testRequiredParameterHasCorrectValue()
     {
         $cli = new Cli();
@@ -44,9 +47,24 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
 
         $cli->arguments->parse();
         $this->assertEquals($cli->arguments->get('q'), 'brownfox');
-
     }
 
+    /**
+     * Test if a parameter is passed with a diffrent value then the default value that
+     * its diffrent from the default value for this parameter.
+     */
+    public function testArgumentIsNotDefaultValue() {
+        $cli = new Cli();
+        $cli->arguments->add([
+            'q' => [
+                'prefix'      => 'q',
+                'description' => 'Make the code go eek!',
+                'defaultValue' => 'eek',
+            ]
+        ]);
+        $cli->arguments->parse();
+        $this->assertFalse($cli->arguments->hasDefaultValue('q'));
+    }
 
     /**
      * This test will ensure that a default value will be set even if it wasnt passwd to the

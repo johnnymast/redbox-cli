@@ -160,9 +160,6 @@ class Manager
         $options['name'] = $argument;
         $arg = new Argument($options);
 
-        if (!($arg instanceof Argument)) {
-            throw new \Exception('Please provide an argument name or object.');
-        }
         $this->arguments[$argument] = $arg;
     }
 
