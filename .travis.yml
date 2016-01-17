@@ -15,7 +15,7 @@ env:
 before_script:
   - cat composer.json
   - composer self-update
-  - composer install
+  - composer update
 
 script:
   - if [ "$TRAVIS_PHP_VERSION" == 7 ]; then vendor/bin/phpunit -d -q=brownfox; fi
