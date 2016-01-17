@@ -12,10 +12,8 @@ env:
 #  - COMPOSER_OPTS=""
   - COMPOSER_OPTS="--prefer-lowest"
 
-before_install:
-  - /home/travis/.phpenv/versions/5.4/bin/composer self-update
-
 before_script:
+  - composer self-update
   - composer install
 
 script:
