@@ -64,22 +64,44 @@ class Parser
      */
     public function parse()
     {
-
         $requiredArguments = $this->filter->required();
         list($shortOptions, $longOptions) = $this->buildOptions();
 
         $results = getopt($shortOptions, $longOptions);
 
         foreach ($this->arguments as $argument) {
-            if (isset($results[$argument->prefix])) {
-                $this->manager->set($argument->name, $results[$argument->prefix]);
-            } elseif (isset($results[$argument->longPrefix])) {
-                $this->manager->set($argument->name, $results[$argument->longPrefix]);
+            $name  = $argument->name;
+            $value = '';
+
+            if (isset($results[$argument->prefix]) === true || isset($results[$argument->longPrefix]) === true) {
+                $value = (isset($results[$argument->prefix]) == true) ? $results[$argument->prefix] : $results[$argument->longPrefix];
             } else {
+
                 /**
                  * If we set the default value for this argument we also add it to
                  * the result array or it will fail the argument has the option required by mistake.
                  */
+                if ($argument->defaultValue) {
+                    $value = $argument->defaultValue;
+                    $this->manager->setHasDefaultValue($argument->name, true);
+                    $results[$argument->name] = $this->manager->get($argument->name);
+                }
+            }
+            $this->manager->set($name, $value);
+        }
+
+        /*
+        foreach ($this->arguments as $argument) {
+            if (isset($results[$argument->prefix]) ) {
+                $this->manager->set($argument->name, $results[$argument->prefix]);
+            } elseif (isset($results[$argument->longPrefix])) {
+                $this->manager->set($argument->name, $results[$argument->longPrefix]);
+            } else {
+
+                //
+                //  If we set the default value for this argument we also add it to
+                //  the result array or it will fail the argument has the option required by mistake.
+                //
                 if ($argument->defaultValue) {
                     $this->manager->set($argument->name, $argument->defaultValue);
                     $this->manager->setHasDefaultValue($argument->name, true);
@@ -87,7 +109,7 @@ class Parser
                 }
             }
         }
-
+        */
         foreach ($requiredArguments as $argument) {
             if (isset($results[$argument->prefix]) === false && isset($results[$argument->longPrefix]) === false) {
                 throw new \Exception(
@@ -117,7 +139,7 @@ class Parser
         }
 
         foreach ($long_prefixes as $argument) {
-            $rule = $argument->longPrefix;
+            $rule  = $argument->longPrefix;
             $rule .= ($argument->required == true) ? ':' : '::';
             $long[] = $rule;
         }
