@@ -11,6 +11,8 @@ use Redbox\Cli\Object\Object as ArgumentObject;
  */
 class Argument extends ArgumentObject
 {
+    const LINE_FMT = "\t%s\n\t\t%s\n";
+
     public $prefix;
     public $defaultValue;
     public $longPrefix;
@@ -53,6 +55,6 @@ class Argument extends ArgumentObject
     public function usageLine()
     {
         $arg = $this->usageInfo();
-        return sprintf("\t%s\n\t\t%s\n", $arg, $this->description);
+        return sprintf(self::LINE_FMT, $arg, $this->description);
     }
 }

@@ -15,12 +15,12 @@ class Object {
 
     /**
      * Construct this magic object. Give it a array amd
-     * it will turn into an object. Its a hidrator.
+     * it will turn into an object. Its a hydration.
      *
      * Object constructor.
      * @param $array
      */
-    public function __construct($array)
+    public function __construct($array = array())
     {
         $this->mapTypes($array);
     }
