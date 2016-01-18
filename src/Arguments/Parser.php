@@ -73,8 +73,8 @@ class Parser
             $name  = $argument->name;
             $value = '';
 
-            if (isset($results[$argument->prefix]) === true || isset($results[$argument->longPrefix]) === true) {
-                $value = (isset($results[$argument->prefix]) == true) ? $results[$argument->prefix] : $results[$argument->longPrefix];
+            if (isset($results[$argument->prefix]) || isset($results[$argument->longPrefix])) {
+                $value = (isset($results[$argument->prefix])) ? $results[$argument->prefix] : $results[$argument->longPrefix];
             } else {
 
                 /**
@@ -83,8 +83,8 @@ class Parser
                  */
                 if ($argument->defaultValue) {
                     $value = $argument->defaultValue;
-                    $this->manager->setHasDefaultValue($argument->name, true);
-                    $results[$argument->name] = $this->manager->get($argument->name);
+                    $this->manager->setHasDefaultValue($name, true);
+                    $results[$argument->name] = $value;
                 }
             }
             $this->manager->set($name, $value);

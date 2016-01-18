@@ -7,7 +7,7 @@
 * Finally we can debug getopt() parser.php
 * Improved code coverage
 * Removed composer.lock from repo
-
+* Decreased code complexity in Parse.php
 
 ## 1.1.1 2015-19-12
 
