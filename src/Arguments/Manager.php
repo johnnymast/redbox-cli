@@ -60,6 +60,7 @@ class Manager
         echo "Usage: ".$command." ";
         $args = array();
         foreach ($allArguments as $argument) {
+            /** @var Argument $argument */
             $args[] = '['.$argument->usageInfo().']';
         }
         $args = implode(' ', $args);
