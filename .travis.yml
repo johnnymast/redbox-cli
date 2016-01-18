@@ -23,4 +23,4 @@ script:
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - if [ "$TRAVIS_PHP_VERSION" != 7 ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover -d -q=brownfox; fi
+  - if [ "$TRAVIS_PHP_VERSION" != 7 ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
