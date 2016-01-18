@@ -1,7 +1,6 @@
 <?php
 namespace Redbox\Cli\Arguments;
 
-
 /**
  * This class will parse the given arguments.
  *
@@ -40,7 +39,8 @@ class Parser
      * @param Filter $filter
      * @param array $arguments
      */
-    public function setFilter(Filter $filter, array $arguments = []) {
+    public function setFilter(Filter $filter, array $arguments = [])
+    {
         $this->filter    = $filter;
         $this->arguments = $arguments;
         $this->filter->setArguments($arguments);
@@ -51,7 +51,8 @@ class Parser
      *
      * @return mixed
      */
-    public function getCommand() {
+    public function getCommand()
+    {
         global $argv;
         return $argv[0];
     }
@@ -68,7 +69,7 @@ class Parser
         list($shortOptions, $longOptions) = $this->buildOptions();
 
         $results = getopt($shortOptions, $longOptions);
-        
+
         foreach ($this->arguments as $argument) {
             if (isset($results[$argument->prefix])) {
                 $this->manager->set($argument->name, $results[$argument->prefix]);
@@ -112,20 +113,12 @@ class Parser
 
         foreach ($short_prefixes as $argument) {
             $short .= $argument->prefix;
-            if ($argument->required) {
-                $short .= ':';
-            } elseif ($argument->required == false) {
-                $short .= '::';
-            }
+            $short .= ($argument->required == true) ? ':' : '::';
         }
 
         foreach ($long_prefixes as $argument) {
             $rule = $argument->longPrefix;
-            if ($argument->required) {
-                $rule .= ':';
-            } elseif ($argument->required == false) {
-                $rule .= '::';
-            }
+            $rule .= ($argument->required == true) ? ':' : '::';
             $long[] = $rule;
         }
         return [$short, $long];
