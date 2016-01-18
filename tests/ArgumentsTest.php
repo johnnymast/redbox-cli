@@ -26,7 +26,7 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
                 'required' => true,
             ]
         ]);
-        $cli->arguments->parse(true);
+        $cli->arguments->parse();
     }
 
 

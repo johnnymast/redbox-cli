@@ -2,10 +2,13 @@
 namespace Redbox\Cli\Tests;
 use Redbox\Cli\Arguments;
 
+/**
+ * @@coversDefaultClass  \Redbox\Cli\Arguments\Argument
+ */
 class ArgumentObjectTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Dataprovider for our 2 test methods.
+     * dataProvider for our 2 test methods.
      *
      * @return array
      */
@@ -30,9 +33,11 @@ class ArgumentObjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that \Redbox\Cli\Arguments\Argument::usageInfo() returns the correct layout.
+     * Test that Arguments\Argument::usageInfo() returns the correct layout.
      *
      * @dataProvider usageLineProvider
+     * @param array $args
+     * @param string $usage
      */
     public function testUsageInfoIsCorrect($args = array(), $usage = '')
     {
@@ -42,11 +47,14 @@ class ArgumentObjectTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that \Redbox\Cli\Arguments\Argument::usageLine() returns the correct layout.
+     * Test that Arguments\Argument::usageLine() returns the correct layout.
      *
      * @dataProvider usageLineProvider
+     * @param array $args
+     * @param string $usage
      */
-    public function testUsageLineIsCorrect($args = array(), $usage = '') {
+    public function testUsageLineIsCorrect($args = array(), $usage = '')
+    {
         $argument = new Arguments\Argument($args);
         $expected = sprintf(Arguments\Argument::LINE_FMT, $usage, $args['description']);
         $actual   = $argument->usageLine();

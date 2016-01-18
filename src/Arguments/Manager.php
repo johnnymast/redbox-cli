@@ -2,7 +2,7 @@
 namespace Redbox\Cli\Arguments;
 
 /**
- * The manager clas is the main interface for interacting
+ * The manager class is the main interface for interacting
  * with the arguments part of Redbox-cli.
  *
  * @package Redbox\Cli\Arguments
@@ -49,7 +49,7 @@ class Manager
 
     /**
      * Prints out the usage message to the user.
-     * @eturn void
+     * @return void
      */
     public function usage() {
         $requiredArguments = $this->filter->required();

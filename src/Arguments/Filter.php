@@ -66,7 +66,7 @@ class Filter
     }
 
     /**
-     * Return all required arguments, these are aguments with required => true,
+     * Return all required arguments, these are arguments with required => true,
      *
      * @return Argument[] arguments with arguments set required to true
      */

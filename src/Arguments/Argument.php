@@ -27,7 +27,8 @@ class Argument extends ArgumentObject
      *
      * @return string
      */
-    public function usageInfo() {
+    public function usageInfo()
+    {
         $arg = array();
         if ($this->prefix) {
             $arg[] = '-'.$this->prefix.' '.$this->name;
