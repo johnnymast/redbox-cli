@@ -62,31 +62,34 @@ class Manager
         $num_required      = count($requiredArguments);
         $num_optional      = count($optionalArguments);
 
-        echo "Usage: ".$command." ";
+        echo 'Usage: '.$command.' ';
 
         foreach ($allArguments as $argument) {
             /** @var Argument $argument */
             $args[] = '['.$argument->usageInfo().']';
         }
+
         $args = implode(' ', $args);
-        echo $args."\n\n";
+        echo $args.PHP_EOL.PHP_EOL;
 
         if ($num_required) {
-            echo "Required Arguments:\n";
+            echo 'Required Arguments:'. PHP_EOL;
             foreach ($requiredArguments as $argument) {
                 echo $argument->usageLine();
             }
         }
+
         if ($num_required && $num_optional) {
-            echo "\n";
+            echo '\n';
         }
 
         if ($num_optional) {
-            echo "Optional Arguments:\n";
+            echo 'Optional Arguments:'.PHP_EOL;
             foreach ($optionalArguments as $argument) {
                 echo $argument->usageLine();
             }
         }
+
         echo "\n";
     }
 
