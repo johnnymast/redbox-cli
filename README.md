@@ -31,7 +31,7 @@ The following versions of PHP are supported by this version.
 
 ## Unit Testing
 
-With the new 1.2 release we increased the test ratio from 64% in previous releases to 95% now with the current version. Also with the new release i have found a way to unit test the core component of this package (getopt(). While doing this we can make sure your implementation
+With the new 1.2 release we increased the test ratio from 64% in previous versions to 95% right now with the current release. Also with the new release i have found a way to unit test the core component of this package (getopt(). While doing this we can make sure your implementation
 of Redbox-cli will run like a sunshine with any of your projects. If you want a litle of what our new tests cover that was not possible before checkout our [examples](examples) directory for great examples on how to use this great package.
 
   
