@@ -1,5 +1,6 @@
 <?php
 namespace Redbox\Cli\Tests;
+use Redbox\Cli\Arguments;
 use Redbox\Cli\Cli;
 
 /**
@@ -7,6 +8,25 @@ use Redbox\Cli\Cli;
  */
 class ArgumentsTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * dataProvider for the testUsageLineIsCorrect() test
+     *
+     * @return array
+     */
+    public function usageProvider()
+    {
+        global $argv;
+        $cmd = $argv[0];
+
+        return array(
+            /* Test short prefix */
+            [['user' => ['prefix'  => 'u', 'longPrefix'   => 'user', 'description'  => 'Username', 'defaultValue' => 'me_myself_i', 'required' => true]], "Usage: ".$cmd." [-u user, --user user, (default: me_myself_i)]\n\nRequired Arguments:\n\t-u user, --user user, (default: me_myself_i)\n\t\tUsername\n\n"],
+
+            /* Test required and optional arguments */
+            [['user' => ['prefix'  => 'u', 'longPrefix'   => 'user', 'description'  => 'Username', 'defaultValue' => 'me_myself_i', 'required' => true], 'iterations' => ['prefix' => 'i','longPrefix'  => 'iterations', 'description' => 'Number of iterations', 'castTo' => 'int']], "Usage: ".$cmd." [-u user, --user user, (default: me_myself_i)] [-i iterations, --iterations iterations]\n\nRequired Arguments:\n\t-u user, --user user, (default: me_myself_i)\n\t\tUsername\n\nOptional Arguments:\n\t-i iterations, --iterations iterations\n\t\tNumber of iterations\n\n"]
+        );
+    }
+
     /**
      * This test will fail because the test did not set the require -u or --user
      * argument.
@@ -87,5 +107,20 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
         $cli->arguments->parse();
         $this->assertEquals($cli->arguments->get('targetpath'), '/var/log');
         $this->assertTrue($cli->arguments->hasDefaultValue('targetpath'));
+    }
+
+    /**
+     * Test that Arguments\Argument::usageLine() returns the correct layout.
+     *
+     * @dataProvider usageProvider
+     */
+    public function testUsageLineIsCorrect($args = array(), $expected = '')
+    {
+        $this->expectOutputString($expected);
+
+        $cli = new Cli();
+        $cli->arguments->add($args);
+        $cli->arguments->parse();
+        $cli->arguments->usage();
     }
 }

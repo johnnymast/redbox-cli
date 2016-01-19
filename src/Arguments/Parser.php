@@ -90,26 +90,6 @@ class Parser
             $this->manager->set($name, $value);
         }
 
-        /*
-        foreach ($this->arguments as $argument) {
-            if (isset($results[$argument->prefix]) ) {
-                $this->manager->set($argument->name, $results[$argument->prefix]);
-            } elseif (isset($results[$argument->longPrefix])) {
-                $this->manager->set($argument->name, $results[$argument->longPrefix]);
-            } else {
-
-                //
-                //  If we set the default value for this argument we also add it to
-                //  the result array or it will fail the argument has the option required by mistake.
-                //
-                if ($argument->defaultValue) {
-                    $this->manager->set($argument->name, $argument->defaultValue);
-                    $this->manager->setHasDefaultValue($argument->name, true);
-                    $results[$argument->name] = $this->manager->get($argument->name);
-                }
-            }
-        }
-        */
         foreach ($requiredArguments as $argument) {
             if (isset($results[$argument->prefix]) === false && isset($results[$argument->longPrefix]) === false) {
                 throw new \Exception(
