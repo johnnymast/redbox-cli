@@ -30,7 +30,7 @@ try {
     $cli->arguments->parse();
 
     /**
-     * If we dont get an exception of us missing things we can handle stuff.
+     * If we don't get an exception of us missing things we can handle stuff.
      */
     echo "The default value for path is: ".$cli->arguments->get('targetpath')."\n";
 

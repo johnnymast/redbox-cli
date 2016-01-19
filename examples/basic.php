@@ -55,7 +55,7 @@ try {
     $cli->arguments->parse();
 
     /**
-     * If we dont get an exception of us missing things we can handle stuff.
+     * If we don't get an exception of us missing things we can handle stuff.
      */
     echo "You entered password: ".$cli->arguments->get('password')."\n";
     echo "You entered username: ".$cli->arguments->get('user')."\n";
