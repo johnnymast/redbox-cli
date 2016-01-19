@@ -77,11 +77,11 @@ class Manager
                 echo $argument->usageLine();
             }
         }
-        if ($num_required > 0 && $num_optional > 0) {
+        if ($num_required && $num_optional) {
             echo "\n";
         }
 
-        if ($num_optional > 0) {
+        if ($num_optional) {
             echo "Optional Arguments:\n";
             foreach ($optionalArguments as $argument) {
                 echo $argument->usageLine();
