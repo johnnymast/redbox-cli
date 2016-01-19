@@ -23,6 +23,8 @@
 * Fixed coding style in the Cli class
 * Fixed spelling in README.md
 * Updated the Unit testing section un README.md
+* Improved on the basic wording of the README.md file
+
 
 ## 1.1.1 2015-19-12
 
