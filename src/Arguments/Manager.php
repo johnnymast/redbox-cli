@@ -51,14 +51,16 @@ class Manager
      * Prints out the usage message to the user.
      * @return void
      */
-    public function usage() {
+    public function usage()
+    {
         $requiredArguments = $this->filter->required();
         $optionalArguments = $this->filter->optional();
         $allArguments      = array_merge($requiredArguments, $optionalArguments);
         $command           = $this->parser->getCommand();
+        $args              = array();
 
         echo "Usage: ".$command." ";
-        $args = array();
+
         foreach ($allArguments as $argument) {
             /** @var Argument $argument */
             $args[] = '['.$argument->usageInfo().']';
@@ -93,7 +95,8 @@ class Manager
      * @param $argument
      * @return boolean
      */
-    public function hasDefaultValue($argument) {
+    public function hasDefaultValue($argument)
+    {
         if (isset($this->defaultvalues[$argument]) === true) {
             return true;
         }
@@ -106,7 +109,8 @@ class Manager
      * @param string $argument
      * @param bool $default
      */
-    public function setHasDefaultValue($argument = "", $default = false) {
+    public function setHasDefaultValue($argument = "", $default = false)
+    {
         $this->defaultvalues[$argument] = $default;
     }
 
@@ -140,7 +144,8 @@ class Manager
      *
      * @return array
      */
-    public function all() {
+    public function all()
+    {
         return $this->arguments;
     }
 

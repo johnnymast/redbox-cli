@@ -8,6 +8,11 @@
 * Improved code coverage
 * Removed composer.lock from repo
 * Decreased code complexity in Parse.php
+* Added tests for Arguments\Argument
+* Improved code coverage
+* Improved code quality by loads
+* Added an extra space between the script name and the usage in Arguments\Manager::usage();
+* Added an extra newline afster the last line in Arguments\Manager::usage()
 
 ## 1.1.1 2015-19-12
 
