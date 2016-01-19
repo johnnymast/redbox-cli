@@ -18,5 +18,5 @@ First of all thanks for you consideration. There is a couple steps to take.
 ## Pull Request
 
 When you are all done and your code is valid its time to request a pull request. There is only one rule for this NEVER EVER request a request a pull request on the master
-branch since it always considered as stable. Please make sure you always request a pull request against a branch and if that branch does not exist please ask me politely in
+branch since it always considered as stable. Please make sure you always request a pull request against a branch. If that branch does not exist please ask me politely in
 an issue to create one.
