@@ -5,10 +5,10 @@ First of all thanks for you consideration. There is a couple steps to take.
 ### Setup
 
  * First things first you will need a fork of the code. You can use the fork button on Github to accomplish this
- * Create a new branch named like **username-your-awsome-feature-name**
+ * Create a new branch named like **username-your-awesome-new-feature**
  * Make your changes
  * Commit your changes
- * Don't forget to push them to your repository (remember your branch **username-your-awsome-feature-name**)
+ * Don't forget to push them to your repository (remember your branch **username-your-awesome-new-feature**)
 
 ### Testing
 
