@@ -68,7 +68,7 @@ class Manager
         $args = implode(' ', $args);
         echo $args."\n\n";
 
-        if (count($requiredArguments) > 0) {
+        if (count($requiredArguments)) {
             echo "Required Arguments:\n";
             foreach ($requiredArguments as $argument) {
                 echo $argument->usageLine();
