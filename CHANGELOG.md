@@ -9,20 +9,18 @@
 * Removed composer.lock from repo
 * Decreased code complexity in Parse.php
 * Added tests for Arguments\Argument
-* Improved code coverage
 * Improved code quality by loads
 * Added an extra space between the script name and the usage in Arguments\Manager::usage();
 * Added an extra newline after the last line in Arguments\Manager::usage()
-* Fixed a load of grammar errors in the example files
 * Updated examples comments
-* Fixed a load of grammar errors
+* Fixed a load of overall grammar errors
 * Did speed up the code like 40%
 * Fixed all open issues for milestone 1.2
 * Fixed coding style in the Filter class
 * Fixed coding style in the Object Hydrate class
 * Fixed coding style in the Cli class
 * Fixed spelling in README.md
-* Updated the Unit testing section un README.md
+* Updated the Unit testing section in README.md
 * Improved on the basic wording of the README.md file
 
 
