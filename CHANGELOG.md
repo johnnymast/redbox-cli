@@ -5,7 +5,7 @@
 * Updated the markdown on the README.md file
 * Improved code comments
 * Finally we can debug getopt() parser.php
-* Improved code coverage
+* Improved code coverage from 64% to 95%
 * Removed composer.lock from repo
 * Decreased code complexity in Parse.php
 * Added tests for Arguments\Argument
