@@ -39,7 +39,7 @@ of Redbox-cli will run like a sunshine with any of your projects. If you want a 
 ## Author
 
 This package is created and maintained by [Johnny Mast](https://github.com/johnnymast) but it was based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). For feature requests and suggestions
-you could consider sending me an e-mail.
+you could consider sending me an e-mail or fill out an [issue](issues).
 
 ## License
 
