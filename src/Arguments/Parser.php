@@ -74,9 +74,8 @@ class Parser
             $value = '';
 
             if (isset($results[$argument->prefix]) || isset($results[$argument->longPrefix])) {
-                $value = (isset($results[$argument->prefix])) ? $results[$argument->prefix] : $results[$argument->longPrefix];
+                $value = isset($results[$argument->prefix]) ? $results[$argument->prefix] : $results[$argument->longPrefix];
             } else {
-
                 /**
                  * If we set the default value for this argument we also add it to
                  * the result array or it will fail the argument has the option required by mistake.
@@ -89,9 +88,8 @@ class Parser
             }
             $this->manager->set($name, $value);
         }
-
         foreach ($requiredArguments as $argument) {
-            if (!isset($results[$argument->prefix])  && !isset($results[$argument->longPrefix])) {
+            if (isset($results[$argument->prefix]) === false  && isset($results[$argument->longPrefix]) === false) {
                 throw new \Exception(
                     'The following arguments are required: '
                     .print_r($argument->name, true).'.'
