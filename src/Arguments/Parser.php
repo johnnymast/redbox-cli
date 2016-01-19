@@ -85,10 +85,12 @@ class Parser
                     $this->manager->setHasDefaultValue($name, true);
                     $results[$argument->name] = $value;
                 } else {
-                    throw new \Exception(
-                        'The following arguments are required: '
-                        .print_r($argument->name, true).'.'
-                    );
+                    if ($argument->required === true) {
+                        throw new \Exception(
+                            'The following arguments are required: '
+                            . print_r($argument->name, true) . '.'
+                        );
+                    }
                 }
             }
             $this->manager->set($name, $value);
