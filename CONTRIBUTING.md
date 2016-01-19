@@ -4,15 +4,15 @@ First of all thanks for you consideration. There is a couple steps to take.
 
 ### Setup
 
- * First things first you will need a fork of the code. You can use the fork button on Github to accomplish this.
+ * First things first you will need a fork of the code. You can use the fork button on Github to accomplish this
  * Create a new branch named like **username-your-awsome-feature-name**
  * Make your changes
  * Commit your changes
- * Don't forget to push them to your repository (Remember your branch **username-your-awsome-feature-name**)
+ * Don't forget to push them to your repository (remember your branch **username-your-awsome-feature-name**)
 
 ### Testing
 
- * Now when it comes to code changes i would love you for you to add your personal testcases in the **tests** directory so i can **test** your addition (or changes)
+ * Now when it comes to code changes i would love you if you would add your personal testcases in the **tests** directory so i can **test** your addition (or changes)
 
 
 ## Pull Request
