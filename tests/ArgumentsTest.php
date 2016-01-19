@@ -49,7 +49,6 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
         $cli->arguments->parse();
     }
 
-
     /**
      * Test that a required argument has the correct values. This might look
      * silly but it is required to be tested.
@@ -70,10 +69,11 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test if a parameter is passed with a diffrent value then the default value that
-     * its diffrent from the default value for this parameter.
+     * Test if a parameter is passed with a different value then the default value that
+     * its different from the default value for this parameter.
      */
-    public function testArgumentIsNotDefaultValue() {
+    public function testArgumentIsNotDefaultValue()
+    {
         $cli = new Cli();
         $cli->arguments->add([
             'q' => [
@@ -87,10 +87,11 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * This test will ensure that a default value will be set even if it wasnt passwd to the
+     * This test will ensure that a default value will be set even if it was not passed to the
      * commandline and that Redbox\Cli\Arguments\Arguments\Manager::hasDefaultValue will inform us that the default value has been set.
      */
-    public function test_if_default_value_isset_when_no_argument_is_passed() {
+    public function test_if_default_value_isset_when_no_argument_is_passed()
+    {
         $cli = new Cli();
 
         /*

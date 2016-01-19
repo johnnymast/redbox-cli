@@ -21,7 +21,8 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
      * This test will ensure that \Redbox\Cli\Arguments\Manager::get returns false
      * if an argument is unknown (or not parsed).
      */
-    public function test_if_get_returns_false_on_unkown_argument() {
+    public function test_if_get_returns_false_on_unknown_argument()
+    {
         $manager = new Arguments\Manager();
         $this->assertFalse($manager->get('non_existing'));
     }

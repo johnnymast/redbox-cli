@@ -13,6 +13,7 @@
 * Improved code quality by loads
 * Added an extra space between the script name and the usage in Arguments\Manager::usage();
 * Added an extra newline afster the last line in Arguments\Manager::usage()
+* Fixed a load of grammer errors
 
 ## 1.1.1 2015-19-12
 

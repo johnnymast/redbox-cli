@@ -9,11 +9,6 @@ class Object {
     protected $modelData = [];
 
     /**
-     * @var array
-     */
-    protected $processed = [];
-
-    /**
      * Construct this magic object. Give it a array amd
      * it will turn into an object. Its a hydration.
      *
