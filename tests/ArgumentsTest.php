@@ -113,6 +113,8 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
      * Test that Arguments\Argument::usageLine() returns the correct layout.
      *
      * @dataProvider usageProvider
+     * @param array $args
+     * @param string $expected
      */
     public function testUsageLineIsCorrect($args = array(), $expected = '')
     {

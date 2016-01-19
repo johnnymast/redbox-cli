@@ -156,7 +156,7 @@ class Manager
     }
 
     /**
-     * Add arugments to the list, this could be one or an array of arguments.
+     * Add arguments to the list, this could be one or an array of arguments.
      *
      * @param $argument
      * @param array $options

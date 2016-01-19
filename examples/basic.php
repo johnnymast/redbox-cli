@@ -31,7 +31,6 @@ try {
             'prefix'      => 'i',
             'longPrefix'  => 'iterations',
             'description' => 'Number of iterations',
-            'castTo'      => 'int',
         ],
         'verbose' => [
             'prefix'      => 'v',
