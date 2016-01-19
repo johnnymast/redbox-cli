@@ -4,11 +4,11 @@ First of all thanks for you consideration. There is a couple steps to take.
 
 ### Setup
 
- * First things first you will need a fork of the code you can use the fork button on github to accomplish this.
- * Create a new branch with **your awsome feature name**
- * Make your changes.
- * Commit them
- * And dont forget to push them to your repo
+ * First things first you will need a fork of the code. You can use the fork button on Github to accomplish this.
+ * Create a new branch named like **<yourname>-your-awsome-feature-name**
+ * Make your changes
+ * Commit your changes
+ * And don't forget to push them to your repository (Remember your brach **<yourname>-your-awsome-feature-name**)
 
 ### Testing
 
