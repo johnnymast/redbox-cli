@@ -1,4 +1,4 @@
-## So you want to contribute
+## So you want to contribut2
 
 First of all thanks for you consideration. There is a couple steps to take.
 
