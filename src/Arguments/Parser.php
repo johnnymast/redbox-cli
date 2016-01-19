@@ -64,7 +64,7 @@ class Parser
      */
     public function parse()
     {
-        $requiredArguments = $this->filter->required();
+        //$requiredArguments = $this->filter->required();
         list($shortOptions, $longOptions) = $this->buildOptions();
 
         $results = getopt($shortOptions, $longOptions);
