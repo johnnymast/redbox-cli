@@ -11,7 +11,7 @@ This is a command line parser based on [Climate](https://github.com/thephpleague
 
 
 ## Howto use it
-Look in the examples folder for basic examples of how to use the package.
+Look in the examples folder for basic [examples](examples) of how to use the package.
 
 ## Installation
 
