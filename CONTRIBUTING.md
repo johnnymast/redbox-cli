@@ -12,7 +12,7 @@ First of all thanks for you consideration. There is a couple steps to take.
 
 ### Testing
 
- * Now when it comes to code changes it would love you for you to add your personal testcases in the **tests** directory so i can *tests* your addition (or changes)
+ * Now when it comes to code changes i would love you for you to add your personal testcases in the **tests** directory so i can *tests* your addition (or changes)
 
 
 ## Pull Request
