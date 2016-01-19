@@ -5,6 +5,7 @@ use Redbox\Cli\Cli as CLI;
 
 /**
  * Run this script like
+ *
  * $ php ./basic.php -p=abc --user=abcd
  */
 try {

@@ -22,6 +22,7 @@ class Object {
 
     /**
      * Convert a string to camelCase
+     *
      * @param  string $value
      * @return string
      */

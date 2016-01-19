@@ -5,7 +5,10 @@ use Redbox\Cli\Cli as CLI;
 
 /**
  * Run this script like
+ *
  * $ php ./hasdefaultvalue.php
+ * OR
+ * $ php ./hasdefaultvalue.php --targetpath=/var
  */
 try {
     $cli = new CLI;

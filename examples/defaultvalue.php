@@ -4,11 +4,9 @@ require 'autoload.php';
 use Redbox\Cli\Cli as CLI;
 
 /**
- * To see the different restults run this script like.
+ * To see the different restarts run this script like.
  *
- * $ php ./hasdefaultvalue.php
- * OR
- * $ php ./hasdefaultvalue.php --targetpath=/etc
+ * $ php ./defaultvalue.php
  */
 try {
     $cli = new CLI;

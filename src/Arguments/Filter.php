@@ -19,7 +19,8 @@ class Filter
     /**
      * @param array $arguments
      */
-    public function setArguments($arguments = []) {
+    public function setArguments($arguments = [])
+    {
         $this->arguments = $arguments;
     }
 
@@ -29,7 +30,8 @@ class Filter
      * @param $argument
      * @return mixed
      */
-    public function hasShortPrefix($argument) {
+    public function hasShortPrefix($argument)
+    {
         return ($argument->prefix);
     }
 
@@ -39,7 +41,8 @@ class Filter
      * @param $argument
      * @return mixed
      */
-    public function hasLongPrefix($argument) {
+    public function hasLongPrefix($argument)
+    {
         return ($argument->prefix);
     }
 

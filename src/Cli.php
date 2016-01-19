@@ -8,7 +8,7 @@ class Cli {
     /**
      * An instance of the Argument Manager class
      *
-     * @var \Redbox\Cli\Arguments\Manager $arguments
+     * @var \Redbox\Cli\Arguments\Manager
      */
     public $arguments;
 
@@ -18,6 +18,8 @@ class Cli {
     }
 
     /**
+     * Set the manager for handling arguments
+     *
      * @param \Redbox\Cli\Arguments\Manager $manager
      */
     public function setManager(ArgumentManager $manager)

@@ -9,23 +9,24 @@ namespace Redbox\Cli\Arguments;
 class Parser
 {
     /**
-     * @var \Redbox\Cli\Arguments\Filter $filter;
+     * @var \Redbox\Cli\Arguments\Filter
      */
     protected $filter;
 
     /**
-     * @var \Redbox\Cli\Arguments\Manager $manager;
+     * @var \Redbox\Cli\Arguments\Manager
      */
     protected $manager;
 
     /**
      * Parser constructor.
-     * @var array $arguments;
+     * @var array
      */
     protected $arguments;
 
     /**
      * Parser constructor.
+     *
      * @param Manager $manager
      */
     public function __construct(Manager $manager = NULL)
