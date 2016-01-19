@@ -64,9 +64,7 @@ class Parser
      */
     public function parse()
     {
-        //$requiredArguments = $this->filter->required();
         list($shortOptions, $longOptions) = $this->buildOptions();
-
         $results = getopt($shortOptions, $longOptions);
 
         foreach ($this->arguments as $argument) {
@@ -95,16 +93,6 @@ class Parser
             }
             $this->manager->set($name, $value);
         }
-        /*
-        foreach ($requiredArguments as $argument) {
-            if (isset($results[$argument->prefix]) === false  && isset($results[$argument->longPrefix]) === false) {
-                throw new \Exception(
-                    'The following arguments are required: '
-                    .print_r($argument->name, true).'.'
-                );
-            }
-        }
-        */
     }
 
     /**
