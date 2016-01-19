@@ -8,7 +8,7 @@ First of all thanks for you consideration. There is a couple steps to take.
  * Create a new branch named like **username-your-awsome-feature-name**
  * Make your changes
  * Commit your changes
- * And don't forget to push them to your repository (Remember your branch **username-your-awsome-feature-name**)
+ * Don't forget to push them to your repository (Remember your branch **username-your-awsome-feature-name**)
 
 ### Testing
 
