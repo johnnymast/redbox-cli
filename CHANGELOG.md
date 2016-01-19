@@ -21,7 +21,8 @@
 * Fixed coding style in the Filter class
 * Fixed coding style in the Object Hydrate class
 * Fixed coding style in the Cli class
-
+* Fixed spelling in README.md
+* Updated the Unit testing section un README.md
 
 ## 1.1.1 2015-19-12
 

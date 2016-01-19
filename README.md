@@ -11,7 +11,7 @@ This is a command line parser based on [Climate](https://github.com/thephpleague
 
 
 ## Howto use it
-Look in the examples folder for basic examples of how to use the code.
+Look in the examples folder for basic examples of how to use the package.
 
 ## Installation
 
@@ -31,8 +31,8 @@ The following versions of PHP are supported by this version.
 
 ## Unit Testing
 
-I was about to write a load of unit tests. There is a litle but on phpunit <= 5.0. Apearently in later versions you could debug commandline arguments but with the current version required in composer.json (Thats 4.6) we currently cannot debug commandline arugments.
-I am really sorry about this BUT you can run the tests from the [examples/](https://github.com/johnnymast/redbox-cli/tree/master/examples) directory to see if the package fits your needs.
+With the new 1.2 release we increased the test ratio from 64% in previous releases to 95% now with the current version. Also with the new release i have found a way to unit test the core component of this package (getopt(). While doing this we can make sure your implementation
+of Redbox-cli will run like a sunshine with any of your projects. If you want a litle of what our new tests cover that was not possible before checkout our [examples](examples) directory for great examples on how to use this great package.
 
   
   
