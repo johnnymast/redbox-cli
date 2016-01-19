@@ -59,6 +59,9 @@ class Manager
         $command           = $this->parser->getCommand();
         $args              = array();
 
+        $num_required      = count($requiredArguments);
+        $num_optional      = count($optionalArguments);
+
         echo "Usage: ".$command." ";
 
         foreach ($allArguments as $argument) {
@@ -68,17 +71,17 @@ class Manager
         $args = implode(' ', $args);
         echo $args."\n\n";
 
-        if (count($requiredArguments)) {
+        if ($num_required) {
             echo "Required Arguments:\n";
             foreach ($requiredArguments as $argument) {
                 echo $argument->usageLine();
             }
         }
-        if (count($requiredArguments) && count($optionalArguments)) {
+        if ($num_required > 0 && $num_optional > 0) {
             echo "\n";
         }
 
-        if (count($optionalArguments) > 0) {
+        if ($num_optional > 0) {
             echo "Optional Arguments:\n";
             foreach ($optionalArguments as $argument) {
                 echo $argument->usageLine();
