@@ -1,10 +1,9 @@
 <?php
 namespace Redbox\Cli;
 use Redbox\Cli\Arguments\Manager as ArgumentManager;
-use Redbox\Cli\Arguments;
 
-class Cli {
-
+class Cli
+{
     /**
      * An instance of the Argument Manager class
      *

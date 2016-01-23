@@ -60,7 +60,6 @@ try {
     echo "You entered password: ".$cli->arguments->get('password')."\n";
     echo "You entered username: ".$cli->arguments->get('user')."\n";
 
-
 } catch (Exception $e) {
     /**
      * Print how to use the script

@@ -36,7 +36,6 @@ try {
     echo "You entered path: ".$cli->arguments->get('targetpath')."\n";
     echo "Is this the default value?: ".($cli->arguments->hasDefaultValue('targetpath') ? 'Yes' : 'No')."\n";
 
-
 } catch (Exception $e) {
     /**
      * Print how to use the script
