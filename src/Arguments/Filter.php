@@ -17,6 +17,8 @@ class Filter
     protected $arguments = [];
 
     /**
+     * Set the arguments to filter.
+     *
      * @param array $arguments
      */
     public function setArguments($arguments = [])

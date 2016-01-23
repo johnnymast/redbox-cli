@@ -24,17 +24,20 @@ class Manager
     protected $values = [];
 
     /**
+     * An array that contains all the default values
+     * that are passed to the manager.
+     *
      * @var array
      */
     protected $defaultvalues = [];
 
     /**
-     * @var \Redbox\Cli\Arguments\Parser $parser;
+     * @var \Redbox\Cli\Arguments\Parser
      */
     protected $parser;
 
     /**
-     * @var \Redbox\Cli\Arguments\Filter $filter;
+     * @var \Redbox\Cli\Arguments\Filter
      */
     protected $filter;
 
