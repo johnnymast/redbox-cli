@@ -4,9 +4,11 @@ require 'autoload.php';
 use Redbox\Cli\Cli as CLI;
 
 /**
- * To see the different restarts run this script like.
+ * To see the different results run this script like.
  *
  * $ php ./defaultvalue.php
+ * OR
+ * php ./defaultvalue.php -t=X
  */
 try {
     $cli = new CLI;
@@ -33,8 +35,6 @@ try {
      * If we don't get an exception of us missing things we can handle stuff.
      */
     echo "The default value for path is: ".$cli->arguments->get('targetpath')."\n";
-
-
 
 } catch (Exception $e) {
     /**
