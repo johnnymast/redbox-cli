@@ -47,4 +47,3 @@ Redbox-cli is released under the MIT public license.
 
 [LICENSE](LICENSE.md)
  
-  
