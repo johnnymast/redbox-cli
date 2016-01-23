@@ -1,4 +1,4 @@
-## 1.2
+## 1.2 2015-23-12
 
 * Fixed a typo in examples/basic.php
 * Added a logo to README.md
