@@ -1,3 +1,10 @@
+## 1.2.1 2018-30-10
+
+* Fixed a bug where in php 7+ the word Object was reserved. Fixing #24
+* Bumped PHPUnit to version 7. Fixing #25 
+* Updated the README, informing about the php versions supported.
+* Updated the phpunit.xml file.
+
 ## 1.2 2015-23-12
 
 * Fixed a typo in examples/basic.php

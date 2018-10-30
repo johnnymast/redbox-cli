@@ -1,11 +1,12 @@
 <?php
 namespace Redbox\Cli\Tests;
 use Redbox\Cli\Arguments;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @@coversDefaultClass  \Redbox\Cli\Arguments\Manager
  */
-class ManagerTest extends \PHPUnit_Framework_TestCase
+class ManagerTest extends TestCase
 {
     /**
      * Test if a value being set is retrievable via \Redbox\Cli\Arguments\Manager::get

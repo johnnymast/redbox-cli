@@ -1,6 +1,6 @@
 <?php
 namespace Redbox\Cli\Arguments;
-use Redbox\Cli\Object\Object as ArgumentObject;
+use Redbox\Cli\Object\ArgumentObject;
 
 /**
  * The Argument class represents one single argument

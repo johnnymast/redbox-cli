@@ -1,12 +1,14 @@
 <?php
+
 namespace Redbox\Cli\Tests;
-use Redbox\Cli\Arguments;
+
+use PHPUnit\Framework\TestCase;
 use Redbox\Cli\Cli;
 
 /**
  * @@coversDefaultClass  \Redbox\Cli\Arguments\Arguments
  */
-class ArgumentsTest extends \PHPUnit_Framework_TestCase
+class ArgumentsTest extends TestCase
 {
     /**
      * dataProvider for the testUsageLineIsCorrect() test
@@ -18,13 +20,41 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
         global $argv;
         $cmd = $argv[0];
 
-        return array(
+        return [
             /* Test short prefix */
-            [['user' => ['prefix'  => 'u', 'longPrefix'   => 'user', 'description'  => 'Username', 'defaultValue' => 'me_myself_i', 'required' => true]], "Usage: ".$cmd." [-u user, --user user, (default: me_myself_i)]\n\nRequired Arguments:\n\t-u user, --user user, (default: me_myself_i)\n\t\tUsername\n\n"],
+            [
+                [
+                    'user' => [
+                        'prefix' => 'u',
+                        'longPrefix' => 'user',
+                        'description' => 'Username',
+                        'defaultValue' => 'me_myself_i',
+                        'required' => true,
+                    ],
+                ],
+                "Usage: ".$cmd." [-u user, --user user, (default: me_myself_i)]\n\nRequired Arguments:\n\t-u user, --user user, (default: me_myself_i)\n\t\tUsername\n\n",
+            ],
 
             /* Test required and optional arguments */
-            [['user' => ['prefix'  => 'u', 'longPrefix'   => 'user', 'description'  => 'Username', 'defaultValue' => 'me_myself_i', 'required' => true], 'iterations' => ['prefix' => 'i','longPrefix'  => 'iterations', 'description' => 'Number of iterations', 'castTo' => 'int']], "Usage: ".$cmd." [-u user, --user user, (default: me_myself_i)] [-i iterations, --iterations iterations]\n\nRequired Arguments:\n\t-u user, --user user, (default: me_myself_i)\n\t\tUsername\n\nOptional Arguments:\n\t-i iterations, --iterations iterations\n\t\tNumber of iterations\n\n"]
-        );
+            [
+                [
+                    'user' => [
+                        'prefix' => 'u',
+                        'longPrefix' => 'user',
+                        'description' => 'Username',
+                        'defaultValue' => 'me_myself_i',
+                        'required' => true,
+                    ],
+                    'iterations' => [
+                        'prefix' => 'i',
+                        'longPrefix' => 'iterations',
+                        'description' => 'Number of iterations',
+                        'castTo' => 'int',
+                    ],
+                ],
+                "Usage: ".$cmd." [-u user, --user user, (default: me_myself_i)] [-i iterations, --iterations iterations]\n\nRequired Arguments:\n\t-u user, --user user, (default: me_myself_i)\n\t\tUsername\n\nOptional Arguments:\n\t-i iterations, --iterations iterations\n\t\tNumber of iterations\n\n",
+            ],
+        ];
     }
 
     /**
@@ -44,7 +74,7 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
                 'longPrefix' => 'user',
                 'description' => 'Username',
                 'required' => true,
-            ]
+            ],
         ]);
         $cli->arguments->parse();
     }
@@ -58,10 +88,10 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
         $cli = new Cli();
         $cli->arguments->add([
             'q' => [
-                'prefix'      => 'q',
+                'prefix' => 'q',
                 'description' => 'Set php values',
                 'required' => true,
-            ]
+            ],
         ]);
 
         $cli->arguments->parse();
@@ -77,10 +107,10 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
         $cli = new Cli();
         $cli->arguments->add([
             'q' => [
-                'prefix'      => 'q',
+                'prefix' => 'q',
                 'description' => 'Make the code go eek!',
                 'defaultValue' => 'eek',
-            ]
+            ],
         ]);
         $cli->arguments->parse();
         $this->assertFalse($cli->arguments->hasDefaultValue('q'));
@@ -99,11 +129,11 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
          */
         $cli->arguments->add([
             'targetpath' => [
-                'prefix'       => 't',
-                'longPrefix'   => 'targetpath',
-                'description'  => 'Path',
+                'prefix' => 't',
+                'longPrefix' => 'targetpath',
+                'description' => 'Path',
                 'defaultValue' => '/var/log',
-            ]
+            ],
         ]);
         $cli->arguments->parse();
         $this->assertEquals($cli->arguments->get('targetpath'), '/var/log');
@@ -117,7 +147,7 @@ class ArgumentsTest extends \PHPUnit_Framework_TestCase
      * @param array $args
      * @param string $expected
      */
-    public function testUsageLineIsCorrect($args = array(), $expected = '')
+    public function testUsageLineIsCorrect($args = [], $expected = '')
     {
         $this->expectOutputString($expected);
 

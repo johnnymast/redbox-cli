@@ -1,11 +1,14 @@
 <?php
+
 namespace Redbox\Cli\Tests;
+
 use Redbox\Cli\Arguments;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @@coversDefaultClass  \Redbox\Cli\Arguments\Argument
  */
-class ArgumentObjectTest extends \PHPUnit_Framework_TestCase
+class ArgumentObjectTest extends TestCase
 {
     /**
      * dataProvider for our 2 test methods.
@@ -14,22 +17,44 @@ class ArgumentObjectTest extends \PHPUnit_Framework_TestCase
      */
     public function usageLineProvider()
     {
-        return array(
+        return [
             /* Test both long and short prefix + default value */
-            [array('prefix'  => 'u', 'longPrefix' => 'user', 'description' => 'Username', 'required'  => true, 'name' => 'user', 'defaultValue' => 'me_myself_i'), '-u user, --user user, (default: me_myself_i)'],
+            [
+                [
+                    'prefix' => 'u',
+                    'longPrefix' => 'user',
+                    'description' => 'Username',
+                    'required' => true,
+                    'name' => 'user',
+                    'defaultValue' => 'me_myself_i',
+                ],
+                '-u user, --user user, (default: me_myself_i)',
+            ],
 
             /* Test both long and short prefix */
-            [array('prefix'  => 'u', 'longPrefix' => 'user', 'description' => 'Username', 'required'  => true, 'name' => 'user'), '-u user, --user user'],
+            [
+                [
+                    'prefix' => 'u',
+                    'longPrefix' => 'user',
+                    'description' => 'Username',
+                    'required' => true,
+                    'name' => 'user',
+                ],
+                '-u user, --user user',
+            ],
 
             /* Test long prefix */
-            [array('longPrefix' => 'user', 'description' => 'Username', 'required'  => true, 'name' => 'user'), '--user user'],
+            [
+                ['longPrefix' => 'user', 'description' => 'Username', 'required' => true, 'name' => 'user'],
+                '--user user',
+            ],
 
             /* Test short prefix */
-            [array('prefix'  => 'u', 'description' => 'Username', 'required'  => true, 'name' => 'user'), '-u user'],
+            [['prefix' => 'u', 'description' => 'Username', 'required' => true, 'name' => 'user'], '-u user'],
 
             /* Test no prefix */
-            [array('description' => 'Username', 'required'  => true, 'name' => 'user'), 'user'],
-        );
+            [['description' => 'Username', 'required' => true, 'name' => 'user'], 'user'],
+        ];
     }
 
     /**
@@ -39,7 +64,7 @@ class ArgumentObjectTest extends \PHPUnit_Framework_TestCase
      * @param array $args
      * @param string $usage
      */
-    public function testUsageInfoIsCorrect($args = array(), $usage = '')
+    public function testUsageInfoIsCorrect($args = [], $usage = '')
     {
         $argument = new Arguments\Argument($args);
         $usageInfo = $argument->usageInfo();
@@ -53,11 +78,11 @@ class ArgumentObjectTest extends \PHPUnit_Framework_TestCase
      * @param array $args
      * @param string $usage
      */
-    public function testUsageLineIsCorrect($args = array(), $usage = '')
+    public function testUsageLineIsCorrect($args = [], $usage = '')
     {
         $argument = new Arguments\Argument($args);
         $expected = sprintf(Arguments\Argument::LINE_FMT, $usage, $args['description']);
-        $actual   = $argument->usageLine();
+        $actual = $argument->usageLine();
         $this->assertEquals($expected, $actual);
     }
 }

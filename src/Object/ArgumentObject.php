@@ -1,7 +1,7 @@
 <?php
 namespace Redbox\Cli\Object;
 
-class Object {
+class ArgumentObject {
 
     /**
      * @var array
