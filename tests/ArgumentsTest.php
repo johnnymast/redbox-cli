@@ -135,7 +135,6 @@ class ArgumentsTest extends \PHPUnit\Framework\TestCase
           ],
         ]);
         
-        
         $cli->arguments->parse();
         
         $actual = $cli->arguments->hasDefaultValue('q');
