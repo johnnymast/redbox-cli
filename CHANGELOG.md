@@ -1,3 +1,8 @@
+## 1.3  2021-14-03
+
+* Added has() to the manager to indicate if an argument has been passed trough cli. Fixing #26
+* Added getDefaultValue () to the manager to indicate if an argument has been passed trough cli. Fixing #18
+
 ## 1.2.1 2018-30-10
 
 * Fixed a bug where in php 7+ the word Object was reserved. Fixing #24

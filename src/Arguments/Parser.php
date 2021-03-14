@@ -1,6 +1,8 @@
 <?php
 namespace Redbox\Cli\Arguments;
 
+
+
 /**
  * This class will parse the given arguments.
  *
@@ -23,7 +25,7 @@ class Parser
      * @var array
      */
     protected $arguments;
-
+    
     /**
      * Parser constructor.
      *
@@ -46,7 +48,7 @@ class Parser
         $this->arguments = $arguments;
         $this->filter->setArguments($arguments);
     }
-
+    
     /**
      * Return the script name.
      *
@@ -57,7 +59,8 @@ class Parser
         global $argv;
         return $argv[0];
     }
-
+    
+    
     /**
      * This is it, we parse the given arguments.
      *
@@ -67,7 +70,7 @@ class Parser
     {
         list($shortOptions, $longOptions) = $this->buildOptions();
         $results = getopt($shortOptions, $longOptions);
-
+        
         foreach ($this->arguments as $argument) {
             $name  = $argument->name;
             $value = '';
@@ -116,8 +119,10 @@ class Parser
 
         foreach ($long_prefixes as $argument) {
             $rule  = $argument->longPrefix;
-            $rule .= ($argument->required == true) ? ':' : '::';
-            $long[] = $rule;
+            if (strlen($rule) > 0) {
+                $rule .= ($argument->required == true) ? ':' : '::';
+                $long[] = $rule;
+            }
         }
         return [$short, $long];
     }
