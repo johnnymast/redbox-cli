@@ -5,12 +5,7 @@ php:
   - 7.0
   - 8.0.3
 
-env:
-  - COMPOSER_OPTS=""
-  - COMPOSER_OPTS="--prefer-lowest"
-
 before_script:
-
   - composer self-update
   - composer update
 
