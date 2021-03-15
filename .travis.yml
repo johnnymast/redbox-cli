@@ -2,8 +2,8 @@ language: php
 sudo: false
 
 php:
-  - 7.1
-  - 7.2
+  - 7.0
+  - 8.0.3
 
 env:
   - COMPOSER_OPTS=""
@@ -15,9 +15,8 @@ before_script:
   - composer update
 
 script:
-  - if [ "$TRAVIS_PHP_VERSION" == 7 ]; then vendor/bin/phpunit; fi
-  - if [ "$TRAVIS_PHP_VERSION" != 7 ]; then vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover; fi
+  vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - if [ "$TRAVIS_PHP_VERSION" != 7 ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover

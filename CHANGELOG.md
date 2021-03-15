@@ -1,3 +1,7 @@
+## 1.4 
+
+* moved the ci from www.travis-ci.org to www.travis-ci.com
+
 ## 1.3  2021-14-03
 
 * Added has() to the manager to indicate if an argument has been passed trough cli. Fixing #26
