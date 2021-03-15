@@ -16,7 +16,7 @@ class ManagerTest extends TestCase
      */
     private $manager;
     
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->manager = new Arguments\Manager();
     }

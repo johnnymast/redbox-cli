@@ -13,7 +13,7 @@ use Redbox\Cli\Cli;
 /**
  * @@coversDefaultClass  \Redbox\Cli\Arguments\Arguments
  */
-class ArgumentsTest extends \PHPUnit\Framework\TestCase
+class ArgumentsTest extends TestCase
 {
     
     /**
@@ -21,7 +21,7 @@ class ArgumentsTest extends \PHPUnit\Framework\TestCase
      * return value of the fake getopt.
      *
      */
-    public function setUp()
+    protected function setUp(): void
     {
         resetGetOptMock();
     }
@@ -77,12 +77,13 @@ class ArgumentsTest extends \PHPUnit\Framework\TestCase
      * This test will fail because the test did not set the require -u or --user
      * argument.
      *
-     * @expectedException        \Exception
-     * @expectedExceptionMessage The following arguments are required: user.
      * @coversDefaultClass       \Redbox\Cli\Parser
      */
     public function testRequiredArgumentIsNotFound()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage("The following arguments are required: user.");
+        
         $cli = new Cli();
         $cli->arguments->add([
           'user' => [
