@@ -1,5 +1,19 @@
 <?php
+/**
+ * Argument.php
+ *
+ * PHP version 7.3 and up.
+ *
+ * @category Core
+ * @package  Redbox_Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/johnnymast/mysql_websocket_chat
+ * @since    1.5
+ */
+
 namespace Redbox\Cli\Arguments;
+
 use Redbox\Cli\Object\ArgumentObject;
 
 /**
@@ -7,7 +21,12 @@ use Redbox\Cli\Object\ArgumentObject;
  * set to the Manager. To make sure its universal we use
  * the ArgumentObject as an abstract to this class.
  *
- * @package Redbox\Cli\Arguments
+ * @category Core
+ * @package  Redbox_Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/johnnymast/redbox-cli
+ * @since    1.0
  */
 class Argument extends ArgumentObject
 {
@@ -18,7 +37,6 @@ class Argument extends ArgumentObject
     public $longPrefix;
     public $description;
     public $required;
-    public $noValue;
     public $name;
 
     /**
@@ -27,17 +45,17 @@ class Argument extends ArgumentObject
      *
      * @return string
      */
-    public function usageInfo()
+    public function usageInfo(): string
     {
         $arg = array();
         if ($this->prefix) {
-            $arg[] = '-'.$this->prefix.' '.$this->name;
+            $arg[] = '-' . $this->prefix . ' ' . $this->name;
         }
         if ($this->longPrefix) {
-            $arg[] = '--'.$this->longPrefix.' '.$this->name;
+            $arg[] = '--' . $this->longPrefix . ' ' . $this->name;
         }
         if ($this->defaultValue) {
-            $arg[] = '(default: '.$this->defaultValue.')';
+            $arg[] = '(default: ' . $this->defaultValue . ')';
         }
         if (!$this->prefix && !$this->longPrefix) {
             $arg[] = $this->name;
@@ -53,7 +71,7 @@ class Argument extends ArgumentObject
      *
      * @return string
      */
-    public function usageLine()
+    public function usageLine(): string
     {
         $arg = $this->usageInfo();
         return sprintf(self::LINE_FMT, $arg, $this->description);

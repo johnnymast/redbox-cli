@@ -1,5 +1,10 @@
-## 1.4 
+## 1.4
 
+* Added unit tests.
+* Minimum php version is how 7.3
+* Added the has() function for arguments.
+* Added code coverage
+* Made the code more modern
 * moved the ci from www.travis-ci.org to www.travis-ci.com
 
 ## 1.3  2021-14-03
@@ -10,7 +15,7 @@
 ## 1.2.1 2018-30-10
 
 * Fixed a bug where in php 7+ the word Object was reserved. Fixing #24
-* Bumped PHPUnit to version 7. Fixing #25 
+* Bumped PHPUnit to version 7. Fixing #25
 * Updated the README, informing about the php versions supported.
 * Updated the phpunit.xml file.
 
@@ -39,11 +44,10 @@
 * Updated the Unit testing section in README.md
 * Improved on the basic wording of the README.md file
 
-
 ## 1.1.1 2015-19-12
 
 * Updated the CHANGELOG.md to also contain the missing 1.0 changelog entry. fixed #3
-* Added a new line to Redbox\Cli\Arguments::usage() so it would look better. fixed #2 
+* Added a new line to Redbox\Cli\Arguments::usage() so it would look better. fixed #2
 * Added Redbox\Cli\Manager::hasDefaultValue() so you know if the default value was set #fixed #5
 * Removed the comment about default arguments and if its a good thing in Redbox\Cli\Arguments\Parser::parse()
 * Changed the comments in examples/defaultvalue.php and examples/default.php to mimic the testcase better.
@@ -55,13 +59,13 @@
 * Commented on all functions specially in Manager.php.
 * Fixed all the open issues for the 1.1.1 milestone.
 
-## 1.1 - 2015-13-12 
+## 1.1 - 2015-13-12
 
 This is it the first non zero release of redbox-cli is here.
 
 ## 1.0 - 2015-12-12
 
-This is version 1.0. I'm committing all over the place because i didn't add any tests yet. This is soon to change.
-As with any software its better to wait for the 1.1 release.
+This is version 1.0. I'm committing all over the place because i didn't add any tests yet. This is soon to change. As
+with any software its better to wait for the 1.1 release.
 
   
