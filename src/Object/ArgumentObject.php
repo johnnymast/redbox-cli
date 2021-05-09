@@ -1,7 +1,9 @@
 <?php
+
 namespace Redbox\Cli\Object;
 
-class ArgumentObject {
+class ArgumentObject
+{
 
     /**
      * @var array
@@ -13,6 +15,7 @@ class ArgumentObject {
      * it will turn into an object. Its a hydration.
      *
      * Object constructor.
+     *
      * @param $array
      */
     public function __construct($array = array())
@@ -23,7 +26,8 @@ class ArgumentObject {
     /**
      * Convert a string to camelCase
      *
-     * @param  string $value
+     * @param string $value
+     *
      * @return string
      */
     public static function camelCase($value)
@@ -38,6 +42,7 @@ class ArgumentObject {
      * Initialize this object's properties from an array.
      *
      * @param array $array Used to seed this object's properties.
+     *
      * @return void
      */
     protected function mapTypes($array)
@@ -57,29 +62,20 @@ class ArgumentObject {
     /**
      * Return the keyType for a given key.
      *
-     * @param $key
+     * @param string $key Return the type of the value.
+     *
      * @return string
      */
     protected function keyType($key)
     {
-        return $key."Type";
-    }
-
-    /**
-     * Return the dataType for a key.
-     *
-     * @param $key
-     * @return string
-     */
-    protected function dataType($key)
-    {
-        return $key."DataType";
+        return $key . "Type";
     }
 
     /**
      * Check to see if a given key is set or not.
      *
-     * @param $key
+     * @param string $key The key to check.
+     *
      * @return bool
      */
     public function __isset($key)
@@ -90,7 +86,7 @@ class ArgumentObject {
     /**
      * Unset a given key.
      *
-     * @param $key
+     * @param string $key The key value to unset.
      */
     public function __unset($key)
     {

@@ -61,8 +61,9 @@ class ArgumentObjectTest extends TestCase
      * Test that Arguments\Argument::usageInfo() returns the correct layout.
      *
      * @dataProvider usageLineProvider
-     * @param array $args
-     * @param string $usage
+     *
+     * @param array  $args  The arguments to test.
+     * @param string $usage The argument to test with.
      */
     public function testUsageInfoIsCorrect($args = [], $usage = '')
     {
@@ -75,8 +76,9 @@ class ArgumentObjectTest extends TestCase
      * Test that Arguments\Argument::usageLine() returns the correct layout.
      *
      * @dataProvider usageLineProvider
-     * @param array $args
-     * @param string $usage
+     *
+     * @param array  $args  The arguments to test.
+     * @param string $usage The argument to test with.
      */
     public function testUsageLineIsCorrect($args = [], $usage = '')
     {
@@ -84,5 +86,40 @@ class ArgumentObjectTest extends TestCase
         $expected = sprintf(Arguments\Argument::LINE_FMT, $usage, $args['description']);
         $actual = $argument->usageLine();
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Test the __isset magic function.
+     *
+     * @dataProvider usageLineProvider
+     *
+     * @param array  $args  The arguments to test.
+     * @param string $usage The argument to test with.
+     */
+    public function testIssetWorksCorrectly($args = [], $usage = '')
+    {
+        $argument = new Arguments\Argument($args);
+        $expected = true;
+        $actual = isset($argument->name);
+
+        $this->assertTrue($expected, $actual);
+    }
+
+    /**
+     * Test the __unset magic function.
+     *
+     * @dataProvider usageLineProvider
+     *
+     * @param array $args The arguments to test.
+     */
+    public function testUnsetWorksCorrectly($args = [])
+    {
+        $argument = new Arguments\Argument($args);
+        unset($argument->name);
+
+        $expected = false;
+        $actual = isset($argument->name);
+
+        $this->assertFalse($expected, $actual);
     }
 }
