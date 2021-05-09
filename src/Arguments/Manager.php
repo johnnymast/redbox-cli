@@ -238,8 +238,8 @@ class Manager
     /**
      * Add arguments to the list, this could be one or an array of arguments.
      *
-     * @param       $argument The argument name.
-     * @param array $options  The argument options.
+     * @param string $argument The argument name.
+     * @param array  $options  The argument options.
      *
      * @return void
      * @throws \Exception
