@@ -5,6 +5,9 @@ php:
   - 7.3
   - 8.0.2
 
+env:
+  - XDEBUG_MODE=coverage
+
 before_script:
   - composer self-update
   - composer update
@@ -14,4 +17,4 @@ script:
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover;
