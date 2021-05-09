@@ -1,6 +1,6 @@
 ## 1.4 2021-09-05
 
-* Added github workflows.
+* Added github workflows. 
 * Added support for phpcs
 * Added unit tests.
 * Minimum php version is how 7.3
