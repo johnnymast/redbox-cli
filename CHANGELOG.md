@@ -1,5 +1,7 @@
 ## 1.4
 
+* Added github workflows.
+* Added support for phpcs
 * Added unit tests.
 * Minimum php version is how 7.3
 * Added the has() function for arguments.
