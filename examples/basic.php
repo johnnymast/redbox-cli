@@ -33,38 +33,38 @@ try {
      */
     $cli->arguments->add(
         [
-        'user' => [
-            'prefix'       => 'u',
-            'longPrefix'   => 'user',
-            'description'  => 'Username',
-            'defaultValue' => 'me_myself_i',
-            'required'     => true,
-        ],
-        'password' => [
-            'prefix'      => 'p',
-            'longPrefix'  => 'password',
-            'description' => 'Password',
-            'required'    => true,
-        ],
-        'iterations' => [
-            'prefix'      => 'i',
-            'longPrefix'  => 'iterations',
-            'description' => 'Number of iterations',
-        ],
-        'verbose' => [
-            'prefix'      => 'v',
-            'longPrefix'  => 'verbose',
-            'description' => 'Verbose output',
-            'noValue'     => true,
-        ],
-        'help' => [
-            'longPrefix'  => 'help',
-            'description' => 'Prints a usage statement',
-            'noValue'     => true,
-        ],
-        'path' => [/* NOT YET SUPPORTED */
-            'description' => 'The path to push',
-        ],
+            'user' => [
+                'prefix' => 'u',
+                'longPrefix' => 'user',
+                'description' => 'Username',
+                'defaultValue' => 'me_myself_i',
+                'required' => true,
+            ],
+            'password' => [
+                'prefix' => 'p',
+                'longPrefix' => 'password',
+                'description' => 'Password',
+                'required' => true,
+            ],
+            'iterations' => [
+                'prefix' => 'i',
+                'longPrefix' => 'iterations',
+                'description' => 'Number of iterations',
+            ],
+            'verbose' => [
+                'prefix' => 'v',
+                'longPrefix' => 'verbose',
+                'description' => 'Verbose output',
+                'noValue' => true,
+            ],
+            'help' => [
+                'longPrefix' => 'help',
+                'description' => 'Prints a usage statement',
+                'noValue' => true,
+            ],
+            'path' => [/* NOT YET SUPPORTED */
+                       'description' => 'The path to push',
+            ],
         ]
     );
 
@@ -75,9 +75,11 @@ try {
 
     /**
      * If we don't get an exception of us missing things we can handle stuff.
+     *
+     * @scrutinizer ignore-type
      */
-    echo "You entered password: ".$cli->arguments->get('password')."\n";
-    echo "You entered username: ".$cli->arguments->get('user')."\n";
+    echo "You entered password: " . $cli->arguments->get('password') . "\n";
+    echo "You entered username: " . $cli->arguments->get('user') . "\n";
 
 } catch (Exception $e) {
     /**
