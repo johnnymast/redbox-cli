@@ -23,7 +23,7 @@ $ composer require redbox-cli
 
 The following versions of PHP are supported by this version.
 
-+ PHP >= 5.4
++ PHP >= 7.3
 
 ## Unit Testing
 
