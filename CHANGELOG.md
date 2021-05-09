@@ -1,4 +1,4 @@
-## 1.4
+## 1.4 2021-09-05
 
 * Added github workflows.
 * Added support for phpcs
