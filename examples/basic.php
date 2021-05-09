@@ -1,4 +1,21 @@
 <?php
+/**
+ * Basic.php
+ *
+ * Run this script like
+ *
+ * $ php ./basic.php -p=abc --user=abcd
+ *
+ * PHP version 7.3 and up.
+ *
+ * @category Core
+ * @package  Redbox_Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/johnnymast/redbox-cli
+ * @since    1.0
+ */
+
 require 'autoload.php';
 
 use Redbox\Cli\Cli as CLI;
@@ -14,7 +31,8 @@ try {
     /**
      * Setup the rules of engagement
      */
-    $cli->arguments->add([
+    $cli->arguments->add(
+        [
         'user' => [
             'prefix'       => 'u',
             'longPrefix'   => 'user',
@@ -47,7 +65,8 @@ try {
         'path' => [/* NOT YET SUPPORTED */
             'description' => 'The path to push',
         ],
-    ]);
+        ]
+    );
 
     /**
      * We need to tell the parser to start.

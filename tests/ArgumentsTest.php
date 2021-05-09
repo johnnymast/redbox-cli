@@ -1,5 +1,16 @@
 <?php
-
+/**
+ * ArgumentsTest.php
+ *
+ * PHP version 7.3 and up.
+ *
+ * @category Tests
+ * @package  Redbox_Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/johnnymast/redbox-cli
+ * @since    1.0
+ */
 
 namespace Redbox\Cli\Tests;
 
@@ -9,9 +20,17 @@ use function \Redbox\Cli\Arguments\mockGetOptToReturn;
 use function \Redbox\Cli\Arguments\resetGetOptMock;
 use Redbox\Cli\Cli;
 
-
 /**
- * @@coversDefaultClass  \Redbox\Cli\Arguments\Arguments
+ * This class will test the arguments class.
+ *
+ * @coversDefaultClass \Redbox\Cli\Arguments\Arguments
+ *
+ * @category Tests
+ * @package  Redbox_Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/johnnymast/redbox-cli
+ * @since    1.0
  */
 class ArgumentsTest extends TestCase
 {
@@ -20,6 +39,7 @@ class ArgumentsTest extends TestCase
      * Before every test we remove the
      * return value of the fake getopt.
      *
+     * @return void
      */
     protected function setUp(): void
     {
@@ -27,11 +47,11 @@ class ArgumentsTest extends TestCase
     }
 
     /**
-     * dataProvider for the testUsageLineIsCorrect() test
+     * DataProvider for the testUsageLineIsCorrect() test
      *
      * @return array
      */
-    public function usageProvider()
+    public function usageProvider(): array
     {
         global $argv;
         $cmd = $argv[0];
@@ -77,39 +97,47 @@ class ArgumentsTest extends TestCase
      * This test will fail because the test did not set the require -u or --user
      * argument.
      *
-     * @coversDefaultClass       \Redbox\Cli\Parser
+     * @coversDefaultClass \Redbox\Cli\Parser
+     * @return             void
      */
-    public function testRequiredArgumentIsNotFound()
+    public function testRequiredArgumentIsNotFound(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage("The following arguments are required: user.");
 
         $cli = new Cli();
-        $cli->arguments->add([
-            'user' => [
-                'prefix' => 'u',
-                'longPrefix' => 'user',
-                'description' => 'Username',
-                'required' => true,
-            ],
-        ]);
+        $cli->arguments->add(
+            [
+                'user' => [
+                    'prefix' => 'u',
+                    'longPrefix' => 'user',
+                    'description' => 'Username',
+                    'required' => true,
+                ],
+            ]
+        );
         $cli->arguments->parse();
     }
 
     /**
      * Test that a required argument has the correct values. This might look
      * silly but it is required to be tested.
+     *
+     * @return void
+     * @throws \Exception
      */
-    public function test_required_parameter_has_correct_value()
+    public function testRequiredParameterHasCorrectValue(): void
     {
         $cli = new Cli();
-        $cli->arguments->add([
-            'q' => [
-                'prefix' => 'q',
-                'description' => 'Set php values',
-                'required' => true,
-            ],
-        ]);
+        $cli->arguments->add(
+            [
+                'q' => [
+                    'prefix' => 'q',
+                    'description' => 'Set php values',
+                    'required' => true,
+                ],
+            ]
+        );
 
         mockGetOptToReturn(['q' => 'brownfox']);
 
@@ -124,17 +152,22 @@ class ArgumentsTest extends TestCase
     /**
      * Test that the parser detects if the value of an argument
      * is the default parameter.
+     *
+     * @return void
+     * @throws \Exception
      */
-    public function testArgumentIsDefaultValue()
+    public function testArgumentIsDefaultValue(): void
     {
         $cli = new Cli();
-        $cli->arguments->add([
-            'q' => [
-                'prefix' => 'q',
-                'description' => 'Make the code go eek!',
-                'defaultValue' => 'eek',
-            ],
-        ]);
+        $cli->arguments->add(
+            [
+                'q' => [
+                    'prefix' => 'q',
+                    'description' => 'Make the code go eek!',
+                    'defaultValue' => 'eek',
+                ],
+            ]
+        );
 
         $cli->arguments->parse();
 
@@ -147,19 +180,24 @@ class ArgumentsTest extends TestCase
     /**
      * Test if a parameter is passed with a different value then the default value that
      * its different from the default value for this parameter.
+     *
+     * @return void
+     * @throws \Exception
      */
-    public function testArgumentIsNotDefaultValue()
+    public function testArgumentIsNotDefaultValue(): void
     {
         mockGetOptToReturn(['q' => 'other then default value']);
 
         $cli = new Cli();
-        $cli->arguments->add([
-            'q' => [
-                'prefix' => 'q',
-                'description' => 'Make the code go eek!',
-                'defaultValue' => 'eek',
-            ],
-        ]);
+        $cli->arguments->add(
+            [
+                'q' => [
+                    'prefix' => 'q',
+                    'description' => 'Make the code go eek!',
+                    'defaultValue' => 'eek',
+                ],
+            ]
+        );
 
 
         $cli->arguments->parse();
@@ -173,22 +211,27 @@ class ArgumentsTest extends TestCase
      * This test will ensure that a default value will be set even if it was not passed to the
      * commandline and that Redbox\Cli\Arguments\Arguments\Manager::hasDefaultValue will inform us that the default
      * value has been set.
+     *
+     * @return void
+     * @throws \Exception
      */
-    public function test_if_default_value_isset_when_no_argument_is_passed()
+    public function testIfDefaultValueIssetWhenNoArgumentIsPassed(): void
     {
         $cli = new Cli();
 
         /*
          * Setup the rules of engagement
          */
-        $cli->arguments->add([
-            'targetpath' => [
-                'prefix' => 't',
-                'longPrefix' => 'targetpath',
-                'description' => 'Path',
-                'defaultValue' => '/var/log',
-            ],
-        ]);
+        $cli->arguments->add(
+            [
+                'targetpath' => [
+                    'prefix' => 't',
+                    'longPrefix' => 'targetpath',
+                    'description' => 'Path',
+                    'defaultValue' => '/var/log',
+                ],
+            ]
+        );
         $cli->arguments->parse();
         $this->assertEquals($cli->arguments->get('targetpath'), '/var/log');
         $this->assertTrue($cli->arguments->hasDefaultValue('targetpath'));
@@ -198,22 +241,25 @@ class ArgumentsTest extends TestCase
      * Test if Arguments\Argument::getDefaultValue() returns false if the option
      * has no default value.
      *
+     * @return void
      * @throws \Exception
      */
-    public function test_getdefaultvalue_returns_false_if_non_defined()
+    public function testGetdefaultvalueReturnsFalseIfNonDefined(): void
     {
         $cli = new Cli();
 
         /*
          * Setup the rules of engagement
          */
-        $cli->arguments->add([
-            'targetpath' => [
-                'prefix' => 't',
-                'longPrefix' => 'targetpath',
-                'description' => 'Path',
-            ],
-        ]);
+        $cli->arguments->add(
+            [
+                'targetpath' => [
+                    'prefix' => 't',
+                    'longPrefix' => 'targetpath',
+                    'description' => 'Path',
+                ],
+            ]
+        );
         $cli->arguments->parse();
 
         $actual = $cli->arguments->getDefaultValue('targetpath');
@@ -224,23 +270,26 @@ class ArgumentsTest extends TestCase
      * Test if Arguments\Argument::getDefaultValue() returns the define value if
      * argument was not passed trough the commandline.
      *
+     * @return void
      * @throws \Exception
      */
-    public function test_getdefaultvalue_returns_defined_value()
+    public function testGetdefaultvalueReturnsDefinedValue(): void
     {
         $cli = new Cli();
 
         /*
          * Setup the rules of engagement
          */
-        $cli->arguments->add([
-            'targetpath' => [
-                'prefix' => 't',
-                'longPrefix' => 'targetpath',
-                'description' => 'Path',
-                'defaultValue' => '/var/log'
-            ],
-        ]);
+        $cli->arguments->add(
+            [
+                'targetpath' => [
+                    'prefix' => 't',
+                    'longPrefix' => 'targetpath',
+                    'description' => 'Path',
+                    'defaultValue' => '/var/log'
+                ],
+            ]
+        );
         $cli->arguments->parse();
 
         $actual = $cli->arguments->getDefaultValue('targetpath');
@@ -252,14 +301,15 @@ class ArgumentsTest extends TestCase
     /**
      * Test that Arguments\Argument::usageLine() returns the correct layout.
      *
+     * @param array  $args     The arguments to test.
+     * @param string $expected The expected output of the cli usage function.
+     *
      * @dataProvider usageProvider
      *
-     * @param array  $args
-     * @param string $expected
-     *
+     * @return void
      * @throws \Exception
      */
-    public function testUsageLineIsCorrect($args = [], $expected = '')
+    public function testUsageLineIsCorrect($args = [], $expected = ''): void
     {
         $this->expectOutputString($expected);
 

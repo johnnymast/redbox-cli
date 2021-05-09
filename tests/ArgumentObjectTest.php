@@ -1,4 +1,16 @@
 <?php
+/**
+ * ArgumentObjectTest.php
+ *
+ * PHP version 7.3 and up.
+ *
+ * @category Tests
+ * @package  Redbox_Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/johnnymast/redbox-cli
+ * @since    1.0
+ */
 
 namespace Redbox\Cli\Tests;
 
@@ -6,16 +18,25 @@ use Redbox\Cli\Arguments;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @@coversDefaultClass  \Redbox\Cli\Arguments\Argument
+ * This class will test the argument class.
+ *
+ * @coversDefaultClass \Redbox\Cli\Arguments\Argument
+ *
+ * @category Tests
+ * @package  Redbox_Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://github.com/johnnymast/redbox-cli
+ * @since    1.0
  */
 class ArgumentObjectTest extends TestCase
 {
     /**
-     * dataProvider for our 2 test methods.
+     * DataProvider for our 2 test methods.
      *
      * @return array
      */
-    public function usageLineProvider()
+    public function usageLineProvider(): array
     {
         return [
             /* Test both long and short prefix + default value */
@@ -60,12 +81,14 @@ class ArgumentObjectTest extends TestCase
     /**
      * Test that Arguments\Argument::usageInfo() returns the correct layout.
      *
-     * @dataProvider usageLineProvider
-     *
      * @param array  $args  The arguments to test.
      * @param string $usage The argument to test with.
+     *
+     * @dataProvider usageLineProvider
+     *
+     * @return void
      */
-    public function testUsageInfoIsCorrect($args = [], $usage = '')
+    public function testUsageInfoIsCorrect($args = [], $usage = ''): void
     {
         $argument = new Arguments\Argument($args);
         $usageInfo = $argument->usageInfo();
@@ -75,12 +98,14 @@ class ArgumentObjectTest extends TestCase
     /**
      * Test that Arguments\Argument::usageLine() returns the correct layout.
      *
-     * @dataProvider usageLineProvider
-     *
      * @param array  $args  The arguments to test.
      * @param string $usage The argument to test with.
+     *
+     * @dataProvider usageLineProvider
+     *
+     * @return void
      */
-    public function testUsageLineIsCorrect($args = [], $usage = '')
+    public function testUsageLineIsCorrect($args = [], $usage = ''): void
     {
         $argument = new Arguments\Argument($args);
         $expected = sprintf(Arguments\Argument::LINE_FMT, $usage, $args['description']);
@@ -91,12 +116,14 @@ class ArgumentObjectTest extends TestCase
     /**
      * Test the __isset magic function.
      *
-     * @dataProvider usageLineProvider
-     *
      * @param array  $args  The arguments to test.
      * @param string $usage The argument to test with.
+     *
+     * @dataProvider usageLineProvider
+     *
+     * @return void
      */
-    public function testIssetWorksCorrectly($args = [], $usage = '')
+    public function testIssetWorksCorrectly($args = [], $usage = ''): void
     {
         $argument = new Arguments\Argument($args);
         $expected = true;
@@ -108,11 +135,13 @@ class ArgumentObjectTest extends TestCase
     /**
      * Test the __unset magic function.
      *
+     * @param array $args The arguments to test.
+     *
      * @dataProvider usageLineProvider
      *
-     * @param array $args The arguments to test.
+     * @return void
      */
-    public function testUnsetWorksCorrectly($args = [])
+    public function testUnsetWorksCorrectly($args = []): void
     {
         $argument = new Arguments\Argument($args);
         unset($argument->name);
