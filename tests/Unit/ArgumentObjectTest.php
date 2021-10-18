@@ -1,6 +1,6 @@
 <?php
 
-namespace Redbox\Cli\Tests;
+namespace Redbox\Cli\Tests\Unit;
 
 use Redbox\Cli\Arguments;
 use PHPUnit\Framework\TestCase;
@@ -64,7 +64,7 @@ class ArgumentObjectTest extends TestCase
      * @param array $args
      * @param string $usage
      */
-    public function testUsageInfoIsCorrect($args = [], $usage = '')
+    public function test_usage_info_is_correct($args = [], $usage = ''): void
     {
         $argument = new Arguments\Argument($args);
         $usageInfo = $argument->usageInfo();
@@ -78,7 +78,7 @@ class ArgumentObjectTest extends TestCase
      * @param array $args
      * @param string $usage
      */
-    public function testUsageLineIsCorrect($args = [], $usage = '')
+    public function test_usage_line_is_correct($args = [], $usage = ''): void
     {
         $argument = new Arguments\Argument($args);
         $expected = sprintf(Arguments\Argument::LINE_FMT, $usage, $args['description']);

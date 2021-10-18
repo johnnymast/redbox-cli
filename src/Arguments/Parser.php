@@ -1,7 +1,21 @@
 <?php
+/**
+ * Parser.php
+ *
+ * This class parses the arguments.
+ *
+ * PHP version ^8.0
+ *
+ * @category Arguments
+ * @package  Redbox-Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @version  1.5
+ * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
+ * @since    1.0
+ */
+
 namespace Redbox\Cli\Arguments;
-
-
 
 /**
  * This class will parse the given arguments.
@@ -11,25 +25,26 @@ namespace Redbox\Cli\Arguments;
 class Parser
 {
     /**
-     * @var \Redbox\Cli\Arguments\Filter
+     * @var Filter
      */
     protected $filter;
 
     /**
-     * @var \Redbox\Cli\Arguments\Manager
+     * @var Manager
      */
     protected $manager;
 
     /**
      * Parser constructor.
+     *
      * @var array
      */
     protected $arguments;
-    
+
     /**
      * Parser constructor.
      *
-     * @param Manager $manager
+     * @param Manager|null $manager
      */
     public function __construct(Manager $manager = NULL)
     {
@@ -40,15 +55,15 @@ class Parser
      * Set the filter for the parser.
      *
      * @param Filter $filter
-     * @param array $arguments
+     * @param array  $arguments
      */
     public function setFilter(Filter $filter, array $arguments = [])
     {
-        $this->filter    = $filter;
+        $this->filter = $filter;
         $this->arguments = $arguments;
         $this->filter->setArguments($arguments);
     }
-    
+
     /**
      * Return the script name.
      *
@@ -59,8 +74,8 @@ class Parser
         global $argv;
         return $argv[0];
     }
-    
-    
+
+
     /**
      * This is it, we parse the given arguments.
      *
@@ -70,9 +85,9 @@ class Parser
     {
         list($shortOptions, $longOptions) = $this->buildOptions();
         $results = getopt($shortOptions, $longOptions);
-        
+
         foreach ($this->arguments as $argument) {
-            $name  = $argument->name;
+            $name = $argument->name;
             $value = '';
 
             if (isset($results[$argument->prefix]) || isset($results[$argument->longPrefix])) {
@@ -107,10 +122,10 @@ class Parser
     private function buildOptions()
     {
         $short_prefixes = $this->filter->withShortPrefix();
-        $long_prefixes  = $this->filter->withLongPrefix();
+        $long_prefixes = $this->filter->withLongPrefix();
 
         $short = '';
-        $long  = array();
+        $long = array();
 
         foreach ($short_prefixes as $argument) {
             $short .= $argument->prefix;
@@ -118,7 +133,7 @@ class Parser
         }
 
         foreach ($long_prefixes as $argument) {
-            $rule  = $argument->longPrefix;
+            $rule = $argument->longPrefix;
             if (strlen($rule) > 0) {
                 $rule .= ($argument->required == true) ? ':' : '::';
                 $long[] = $rule;

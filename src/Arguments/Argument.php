@@ -1,5 +1,22 @@
 <?php
+/**
+ * Argument.php
+ *
+ * The main class for handling arguments.
+ *
+ * PHP version ^8.0
+ *
+ * @category Arguments
+ * @package  Redbox-Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @version  1.5
+ * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
+ * @since    1.0
+ */
+
 namespace Redbox\Cli\Arguments;
+
 use Redbox\Cli\Object\ArgumentObject;
 
 /**
@@ -31,13 +48,13 @@ class Argument extends ArgumentObject
     {
         $arg = array();
         if ($this->prefix) {
-            $arg[] = '-'.$this->prefix.' '.$this->name;
+            $arg[] = '-' . $this->prefix . ' ' . $this->name;
         }
         if ($this->longPrefix) {
-            $arg[] = '--'.$this->longPrefix.' '.$this->name;
+            $arg[] = '--' . $this->longPrefix . ' ' . $this->name;
         }
         if ($this->defaultValue) {
-            $arg[] = '(default: '.$this->defaultValue.')';
+            $arg[] = '(default: ' . $this->defaultValue . ')';
         }
         if (!$this->prefix && !$this->longPrefix) {
             $arg[] = $this->name;

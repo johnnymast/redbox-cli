@@ -1,7 +1,27 @@
 <?php
+/**
+ * Cli.php
+ *
+ * The main CLI class.
+ *
+ * PHP version ^8.0
+ *
+ * @category Core
+ * @package  Redbox-Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @version  1.5
+ * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
+ * @since    1.0
+ */
+
 namespace Redbox\Cli;
+
 use Redbox\Cli\Arguments\Manager as ArgumentManager;
 
+/**
+ * The main class.
+ */
 class Cli
 {
     /**

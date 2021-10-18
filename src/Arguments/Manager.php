@@ -1,4 +1,19 @@
 <?php
+/**
+ * Argument.php
+ *
+ * This class manages the arguments passed to the application.
+ *
+ * PHP version ^8.0
+ *
+ * @category Arguments
+ * @package  Redbox-Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @version  1.5
+ * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
+ * @since    1.0
+ */
 
 namespace Redbox\Cli\Arguments;
 
@@ -16,14 +31,14 @@ class Manager
      * @var array $arguments
      */
     protected $arguments = [];
-    
+
     /**
      * An array containing the parsed values.
      *
      * @var array $values ;
      */
     protected $values = [];
-    
+
     /**
      * An array that contains all the default values
      * that are passed to the manager.
@@ -31,17 +46,17 @@ class Manager
      * @var array
      */
     protected $defaultvalues = [];
-    
+
     /**
-     * @var \Redbox\Cli\Arguments\Parser
+     * @var Parser
      */
     protected $parser;
-    
+
     /**
-     * @var \Redbox\Cli\Arguments\Filter
+     * @var Filter
      */
     protected $filter;
-    
+
     /**
      * Manager constructor.
      */
@@ -50,7 +65,7 @@ class Manager
         $this->parser = new Parser($this);
         $this->filter = new Filter;
     }
-    
+
     /**
      * Prints out the usage message to the user.
      *
@@ -63,175 +78,183 @@ class Manager
         $allArguments = array_merge($requiredArguments, $optionalArguments);
         $command = $this->parser->getCommand();
         $args = array();
-        
+
         $num_required = count($requiredArguments);
         $num_optional = count($optionalArguments);
-        
-        echo "Usage: ".$command." ";
-        
+
+        echo "Usage: " . $command . " ";
+
         foreach ($allArguments as $argument) {
             /** @var Argument $argument */
-            $args[] = '['.$argument->usageInfo().']';
+            $args[] = '[' . $argument->usageInfo() . ']';
         }
-        
+
         $args = implode(' ', $args);
-        echo $args."\n\n";
-        
+        echo $args . "\n\n";
+
         if ($num_required) {
             echo "Required Arguments:\n";
             foreach ($requiredArguments as $argument) {
                 echo $argument->usageLine();
             }
         }
-        
+
         if ($num_required && $num_optional) {
             echo "\n";
         }
-        
+
         if ($num_optional) {
             echo "Optional Arguments:\n";
             foreach ($optionalArguments as $argument) {
                 echo $argument->usageLine();
             }
         }
-        
+
         echo "\n";
     }
-    
+
     /**
      * Determine if a given argument has a default value or not.
      * One thing to note is that if having no info about the argument
      * (being a key in xx is not set) we will return false as well.
      *
-     * @param $argument
+     * @param string $key - The argument name.
      *
-     * @return boolean
+     * @return bool
      */
-    public function hasDefaultValue($argument)
+    public function hasDefaultValue(string $key): bool
     {
-        if (isset($this->defaultvalues[$argument]) === true) {
+        if (isset($this->defaultvalues[$key]) === true) {
             return true;
         }
         return false;
     }
-    
+
     /**
      * Set if a argument has defaulted to the default argument or not.
      *
-     * @param  string  $argument
-     * @param  bool    $default
+     * @param string $key   - The argument name.
+     * @param bool   $value - Set the value to this.
+     *
+     * @return void
      */
-    public function setHasDefaultValue($argument = "", $default = false)
+    public function setHasDefaultValue(string $key = "", $value = false): void
     {
-        $this->defaultvalues[$argument] = $default;
+        $this->defaultvalues[$key] = $value;
     }
-    
+
     /**
      * Get the default value for a argument.
      *
-     * @param  string  $argument  - The argument key
+     * @param string $key - The argument name.
      *
      * @return false|mixed
      */
-    public function getDefaultValue($argument)
+    public function getDefaultValue(string $key): bool
     {
-        if ($this->hasDefaultValue($argument)) {
-            return $this->get($argument);
+        if ($this->hasDefaultValue($key)) {
+            return $this->get($key);
         }
-        
+
         return false;
     }
-    
+
     /**
      * Check to see if a argument is used.
      *
-     * @param  string  $argument  - The name of the argument.
+     * @param string $key - The name of the argument.
      *
      * @return bool
      */
-    public function has($argument)
+    public function has(string $key): bool
     {
-        return (isset($this->values[$argument]));
+        return (isset($this->values[$key]));
     }
-    
+
     /**
      * Set a parsed argument.
      *
-     * @param $argument
-     * @param $value
+     * @param string   $key   - The name of the argument.
+     * @param          $value - Set the value to this.
+     *
+     * @return void
      */
-    public function set($argument, $value)
+    public function set(string $key, $value): void
     {
-        $this->values[$argument] = $value;
+        $this->values[$key] = $value;
     }
-    
+
     /**
      * Return any set argument or false if the argument is unknown.
      *
-     * @param $argument
+     * @param string $key - The name of the argument.
      *
-     * @return bool
+     * @return mixed
      */
-    public function get($argument)
+    public function get(string $key)
     {
-        if (isset($this->values[$argument]) === false) {
-            return false;
+        if (isset($this->values[$key]) === true) {
+            return $this->values[$key];
         }
-        return $this->values[$argument];
+
+        return false;
     }
-    
+
     /**
      * Return all given arguments.
      *
      * @return array
      */
-    public function all()
+    public function all(): array
     {
         return $this->arguments;
     }
-    
+
     /**
      * Add arguments to the list, this could be one or an array of arguments.
      *
-     * @param         $argument
-     * @param  array  $options
+     * @param mixed $key - The name of the argument.
+     * @param array $options
      *
+     * @return void
      * @throws \Exception
      */
-    public function add($argument, $options = [])
+    public function add($info, $options = []): void
     {
-        if (is_array($argument) === true) {
-            $this->addMany($argument);
+        if (is_array($info) === true) {
+            $this->addMany($info);
             return;
         }
-        
-        $options['name'] = $argument;
+
+        $options['name'] = $info;
         $arg = new Argument($options);
-        
-        $this->arguments[$argument] = $arg;
+
+        $this->arguments[$info] = $arg;
     }
-    
+
     /**
      * This function will be called if we can add an array of commandline arguments
      * to parse.
      *
-     * @param  array  $arguments
+     * @param array $items - All the options to add.
      *
+     * @return void
      * @throws \Exception
      */
-    protected function addMany(array $arguments = [])
+    protected function addMany(array $items = []): void
     {
-        foreach ($arguments as $name => $options) {
+        foreach ($items as $name => $options) {
             $this->add($name, $options);
         }
     }
-    
+
     /**
      * Go ahead and parse the arguments given.
      *
+     * @return void
      * @throws \Exception
      */
-    public function parse()
+    public function parse(): void
     {
         $this->parser->setFilter($this->filter, $this->all());
         $this->parser->parse();

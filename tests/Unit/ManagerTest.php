@@ -1,6 +1,6 @@
 <?php
 
-namespace Redbox\Cli\Tests;
+namespace Redbox\Cli\Tests\Unit;
 
 use Redbox\Cli\Arguments;
 use PHPUnit\Framework\TestCase;

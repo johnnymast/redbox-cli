@@ -1,12 +1,10 @@
 <?php
 
 
-namespace Redbox\Cli\Tests;
+namespace Redbox\Cli\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Redbox\Cli\Arguments\Argument;
-use function \Redbox\Cli\Arguments\mockGetOptToReturn;
-use function \Redbox\Cli\Arguments\resetGetOptMock;
+use function \Redbox\Cli\Arguments\{mockGetOptToReturn, resetGetOptMock};
 use Redbox\Cli\Cli;
 
 

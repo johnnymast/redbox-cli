@@ -1,8 +1,24 @@
 <?php
+/**
+ * Filter.php
+ *
+ * Object containing information about the arguments.
+ *
+ * PHP version ^8.0
+ *
+ * @category Arguments
+ * @package  Redbox-Cli
+ * @author   Johnny Mast <mastjohnny@gmail.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @version  1.5
+ * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
+ * @since    1.0
+ */
+
 namespace Redbox\Cli\Arguments;
 
 /**
- * Okay its hard to explain this one you dot not know array_filter.
+ * Okay it's hard to explain this one you dot not know array_filter.
  * What it does (this class)
  *
  * @package Redbox\Cli\Arguments
@@ -30,6 +46,7 @@ class Filter
      * Callback function to check if the argument has a short prefix.
      *
      * @param $argument
+     *
      * @return mixed
      */
     public function hasShortPrefix($argument)
@@ -41,6 +58,7 @@ class Filter
      * Callback function to check if the argument has a long prefix.
      *
      * @param $argument
+     *
      * @return mixed
      */
     public function hasLongPrefix($argument)
@@ -52,6 +70,7 @@ class Filter
      * Callback function to check if the argument is required.
      *
      * @param $argument
+     *
      * @return mixed
      */
     protected function isRequired($argument)
@@ -63,6 +82,7 @@ class Filter
      * Callback function to check if the argument does not had the required option.
      *
      * @param $argument
+     *
      * @return bool
      */
     protected function isOptional($argument)
@@ -115,6 +135,7 @@ class Filter
      * will be in this function for example isRequired.
      *
      * @param array $filters
+     *
      * @return array
      */
     protected function filterArguments($filters = [])
