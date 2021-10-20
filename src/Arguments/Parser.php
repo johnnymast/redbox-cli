@@ -27,24 +27,24 @@ class Parser
     /**
      * @var Filter
      */
-    protected $filter;
+    protected Filter $filter;
 
     /**
      * @var Manager
      */
-    protected $manager;
+    protected Manager $manager;
 
     /**
      * Parser constructor.
      *
      * @var array
      */
-    protected $arguments;
+    protected array $arguments;
 
     /**
      * Parser constructor.
      *
-     * @param Manager|null $manager
+     * @param Manager|null $manager Argument Manager.
      */
     public function __construct(Manager $manager = NULL)
     {
@@ -54,8 +54,8 @@ class Parser
     /**
      * Set the filter for the parser.
      *
-     * @param Filter $filter
-     * @param array  $arguments
+     * @param Filter $filter    The Filter instance
+     * @param array  $arguments The arguments array.
      */
     public function setFilter(Filter $filter, array $arguments = [])
     {
@@ -69,17 +69,18 @@ class Parser
      *
      * @return mixed
      */
-    public function getCommand()
+    public function getCommand(): mixed
     {
         global $argv;
         return $argv[0];
     }
 
-
     /**
      * This is it, we parse the given arguments.
      *
+     * @return void
      * @throws \Exception
+     *
      */
     public function parse()
     {
@@ -91,7 +92,7 @@ class Parser
             $value = '';
 
             if (isset($results[$argument->prefix]) || isset($results[$argument->longPrefix])) {
-                $value = isset($results[$argument->prefix]) ? $results[$argument->prefix] : $results[$argument->longPrefix];
+                $value = $results[$argument->prefix] ?? $results[$argument->longPrefix];
             } else {
                 /**
                  * If we set the default value for this argument we also add it to
@@ -119,7 +120,7 @@ class Parser
      *
      * @return array
      */
-    private function buildOptions()
+    private function buildOptions(): array
     {
         $short_prefixes = $this->filter->withShortPrefix();
         $long_prefixes = $this->filter->withLongPrefix();

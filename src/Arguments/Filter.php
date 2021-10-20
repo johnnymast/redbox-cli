@@ -28,16 +28,16 @@ class Filter
     /**
      * An array of arguments passed to the program.
      *
-     * @var Argument[] $arguments
+     * @var array<\Redbox\Cli\Arguments\Argument> $arguments
      */
-    protected $arguments = [];
+    protected array $arguments = [];
 
     /**
      * Set the arguments to filter.
      *
-     * @param array $arguments
+     * @param array<\Redbox\Cli\Arguments\Argument> $arguments
      */
-    public function setArguments($arguments = [])
+    public function setArguments(array $arguments = [])
     {
         $this->arguments = $arguments;
     }
@@ -45,11 +45,11 @@ class Filter
     /**
      * Callback function to check if the argument has a short prefix.
      *
-     * @param $argument
+     * @param Argument $argument The argument.
      *
-     * @return mixed
+     * @return bool
      */
-    public function hasShortPrefix($argument)
+    public function hasShortPrefix(Argument $argument): bool
     {
         return ($argument->prefix);
     }
@@ -57,11 +57,11 @@ class Filter
     /**
      * Callback function to check if the argument has a long prefix.
      *
-     * @param $argument
+     * @param Argument $argument Check if this argument has a long prefix.
      *
-     * @return mixed
+     * @return bool
      */
-    public function hasLongPrefix($argument)
+    public function hasLongPrefix(Argument $argument): bool
     {
         return ($argument->prefix);
     }
@@ -69,11 +69,11 @@ class Filter
     /**
      * Callback function to check if the argument is required.
      *
-     * @param $argument
+     * @param Argument $argument Check if this argument is required.
      *
-     * @return mixed
+     * @return bool
      */
-    protected function isRequired($argument)
+    protected function isRequired(Argument $argument): bool
     {
         return $argument->required;
     }
@@ -81,11 +81,11 @@ class Filter
     /**
      * Callback function to check if the argument does not had the required option.
      *
-     * @param $argument
+     * @param Argument $argument Check if this argument is optional.
      *
      * @return bool
      */
-    protected function isOptional($argument)
+    protected function isOptional(Argument $argument): bool
     {
         return ($argument->required == false);
     }
@@ -93,9 +93,9 @@ class Filter
     /**
      * Return all required arguments, these are arguments with required => true,
      *
-     * @return Argument[] arguments with arguments set required to true
+     * @return array<array<\Redbox\Cli\Arguments\Argument>> arguments with arguments set required to true
      */
-    public function required()
+    public function required(): array
     {
         return $this->filterArguments(['isRequired']);
     }
@@ -103,9 +103,9 @@ class Filter
     /**
      * Return all arguments without required => true.
      *
-     * @return Argument[] arguments with arguments set required to false
+     * @return array<\Redbox\Cli\Arguments\Argument> arguments with arguments set required to false
      */
-    public function optional()
+    public function optional(): array
     {
         return $this->filterArguments(['isOptional']);
     }
@@ -113,9 +113,9 @@ class Filter
     /**
      * Return an array with short prefixes.
      *
-     * @return Argument[] arguments with a short prefix (e.x -u)
+     * @return array<\Redbox\Cli\Arguments\Argument> arguments with a short prefix (e.x -u)
      */
-    public function withShortPrefix()
+    public function withShortPrefix(): array
     {
         return $this->filterArguments(['hasShortPrefix']);
     }
@@ -123,9 +123,9 @@ class Filter
     /**
      * Return an array with long prefixes
      *
-     * @return Argument[] required arguments (e.x --user)
+     * @return array<\Redbox\Cli\Arguments\Argument> required arguments (e.x --user)
      */
-    public function withLongPrefix()
+    public function withLongPrefix(): array
     {
         return $this->filterArguments(['hasLongPrefix']);
     }
@@ -134,11 +134,11 @@ class Filter
      * This function will do the actual filtering. Call backs for array_filter
      * will be in this function for example isRequired.
      *
-     * @param array $filters
+     * @param array $filters The filters.
      *
      * @return array
      */
-    protected function filterArguments($filters = [])
+    protected function filterArguments(array $filters = []): array
     {
         $arguments = $this->arguments;
 

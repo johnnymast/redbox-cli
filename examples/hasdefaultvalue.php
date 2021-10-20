@@ -16,7 +16,7 @@ try {
     /**
      * Setup the rules of engagement
      */
-    $cli->arguments->add([
+    $cli->argumentManager->add([
         'targetpath' => [
             'prefix'       => 't',
             'longPrefix'   => 'targetpath',
@@ -28,17 +28,17 @@ try {
     /**
      * We need to tell the parser to start.
      */
-    $cli->arguments->parse();
+    $cli->argumentManager->parse();
 
     /**
      * If we don't get an exception of us missing things we can handle stuff.
      */
-    echo "You entered path: ".$cli->arguments->get('targetpath')."\n";
-    echo "Is this the default value?: ".($cli->arguments->hasDefaultValue('targetpath') ? 'Yes' : 'No')."\n";
+    echo "You entered path: ".$cli->argumentManager->get('targetpath')."\n";
+    echo "Is this the default value?: ".($cli->argumentManager->hasDefaultValue('targetpath') ? 'Yes' : 'No')."\n";
 
 } catch (Exception $e) {
     /**
      * Print how to use the script
      */
-    $cli->arguments->usage();
+    $cli->argumentManager->usage();
 }

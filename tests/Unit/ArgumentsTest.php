@@ -83,7 +83,7 @@ class ArgumentsTest extends TestCase
         $this->expectExceptionMessage("The following arguments are required: user.");
         
         $cli = new Cli();
-        $cli->arguments->add([
+        $cli->argumentManager->add([
           'user' => [
             'prefix' => 'u',
             'longPrefix' => 'user',
@@ -91,7 +91,7 @@ class ArgumentsTest extends TestCase
             'required' => true,
           ],
         ]);
-        $cli->arguments->parse();
+        $cli->argumentManager->parse();
     }
     
     /**
@@ -101,7 +101,7 @@ class ArgumentsTest extends TestCase
     public function test_required_parameter_has_correct_value()
     {
         $cli = new Cli();
-        $cli->arguments->add([
+        $cli->argumentManager->add([
           'q' => [
             'prefix' => 'q',
             'description' => 'Set php values',
@@ -111,10 +111,10 @@ class ArgumentsTest extends TestCase
         
         mockGetOptToReturn(['q' => 'brownfox']);
         
-        $cli->arguments->parse();
+        $cli->argumentManager->parse();
         
         $expected = "brownfox";
-        $actual = $cli->arguments->get('q');
+        $actual = $cli->argumentManager->get('q');
         
         $this->assertEquals($expected, $actual);
     }
@@ -126,7 +126,7 @@ class ArgumentsTest extends TestCase
     public function testArgumentIsDefaultValue()
     {
         $cli = new Cli();
-        $cli->arguments->add([
+        $cli->argumentManager->add([
           'q' => [
             'prefix' => 'q',
             'description' => 'Make the code go eek!',
@@ -134,9 +134,9 @@ class ArgumentsTest extends TestCase
           ],
         ]);
         
-        $cli->arguments->parse();
+        $cli->argumentManager->parse();
         
-        $actual = $cli->arguments->hasDefaultValue('q');
+        $actual = $cli->argumentManager->hasDefaultValue('q');
         
         $this->assertTrue($actual);
     }
@@ -151,7 +151,7 @@ class ArgumentsTest extends TestCase
         mockGetOptToReturn(['q' => 'other then default value']);
         
         $cli = new Cli();
-        $cli->arguments->add([
+        $cli->argumentManager->add([
           'q' => [
             'prefix' => 'q',
             'description' => 'Make the code go eek!',
@@ -160,9 +160,9 @@ class ArgumentsTest extends TestCase
         ]);
         
         
-        $cli->arguments->parse();
+        $cli->argumentManager->parse();
         
-        $actual = $cli->arguments->hasDefaultValue('q');
+        $actual = $cli->argumentManager->hasDefaultValue('q');
         
         $this->assertFalse($actual);
     }
@@ -178,7 +178,7 @@ class ArgumentsTest extends TestCase
         /*
          * Setup the rules of engagement
          */
-        $cli->arguments->add([
+        $cli->argumentManager->add([
           'targetpath' => [
             'prefix' => 't',
             'longPrefix' => 'targetpath',
@@ -186,9 +186,9 @@ class ArgumentsTest extends TestCase
             'defaultValue' => '/var/log',
           ],
         ]);
-        $cli->arguments->parse();
-        $this->assertEquals($cli->arguments->get('targetpath'), '/var/log');
-        $this->assertTrue($cli->arguments->hasDefaultValue('targetpath'));
+        $cli->argumentManager->parse();
+        $this->assertEquals($cli->argumentManager->get('targetpath'), '/var/log');
+        $this->assertTrue($cli->argumentManager->hasDefaultValue('targetpath'));
     }
     
     /**
@@ -204,16 +204,16 @@ class ArgumentsTest extends TestCase
         /*
          * Setup the rules of engagement
          */
-        $cli->arguments->add([
+        $cli->argumentManager->add([
           'targetpath' => [
             'prefix' => 't',
             'longPrefix' => 'targetpath',
             'description' => 'Path',
           ],
         ]);
-        $cli->arguments->parse();
+        $cli->argumentManager->parse();
         
-        $actual = $cli->arguments->getDefaultValue('targetpath');
+        $actual = $cli->argumentManager->getDefaultValue('targetpath');
         $this->assertFalse($actual);
     }
     
@@ -230,7 +230,7 @@ class ArgumentsTest extends TestCase
         /*
          * Setup the rules of engagement
          */
-        $cli->arguments->add([
+        $cli->argumentManager->add([
           'targetpath' => [
             'prefix' => 't',
             'longPrefix' => 'targetpath',
@@ -238,9 +238,9 @@ class ArgumentsTest extends TestCase
             'defaultValue' => '/var/log'
           ],
         ]);
-        $cli->arguments->parse();
+        $cli->argumentManager->parse();
         
-        $actual = $cli->arguments->getDefaultValue('targetpath');
+        $actual = $cli->argumentManager->getDefaultValue('targetpath');
         $expected = '/var/log';
         
         $this->assertEquals($expected, $actual);
@@ -261,8 +261,8 @@ class ArgumentsTest extends TestCase
         $this->expectOutputString($expected);
         
         $cli = new Cli();
-        $cli->arguments->add($args);
-        $cli->arguments->parse();
-        $cli->arguments->usage();
+        $cli->argumentManager->add($args);
+        $cli->argumentManager->parse();
+        $cli->argumentManager->usage();
     }
 }

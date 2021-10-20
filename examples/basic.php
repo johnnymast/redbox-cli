@@ -3,18 +3,19 @@ require 'autoload.php';
 
 use Redbox\Cli\Cli as CLI;
 
+$cli = new CLI;
+
 /**
  * Run this script like
  *
  * $ php ./basic.php -p=abc --user=abcd
  */
 try {
-    $cli = new CLI;
 
     /**
      * Setup the rules of engagement
      */
-    $cli->arguments->add([
+    $cli->argumentManager->add([
         'user' => [
             'prefix'       => 'u',
             'longPrefix'   => 'user',
@@ -52,17 +53,17 @@ try {
     /**
      * We need to tell the parser to start.
      */
-    $cli->arguments->parse();
+    $cli->argumentManager->parse();
 
     /**
-     * If we don't get an exception of us missing things we can handle stuff.
+     * If we don't get an exception about us missing things we can handle stuff.
      */
-    echo "You entered password: ".$cli->arguments->get('password')."\n";
-    echo "You entered username: ".$cli->arguments->get('user')."\n";
+    echo "You entered password: ".$cli->argumentManager->get('password')."\n";
+    echo "You entered username: ".$cli->argumentManager->get('user')."\n";
 
 } catch (Exception $e) {
     /**
      * Print how to use the script
      */
-    $cli->arguments->usage();
+    $cli->argumentManager->usage();
 }

@@ -17,6 +17,8 @@
 
 namespace Redbox\Cli\Arguments;
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * The manager class is the main interface for interacting
  * with the arguments part of Redbox-cli.
@@ -28,39 +30,39 @@ class Manager
     /**
      * An array of arguments passed to the program.
      *
-     * @var array $arguments
+     * @var array<Argument> $arguments
      */
-    protected $arguments = [];
+    protected array $arguments = [];
 
     /**
      * An array containing the parsed values.
      *
-     * @var array $values ;
+     * @var array<string> $values
      */
-    protected $values = [];
+    protected array $values = [];
 
     /**
      * An array that contains all the default values
      * that are passed to the manager.
      *
-     * @var array
+     * @var array<string>
      */
-    protected $defaultvalues = [];
+    protected array $defaultValues = [];
 
     /**
-     * @var Parser
+     * @var ?Parser
      */
-    protected $parser;
+    protected ?Parser $parser = null;
 
     /**
-     * @var Filter
+     * @var ?Filter
      */
-    protected $filter;
+    protected ?Filter $filter = null;
 
     /**
      * Manager constructor.
      */
-    public function __construct()
+    #[Pure] public function __construct()
     {
         $this->parser = new Parser($this);
         $this->filter = new Filter;
@@ -124,7 +126,7 @@ class Manager
      */
     public function hasDefaultValue(string $key): bool
     {
-        if (isset($this->defaultvalues[$key]) === true) {
+        if (isset($this->defaultValues[$key]) === true) {
             return true;
         }
         return false;
@@ -140,7 +142,7 @@ class Manager
      */
     public function setHasDefaultValue(string $key = "", $value = false): void
     {
-        $this->defaultvalues[$key] = $value;
+        $this->defaultValues[$key] = $value;
     }
 
     /**
@@ -148,9 +150,9 @@ class Manager
      *
      * @param string $key - The argument name.
      *
-     * @return false|mixed
+     * @return mixed
      */
-    public function getDefaultValue(string $key): bool
+    public function getDefaultValue(string $key): mixed
     {
         if ($this->hasDefaultValue($key)) {
             return $this->get($key);
@@ -175,11 +177,11 @@ class Manager
      * Set a parsed argument.
      *
      * @param string   $key   - The name of the argument.
-     * @param          $value - Set the value to this.
+     * @param mixed    $value - Set the value to this.
      *
      * @return void
      */
-    public function set(string $key, $value): void
+    public function set(string $key, mixed $value): void
     {
         $this->values[$key] = $value;
     }
@@ -191,7 +193,7 @@ class Manager
      *
      * @return mixed
      */
-    public function get(string $key)
+    public function get(string $key): mixed
     {
         if (isset($this->values[$key]) === true) {
             return $this->values[$key];
@@ -213,23 +215,23 @@ class Manager
     /**
      * Add arguments to the list, this could be one or an array of arguments.
      *
-     * @param mixed $key - The name of the argument.
-     * @param array $options
+     * @param string|array $name - The name of the argument.
+     * @param array  $options
      *
      * @return void
      * @throws \Exception
      */
-    public function add($info, $options = []): void
+    public function add(string|array $name, array $options = []): void
     {
-        if (is_array($info) === true) {
-            $this->addMany($info);
+        if (is_array($name) === true) {
+            $this->addMany($name);
             return;
         }
 
-        $options['name'] = $info;
+        $options['name'] = $name;
         $arg = new Argument($options);
 
-        $this->arguments[$info] = $arg;
+        $this->arguments[$name] = $arg;
     }
 
     /**

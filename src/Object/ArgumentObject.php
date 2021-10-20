@@ -24,19 +24,22 @@ class ArgumentObject
 {
 
     /**
+     * Container for storing information about
+     * the argument.
+     *
      * @var array
      */
-    protected $modelData = [];
+    protected array $modelData = [];
 
     /**
      * Construct this magic object. Give it a array amd
-     * it will turn into an object. Its a hydration.
+     * it will turn into an object. It's a hydration.
      *
      * Object constructor.
      *
-     * @param $array
+     * @param array $array Give the mapTypes a default empty value.
      */
-    public function __construct($array = array())
+    public function __construct(array $array = [])
     {
         $this->mapTypes($array);
     }
@@ -44,11 +47,11 @@ class ArgumentObject
     /**
      * Convert a string to camelCase
      *
-     * @param string $value
+     * @param string $value Create a camelCase string from this value.
      *
      * @return string
      */
-    public static function camelCase($value)
+    public static function camelCase(string $value): string
     {
         $value = ucwords(str_replace(array('-', '_'), ' ', $value));
         $value = str_replace(' ', '', $value);
@@ -63,7 +66,7 @@ class ArgumentObject
      *
      * @return void
      */
-    protected function mapTypes($array)
+    protected function mapTypes(array $array = [])
     {
         foreach ($array as $key => $val) {
             if (!property_exists($this, $this->keyType($key)) &&
@@ -80,11 +83,11 @@ class ArgumentObject
     /**
      * Return the keyType for a given key.
      *
-     * @param $key
+     * @param string  The type of the argument.
      *
      * @return string
      */
-    protected function keyType($key)
+    protected function keyType(string $key): string
     {
         return $key . "Type";
     }
@@ -92,11 +95,11 @@ class ArgumentObject
     /**
      * Return the dataType for a key.
      *
-     * @param $key
+     * @param string $key Return a string name for the dataType.
      *
      * @return string
      */
-    protected function dataType($key)
+    protected function dataType(string $key): string
     {
         return $key . "DataType";
     }
@@ -104,11 +107,11 @@ class ArgumentObject
     /**
      * Check to see if a given key is set or not.
      *
-     * @param $key
+     * @param string $key The key to check.
      *
      * @return bool
      */
-    public function __isset($key)
+    public function __isset(string $key): bool
     {
         return isset($this->modelData[$key]);
     }
@@ -116,9 +119,9 @@ class ArgumentObject
     /**
      * Unset a given key.
      *
-     * @param $key
+     * @param string $key The key to unset.
      */
-    public function __unset($key)
+    public function __unset(string $key)
     {
         unset($this->modelData[$key]);
     }

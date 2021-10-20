@@ -1,3 +1,7 @@
+## 1.5
+
+- Upgraded supported php version to 8.0 and up.
+
 ## 1.4 
 
 * moved the ci from www.travis-ci.org to www.travis-ci.com

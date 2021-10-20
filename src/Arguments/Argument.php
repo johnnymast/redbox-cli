@@ -30,13 +30,12 @@ class Argument extends ArgumentObject
 {
     const LINE_FMT = "\t%s\n\t\t%s\n";
 
-    public $prefix;
-    public $defaultValue;
-    public $longPrefix;
-    public $description;
-    public $required;
-    public $noValue;
-    public $name;
+    public string $prefix = '';
+    public string $defaultValue = '';
+    public string $longPrefix = '';
+    public string $description = '';
+    public bool $required = false;
+    public string $name = '';
 
     /**
      * Returns the usage information for this argument something like
@@ -44,9 +43,10 @@ class Argument extends ArgumentObject
      *
      * @return string
      */
-    public function usageInfo()
+    public function usageInfo(): string
     {
         $arg = array();
+
         if ($this->prefix) {
             $arg[] = '-' . $this->prefix . ' ' . $this->name;
         }
@@ -59,8 +59,7 @@ class Argument extends ArgumentObject
         if (!$this->prefix && !$this->longPrefix) {
             $arg[] = $this->name;
         }
-        $arg = implode(', ', $arg);
-        return $arg;
+        return implode(', ', $arg);
     }
 
     /**
@@ -70,9 +69,8 @@ class Argument extends ArgumentObject
      *
      * @return string
      */
-    public function usageLine()
+    public function usageLine(): string
     {
-        $arg = $this->usageInfo();
-        return sprintf(self::LINE_FMT, $arg, $this->description);
+        return sprintf(self::LINE_FMT, $this->usageInfo(), $this->description);
     }
 }
