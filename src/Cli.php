@@ -23,6 +23,7 @@ use Redbox\Cli\Styling\Colors;
 use Redbox\Cli\Terminal\Box;
 use Redbox\Cli\Terminal\Progress;
 use Redbox\Cli\Terminal\ProgressBar;
+use Redbox\Cli\Terminal\Table;
 
 /**
  * The main class.
@@ -61,6 +62,7 @@ class Cli
                 new Terminal(),
                 new ProgressBar(),
                 new Box(),
+                new Table(),
             ]
         );
 

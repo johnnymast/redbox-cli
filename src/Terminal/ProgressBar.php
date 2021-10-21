@@ -20,5 +20,4 @@ class ProgressBar
         $output->addLine(sprintf("%s [%s/%s]", $bar, $at, $of));
         $output->output();
     }
-
 }
