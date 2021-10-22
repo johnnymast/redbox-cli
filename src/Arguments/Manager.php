@@ -215,12 +215,12 @@ class Manager
         foreach ($allOptions as $option) {
             $description = $option->description;
             $operation = $option->getOperation();
-            $operationName = $operation->name;
 
-            $opName = str_pad($operationName, $longest['operation']);
+            // TODO: Replace with columns
+            $name = str_pad($operation->name, $longest['operation']);
             $usage = str_pad($option->usageInfo(), $longest['argument']);
 
-            $line = "{$command} {$opName} {$usage}\t{$description}";
+            $line = "{$command} {$name} {$usage}\t{$description}";
 
             $this->output->addLine($line)
                 ->addNewLine();
