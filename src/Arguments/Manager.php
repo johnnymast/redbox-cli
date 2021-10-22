@@ -18,6 +18,8 @@
 namespace Redbox\Cli\Arguments;
 
 use JetBrains\PhpStorm\Pure;
+use Redbox\Cli\Attributes\Inject;
+use Redbox\Cli\Output\Output;
 
 /**
  * The manager class is the main interface for interacting
@@ -33,6 +35,15 @@ class Manager
      * @var array<Argument> $arguments
      */
     protected array $arguments = [];
+
+    protected string $description = '';
+
+    protected Operation $operation;
+
+    /**
+     * @var array<string, \Redbox\Cli\Arguments\Operation>
+     */
+    protected array $operations = [];
 
     /**
      * An array containing the parsed values.
@@ -62,8 +73,13 @@ class Manager
     /**
      * Manager constructor.
      */
-    #[Pure] public function __construct()
+
+    public function __construct(Output $output)
     {
+
+        $this->operation('');
+
+        $this->output = new Output();
         $this->parser = new Parser($this);
         $this->filter = new Filter;
     }
@@ -84,7 +100,13 @@ class Manager
         $num_required = count($requiredArguments);
         $num_optional = count($optionalArguments);
 
-        echo "Usage: " . $command . " ";
+        if ($this->description !== '') {
+            echo "{$command} - {$this->description}\n\n";
+        } else {
+            echo "{$command}\n\n";
+        }
+
+        echo "usage: " . $command . " ";
 
         foreach ($allArguments as $argument) {
             /** @var Argument $argument */
@@ -114,6 +136,100 @@ class Manager
 
         echo "\n";
     }
+
+    // NEW
+
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
+    public function operation(string $name, callable|null $callback = null): Manager
+    {
+        $this->operations[$name] = new Operation($name);
+
+        if (is_callable($callback) === true) {
+            $callback($this->operations[$name]);
+        }
+
+        return $this;
+    }
+
+    public function newUsage(): void
+    {
+        $command = $this->parser->getCommand();
+
+        if ($this->description !== '') {
+            $this->output->addLine("{$command} - {$this->description}");
+        } else {
+            $this->output->addLine($command);
+        }
+
+        $this->output
+            ->addNewLine()
+            ->addNewLine();
+
+        $longest = [
+            'operation' => 0,
+            'argument' => 0,
+        ];
+
+        $allOptions = [];
+
+        foreach ($this->operations as $name => $operation) {
+            $options = $operation->getOptions();
+            $line = "usage: {$command} {$name}";
+
+            /**
+             * For esthetics show the optional arguments first.
+             */
+            usort($options, static fn(Option $option) => $option->isRequired() ? 1 : 0);
+
+            foreach ($options as $option) {
+                $line .= " ";
+
+                if ($option->isOptional()) {
+                    $line .= '[' . $option->usageInfo() . ']';
+                } elseif ($option->isRequired()) {
+                    $line .= $option->usageInfo();
+                }
+
+                $longest['argument'] = max(strlen($option->usageInfo()), $longest['argument']);
+                $allOptions[] = $option;
+            }
+            $this->output
+                ->addLine($line)
+                ->addNewLine();
+
+            $longest['operation'] = max(strlen($name), $longest['operation']);
+        }
+
+        $this->output
+            ->addNewLine()
+            ->addLine("Options:")
+            ->addNewLine()
+            ->addNewLine();
+
+        foreach ($allOptions as $option) {
+            $description = $option->description;
+            $operation = $option->getOperation();
+            $operationName = $operation->name;
+
+            $opName = str_pad($operationName, $longest['operation']);
+            $usage = str_pad($option->usageInfo(), $longest['argument']);
+
+            $line = "{$command} {$opName} {$usage}\t{$description}";
+
+            $this->output->addLine($line)
+                ->addNewLine();
+        }
+
+        $this->output
+            ->addNewLine()
+            ->addNewLine()
+            ->output();
+    }
+    // EOF NEW
 
     /**
      * Determine if a given argument has a default value or not.
@@ -176,8 +292,8 @@ class Manager
     /**
      * Set a parsed argument.
      *
-     * @param string   $key   - The name of the argument.
-     * @param mixed    $value - Set the value to this.
+     * @param string $key   - The name of the argument.
+     * @param mixed  $value - Set the value to this.
      *
      * @return void
      */
@@ -216,7 +332,7 @@ class Manager
      * Add arguments to the list, this could be one or an array of arguments.
      *
      * @param string|array $name - The name of the argument.
-     * @param array  $options
+     * @param array        $options
      *
      * @return void
      * @throws \Exception

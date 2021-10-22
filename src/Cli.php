@@ -17,7 +17,9 @@
 
 namespace Redbox\Cli;
 
+use JetBrains\PhpStorm\Pure;
 use Redbox\Cli\Arguments\Manager as ArgumentManager;
+use Redbox\Cli\Attributes\Resolver;
 use Redbox\Cli\Output\Output;
 use Redbox\Cli\Styling\Colors;
 use Redbox\Cli\Terminal\Box;
@@ -25,6 +27,7 @@ use Redbox\Cli\Terminal\Progress;
 use Redbox\Cli\Terminal\ProgressBar;
 use Redbox\Cli\Terminal\Table;
 
+#[Pure]
 /**
  * The main class.
  * @method reset()
@@ -51,10 +54,20 @@ class Cli
      * @var \Redbox\Cli\Router
      */
     protected Router $router;
+    /**
+     * @var \Redbox\Cli\Attributes\Resolver
+     */
+    private Resolver $resolver;
 
     public function __construct()
     {
-        $this->setArgumentManager(new ArgumentManager());
+
+        $this->setArgumentManager(
+            new ArgumentManager(
+                new Output()
+            )
+        );
+
         $this->router = new Router($this);
         $this->router->addManyRoutes(
             [
@@ -67,6 +80,7 @@ class Cli
         );
 
         $this->output = new Output();
+
     }
 
     /**
@@ -88,6 +102,20 @@ class Cli
     {
         return $this->argumentManager;
     }
+
+    // NEw
+    public function arguments(): ArgumentManager
+    {
+        return $this->argumentManager;
+    }
+
+    public function description(string $description)
+    {
+        $this->argumentManager->setDescription($description);
+        return $this;
+    }
+
+    // eof new
 
     /**
      * Return the output renderer.
