@@ -21,7 +21,7 @@ use Redbox\Cli\Object\ArgumentObject;
 
 /**
  * The Argument class represents one single argument
- * set to the Manager. To make sure its universal we use
+ * set to the Arguments. To make sure its universal we use
  * the ArgumentObject as an abstract to this class.
  *
  * @package Redbox\Cli\Arguments

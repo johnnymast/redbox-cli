@@ -11,7 +11,7 @@
 namespace Redbox\Cli\Arguments;
 
 /**
- * Class Redbox\Cli\Arguments\Option
+ * @class Redbox\Cli\Arguments\Operation
  */
 class Option
 {
@@ -21,15 +21,18 @@ class Option
 
     private const LINE_FMT = "%s\t\t%s\n";
 
+    public string $longPrefix = '';
+
     public function __construct(
         protected Operation $operation,
         public string       $name,
-        public string       $prefix,
+        public string|null  $prefix,
         public int|null     $options = null,
         public string       $description = '',
         public string|null  $default = null
     )
     {
+        $this->longPrefix = $name;
     }
 
     /**
@@ -50,6 +53,43 @@ class Option
     public function isOptional(): bool
     {
         return ($this->options === self::OPTION_OPTIONAL);
+    }
+
+    /**
+     * Check to see if this option has a short prefix.
+     *
+     * @return bool
+     */
+    public function hasShortPrefix(): bool
+    {
+        return ($this->prefix and $this->prefix !== '');
+    }
+
+    /**
+     * Check to see if this option has a short prefix.
+     *
+     * @return bool
+     */
+    public function hasLongPrefix(): bool
+    {
+        return ($this->name and $this->name !== '');
+    }
+
+    /**
+     * Check to see if this option has a default value.
+     *
+     * @return bool
+     */
+    public function hasDefault(): bool
+    {
+        return ($this->default and $this->default !== '');
+    }
+
+    /**
+     * Return the default value.
+     */
+    public function getDefaultValue(): string {
+        return $this->default;
     }
 
     /**

@@ -18,8 +18,7 @@
 namespace Redbox\Cli;
 
 use JetBrains\PhpStorm\Pure;
-use Redbox\Cli\Arguments\Manager as ArgumentManager;
-use Redbox\Cli\Attributes\Resolver;
+use Redbox\Cli\Arguments\Arguments;
 use Redbox\Cli\Output\Output;
 use Redbox\Cli\Styling\Colors;
 use Redbox\Cli\Terminal\Box;
@@ -35,11 +34,11 @@ use Redbox\Cli\Terminal\Table;
 class Cli
 {
     /**
-     * An instance of the Argument Manager class
+     * An instance of the Argument Arguments class
      *
-     * @var \Redbox\Cli\Arguments\Manager
+     * @var \Redbox\Cli\Arguments\Arguments
      */
-    public ArgumentManager $argumentManager;
+    public Arguments $arguments;
 
     /**
      * This is the output buffer.
@@ -54,19 +53,11 @@ class Cli
      * @var \Redbox\Cli\Router
      */
     protected Router $router;
-    /**
-     * @var \Redbox\Cli\Attributes\Resolver
-     */
-    private Resolver $resolver;
 
     public function __construct()
     {
 
-        $this->setArgumentManager(
-            new ArgumentManager(
-                new Output()
-            )
-        );
+        $this->arguments = new Arguments(new Output());
 
         $this->router = new Router($this);
         $this->router->addManyRoutes(
@@ -83,35 +74,15 @@ class Cli
 
     }
 
-    /**
-     * Set the manager for handling arguments
-     *
-     * @param \Redbox\Cli\Arguments\Manager $manager
-     */
-    public function setArgumentManager(ArgumentManager $manager)
-    {
-        $this->argumentManager = $manager;
-    }
-
-    /**
-     * Return the argument manager.
-     *
-     * @return \Redbox\Cli\Arguments\Manager
-     */
-    public function getArgumentManager(): ArgumentManager
-    {
-        return $this->argumentManager;
-    }
-
     // NEw
-    public function arguments(): ArgumentManager
+    public function arguments(): Arguments
     {
-        return $this->argumentManager;
+        return $this->arguments;
     }
 
-    public function description(string $description)
+    public function setDescription(string $description): Cli
     {
-        $this->argumentManager->setDescription($description);
+        $this->arguments->setDescription($description);
         return $this;
     }
 

@@ -1,18 +1,11 @@
 <?php
-/**
- * Filter.php
+/*
+ * This file is part of Redbox-Cli
  *
- * Object containing information about the arguments.
+ * (c) Johnny Mast <mastjohnny@gmail.com>
  *
- * PHP version ^8.0
- *
- * @category Arguments
- * @package  Redbox-Cli
- * @author   Johnny Mast <mastjohnny@gmail.com>
- * @license  https://opensource.org/licenses/MIT MIT
- * @version  1.5
- * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
- * @since    1.0
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Redbox\Cli\Arguments;
@@ -21,7 +14,7 @@ namespace Redbox\Cli\Arguments;
  * Okay it's hard to explain this one you dot not know array_filter.
  * What it does (this class)
  *
- * @package Redbox\Cli\Arguments
+ * @class Redbox\Cli\Arguments\Filter
  */
 class Filter
 {
