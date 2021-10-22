@@ -185,21 +185,23 @@ class Manager
              */
             usort($options, static fn(Option $option) => $option->isRequired() ? 1 : 0);
 
-            foreach ($options as $option) {
-                $line .= " ";
+            if (count($options) > 0) {
+                foreach ($options as $option) {
+                    $line .= " ";
 
-                if ($option->isOptional()) {
-                    $line .= '[' . $option->usageInfo() . ']';
-                } elseif ($option->isRequired()) {
-                    $line .= $option->usageInfo();
+                    if ($option->isOptional()) {
+                        $line .= '[' . $option->usageInfo() . ']';
+                    } elseif ($option->isRequired()) {
+                        $line .= $option->usageInfo();
+                    }
+
+                    $longest['argument'] = max(strlen($option->usageInfo()), $longest['argument']);
+                    $allOptions[] = $option;
                 }
-
-                $longest['argument'] = max(strlen($option->usageInfo()), $longest['argument']);
-                $allOptions[] = $option;
+                $this->output
+                    ->addLine($line)
+                    ->addNewLine();
             }
-            $this->output
-                ->addLine($line)
-                ->addNewLine();
 
             $longest['operation'] = max(strlen($name), $longest['operation']);
         }
