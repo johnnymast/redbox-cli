@@ -10,7 +10,7 @@
 
 namespace Redbox\Cli\Arguments;
 
-use Redbox\Cli\traits\KeyValueTrait;
+use Redbox\Cli\Traits\KeyValueTrait;
 
 /**
  * @class Redbox\Cli\Arguments\Operation
@@ -52,7 +52,7 @@ class Operation
      * @param string      $description The description for this option.
      * @param string|null $default     The default value for this option.
      */
-    public function opt(string|null $name, ?string $prefix, int|null $options, string $description, string $default = null): Operation
+    public function addOption(string|null $name, ?string $prefix, int|null $options, string $description, string $default = null): Operation
     {
         $option = new Option(
             $this,

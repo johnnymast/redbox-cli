@@ -75,10 +75,6 @@ class Cli
     }
 
     // NEw
-    public function arguments(): Arguments
-    {
-        return $this->arguments;
-    }
 
     public function setDescription(string $description): Cli
     {

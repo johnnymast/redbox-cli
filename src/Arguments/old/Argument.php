@@ -15,7 +15,7 @@
  * @since    1.0
  */
 
-namespace Redbox\Cli\Arguments;
+namespace Redbox\Cli\Arguments\old;
 
 use Redbox\Cli\Object\ArgumentObject;
 

@@ -10,9 +10,12 @@
 
 namespace Redbox\Cli\Arguments;
 
+use JetBrains\PhpStorm\Immutable;
+
 /**
  * @class Redbox\Cli\Arguments\Operation
  */
+#[Immutable]
 class Option
 {
     public const OPTION_REQUIRED = 0;
@@ -56,6 +59,15 @@ class Option
     }
 
     /**
+     * Check to see if this option does not require a value.
+     *
+     * @return bool
+     */
+    public function isNoValue(): bool {
+        return ($this->options === self::OPTION_NOVALUE);
+    }
+
+    /**
      * Check to see if this option has a short prefix.
      *
      * @return bool
@@ -88,7 +100,8 @@ class Option
     /**
      * Return the default value.
      */
-    public function getDefaultValue(): string {
+    public function getDefaultValue(): string
+    {
         return $this->default;
     }
 
@@ -108,30 +121,22 @@ class Option
      *
      * @return string
      */
-    public function usageInfo(array $arg = []): string
+    public function usageInfo(): string
     {
 
-//        -h, --help            Display help for the given command. When no command is given display help for the list command
-//    -q, --quiet           Do not output any message
-//    -V, --version         Display this application version
-//    --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output
-//    -n, --no-interaction  Do not ask any interactive question
-//    -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
-//
-//
+        $line = [];
+
         if ($this->prefix) {
-            $arg[] = '-' . $this->prefix;
+            $line[] = '-' . $this->prefix;
         }
-//        if ($this->name) {
-        $arg[] = '--' . $this->name . '=' . $this->name;
-//        }
+
+        $line[] = '--' . $this->name . '=' . $this->name;
+
         if ($this->default) {
-            $arg[] = '(default: ' . $this->default . ')';
+            $line[] = '(default: ' . $this->default . ')';
         }
-//        if (!$this->prefix && !$this->longPrefix) {
-        //   $arg[] = $this->name;
-//        }
-        return implode(', ', $arg);
+
+        return implode(', ', $line);
     }
 
     /**

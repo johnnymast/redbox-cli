@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Redbox\Cli\traits;
+namespace Redbox\Cli\Traits;
 
 /**
  * @trait Redbox\Cli\traits\KeyValueTrait
@@ -43,7 +43,7 @@ trait KeyValueTrait
      */
     public function get(string $key): mixed
     {
-        if ($this->get($key)) {
+        if ($this->has($key)) {
             return $this->items[$key];
         }
 
