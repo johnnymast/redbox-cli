@@ -109,11 +109,11 @@ class Operation
     }
 
     /**
-     * Get all options in this operation.
+     * Return the options within this operation.
      *
      * @return \Redbox\Cli\Arguments\Option[]
      */
-    public function getAllOptions(): array
+    public function getOptions(): array
     {
         return $this->options;
     }
@@ -135,15 +135,5 @@ class Operation
     public function markAsDefault(): void
     {
         $this->defaultOperation = true;
-    }
-
-    /**
-     * Return the options within this operation.
-     *
-     * @return \Redbox\Cli\Arguments\Option[]
-     */
-    public function getOptions(): array
-    {
-        return $this->options;
     }
 }
