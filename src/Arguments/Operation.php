@@ -13,7 +13,7 @@ namespace Redbox\Cli\Arguments;
 use Redbox\Cli\Traits\KeyValueTrait;
 
 /**
- * @class Redbox\Cli\Arguments\Operation
+ * @internal
  */
 class Operation
 {
@@ -78,11 +78,21 @@ class Operation
         return (count($this->options) > 0);
     }
 
+    /**
+     * Return options having a short prefix.
+     *
+     * @return array
+     */
     public function getOptionsWithShortPrefix(): array
     {
         return array_filter($this->options, static fn(Option $option) => $option->hasShortPrefix());
     }
 
+    /**
+     * Return the options having a long prefix.
+     *
+     * @return array
+     */
     public function getOptionsWithLongPrefix(): array
     {
         return array_filter($this->options, static fn(Option $option) => $option->hasShortPrefix());

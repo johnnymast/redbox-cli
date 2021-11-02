@@ -123,7 +123,7 @@ test("Should know if option requires no value.", function () {
         $this->operation,
         "novalue2",
         "n2",
-        Option::OPTION_NOVALUE,
+        Option::OPTION_NO_VALUE,
         "description"
     );
 

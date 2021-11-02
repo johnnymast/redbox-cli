@@ -1,28 +1,20 @@
 <?php
-/**
- * Cli.php
+/*
+ * This file is part of Redbox-Cli
  *
- * The main CLI class.
+ * (c) Johnny Mast <mastjohnny@gmail.com>
  *
- * PHP version ^8.0
- *
- * @category Core
- * @package  Redbox-Cli
- * @author   Johnny Mast <mastjohnny@gmail.com>
- * @license  https://opensource.org/licenses/MIT MIT
- * @version  1.5
- * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
- * @since    1.0
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Redbox\Cli;
 
 use JetBrains\PhpStorm\Pure;
 use Redbox\Cli\Arguments\Arguments;
-use Redbox\Cli\Output\Output;
+use Redbox\Cli\Output\OutputBuffer;
 use Redbox\Cli\Styling\Colors;
 use Redbox\Cli\Terminal\Box;
-use Redbox\Cli\Terminal\Progress;
 use Redbox\Cli\Terminal\ProgressBar;
 use Redbox\Cli\Terminal\Table;
 
@@ -43,9 +35,9 @@ class Cli
     /**
      * This is the output buffer.
      *
-     * @var \Redbox\Cli\Output\Output
+     * @var \Redbox\Cli\Output\OutputBuffer
      */
-    protected Output $output;
+    protected OutputBuffer $outputBuffer;
 
     /**
      * The router.
@@ -54,10 +46,13 @@ class Cli
      */
     protected Router $router;
 
+    /**
+     * @throws \ReflectionException
+     */
     public function __construct()
     {
-
-        $this->arguments = new Arguments(new Output());
+        $this->outputBuffer = new OutputBuffer();
+        $this->arguments = new Arguments( $this->outputBuffer);
 
         $this->router = new Router($this);
         $this->router->addManyRoutes(
@@ -69,12 +64,7 @@ class Cli
                 new Table(),
             ]
         );
-
-        $this->output = new Output();
-
     }
-
-    // NEw
 
     public function setDescription(string $description): Cli
     {
@@ -82,16 +72,14 @@ class Cli
         return $this;
     }
 
-    // eof new
-
     /**
      * Return the output renderer.
      *
-     * @return \Redbox\Cli\Output\Output
+     * @return \Redbox\Cli\Output\OutputBuffer
      */
-    public function getOutput(): Output
+    public function getOutputBuffer(): OutputBuffer
     {
-        return $this->output;
+        return $this->outputBuffer;
     }
 
     /**
@@ -101,10 +89,10 @@ class Cli
      *
      * @return void
      */
-    public function write(string $string)
+    public function write(string $string): void
     {
-        $this->output->addLine($string);
-        $this->output->output();
+        $this->outputBuffer->addLine($string);
+        $this->outputBuffer->show();
     }
 
     /**
@@ -115,7 +103,7 @@ class Cli
      */
     public function read(): string
     {
-        return $this->output->fetch();
+        return $this->outputBuffer->fetch();
     }
 
     /**
@@ -126,9 +114,9 @@ class Cli
      *
      * @return void
      */
-    public function mute(bool $enabled)
+    public function mute(bool $enabled): void
     {
-        $this->output->setSilentMode($enabled);
+        $this->outputBuffer->setSilentMode($enabled);
     }
 
     /**

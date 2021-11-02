@@ -10,7 +10,7 @@
 
 namespace Redbox\Cli\Arguments;
 
-use Redbox\Cli\Output\Output;
+use Redbox\Cli\Output\OutputBuffer;
 use Redbox\Cli\Traits\KeyValueTrait;
 
 /**
@@ -19,21 +19,15 @@ use Redbox\Cli\Traits\KeyValueTrait;
  *
  * @package Redbox\Cli\Arguments
  *
- * @method addOption(string|null $name, ?string $prefix, int|null $options, string $description, string $default =null): 'Redbox\Cli\Arguments\Operation
+ * @method addOption(string|null $name, ?string $prefix, int|null $options, string $description, string $default): Redbox\Cli\Arguments\Operation
+ *
  *
  */
 class Arguments
 {
     use KeyValueTrait;
 
-    const DEFAULT_OPERATION = "default";
-
-    /**
-     * An array of arguments passed to the program.
-     *
-     * @var array<Argument> $arguments
-     */
-    // protected array $arguments = [];
+    public const DEFAULT_OPERATION = "default";
 
     /**
      * The app description.
@@ -60,16 +54,16 @@ class Arguments
     private Parser $parser;
 
     /**
-     * @var \Redbox\Cli\Output\Output
+     * @var \Redbox\Cli\Output\OutputBuffer
      */
-    private Output $output;
+    private OutputBuffer $outputBuffer;
 
     /**
      * Arguments constructor.
      *
      * @throws \Exception
      */
-    public function __construct(Output $output)
+    public function __construct(OutputBuffer $outputBuffer)
     {
 
         $this->registerOperation(self::DEFAULT_OPERATION,
@@ -77,7 +71,7 @@ class Arguments
 
         $this->parser = new Parser();
         $this->operation = $this->getOperation(self::DEFAULT_OPERATION);
-        $this->output = $output;
+        $this->outputBuffer = $outputBuffer;
     }
 
     /**
@@ -97,7 +91,7 @@ class Arguments
      * @param callable|null $callback An optional callback you can use to register options.
      * @param bool          $internal Flag for internal usage of this function
      *
-     * @return $this
+     * @return \Redbox\Cli\Arguments\Operation
      * @throws \Exception
      */
     public function registerOperation(string $name, callable|null $callback = null, bool $internal = false): Operation
@@ -150,12 +144,12 @@ class Arguments
         $command = $argv[0];
 
         if ($this->description !== '') {
-            $this->output->addLine("{$command} - {$this->description}");
+            $this->outputBuffer->addLine("{$command} - {$this->description}");
         } else {
-            $this->output->addLine($command);
+            $this->outputBuffer->addLine($command);
         }
 
-        $this->output
+        $this->outputBuffer
             ->addNewLine()
             ->addNewLine();
 
@@ -188,7 +182,8 @@ class Arguments
                     $longest['argument'] = max(strlen($option->usageInfo()), $longest['argument']);
                     $allOptions[] = $option;
                 }
-                $this->output
+
+                $this->outputBuffer
                     ->addLine($line)
                     ->addNewLine();
             }
@@ -196,7 +191,7 @@ class Arguments
             $longest['operation'] = max(strlen($name), $longest['operation']);
         }
 
-        $this->output
+        $this->outputBuffer
             ->addNewLine()
             ->addLine("Options:")
             ->addNewLine()
@@ -212,14 +207,14 @@ class Arguments
 
             $line = "{$command} {$name} {$usage}\t{$description}";
 
-            $this->output->addLine($line)
+            $this->outputBuffer->addLine($line)
                 ->addNewLine();
         }
 
-        $this->output
+        $this->outputBuffer
             ->addNewLine()
             ->addNewLine()
-            ->output();
+            ->show();
     }
 
     /**

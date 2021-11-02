@@ -13,19 +13,51 @@ namespace Redbox\Cli\Arguments;
 use JetBrains\PhpStorm\Immutable;
 
 /**
- * @class Redbox\Cli\Arguments\Operation
+ * @internal
  */
 #[Immutable]
 class Option
 {
+    /**
+     * Using this flag means the option
+     * is required.
+     */
     public const OPTION_REQUIRED = 0;
-    public const OPTION_OPTIONAL = 1;
-    public const OPTION_NOVALUE = 2;
 
+    /**
+     * Using this flag means this option
+     * is not required.
+     */
+    public const OPTION_OPTIONAL = 1;
+
+    /**
+     * Using this flag means the option has no
+     * default value and is used as initiator.
+     */
+    public const OPTION_NO_VALUE = 2;
+
+    /**
+     * The formatter for the line output.
+     *
+     * @see Option::usageLine()
+     */
     private const LINE_FMT = "%s\t\t%s\n";
 
+    /**
+     * The long prefix for this option.
+     *
+     * @var string
+     */
     public string $longPrefix = '';
 
+    /**
+     * @param \Redbox\Cli\Arguments\Operation $operation   The operation this option belongs to.
+     * @param string                          $name        The name of this option.
+     * @param string|null                     $prefix       The short prefix for this option.
+     * @param int|null                        $options     The option flags for this option.
+     * @param string                          $description The description for the usage output.
+     * @param string|null                     $default     The default value for this option.
+     */
     public function __construct(
         protected Operation $operation,
         public string       $name,
@@ -63,8 +95,9 @@ class Option
      *
      * @return bool
      */
-    public function isNoValue(): bool {
-        return ($this->options === self::OPTION_NOVALUE);
+    public function isNoValue(): bool
+    {
+        return ($this->options === self::OPTION_NO_VALUE);
     }
 
     /**

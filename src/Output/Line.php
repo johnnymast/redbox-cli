@@ -1,14 +1,45 @@
 <?php
+/*
+ * This file is part of Redbox-Cli
+ *
+ * (c) Johnny Mast <mastjohnny@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Redbox\Cli\Output;
 
+/**
+ * @internal
+ */
 class Line
 {
+    /**
+     * The reset style character.
+     */
     private const ESCAPE_CHARACTER = "\u{001b}";
 
-    protected string $message;
+    /**
+     * The content for the line.
+     *
+     * @var string
+     */
+    protected string $contents;
+
+    /**
+     * The style for this line.
+     *
+     * @var \Redbox\Cli\Output\Style
+     */
     protected Style $style;
 
+    /**
+     * Map foreground color names to
+     * their int values.
+     *
+     * @var array|int[]
+     */
     protected array $foreground_colors = [
         'black' => 30,
         'red' => 31,
@@ -21,6 +52,12 @@ class Line
         'reset' => 0,
     ];
 
+    /**
+     * Map background color names to
+     * their int values.
+     *
+     * @var array|int[]
+     */
     protected array $background_colors = [
         'black' => 40,
         'red' => 41,
@@ -33,7 +70,12 @@ class Line
         'reset' => 0,
     ];
 
-
+    /**
+     * Map font styles names to
+     * their int values.
+     *
+     * @var array|int[]
+     */
     protected array $font_styles = [
         'reset' => 0,
         'bold' => 1,
@@ -41,18 +83,21 @@ class Line
         'reversed' => 7,
     ];
 
-
     /**
-     * @param string                   $message
-     * @param \Redbox\Cli\Output\Style $style
+     * The Line constructor.
+     *
+     * @param string                   $contents The contents of the line.
+     * @param \Redbox\Cli\Output\Style $style    The style for this line.
      */
-    public function __construct(string $message, Style $style)
+    public function __construct(string $contents, Style $style)
     {
-        $this->message = $message;
+        $this->contents = $contents;
         $this->style = $style;
     }
 
     /**
+     * Render the output.
+     *
      * @return string
      */
     public function render(): string
@@ -66,13 +111,13 @@ class Line
 
         $style = match (true) {
             ($backgroundColor > 0 && $foregroundColor > 0) => sprintf("%s[%d;%dm", self::ESCAPE_CHARACTER, $foregroundColor, $backgroundColor),
-            ($backgroundColor == 0 && $foregroundColor > 0) => sprintf("%s[%dm", self::ESCAPE_CHARACTER, $foregroundColor),
+            ($backgroundColor === 0 && $foregroundColor > 0) => sprintf("%s[%dm", self::ESCAPE_CHARACTER, $foregroundColor),
             default => '',
         };
 
-        $output = "{$style}{$this->message}";
+        $output = "{$style}{$this->contents}";
 
-        if (strlen($style) > 0) {
+        if ($style !== '') {
             $output .= $reset;
         }
 
@@ -80,6 +125,8 @@ class Line
     }
 
     /**
+     * Return the style object.
+     *
      * @return \Redbox\Cli\Output\Style
      */
     public function getStyle(): Style

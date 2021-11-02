@@ -11,7 +11,7 @@
 namespace Redbox\Cli\Arguments;
 
 /**
- * @class Redbox\Cli\Arguments\Parser;
+ * @internal
  */
 class Parser
 {
@@ -76,7 +76,6 @@ class Parser
 
                     $operation->set($name, $value);
                 } else if ($option->hasDefault()) {
-//                        $this->manager->setHasDefaultValue($name, true);
 
                     $results[$option->name] = $option->getDefaultValue();
                     $operation->set($name, $option->getDefaultValue());

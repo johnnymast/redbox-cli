@@ -1,25 +1,36 @@
 <?php
+/*
+ * This file is part of Redbox-Cli
+ *
+ * (c) Johnny Mast <mastjohnny@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Redbox\Cli\Styling;
 
 use Redbox\Cli\Attributes\ColorRoute;
 use Redbox\Cli\Attributes\Route;
-use Redbox\Cli\Output\Output;
+use Redbox\Cli\Output\OutputBuffer;
 
+/**
+ * @internal
+ */
 class Colors
 {
 
-    private function _complete(Output $output, string $str = ''): Output
+    private function _complete(OutputBuffer $output, string $str = ''): OutputBuffer
     {
-        if (strlen($str) > 0) {
+        if ($str !== '') {
             $output->addLine($str);
-            $output->output();
+            $output->show();
         }
         return $output;
     }
 
     #[Route('reset')]
-    public function reset(Output $output)
+    public function reset(OutputBuffer $output): OutputBuffer
     {
         $output->getStyle()->reset();
         return $this->_complete($output);
@@ -29,7 +40,7 @@ class Colors
         ColorRoute('black', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('blackBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function black(Output $output, ColorRoute $info, string $string = ''): Output
+    public function black(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {
             $output->getStyle()->setForegroundColor('black');
@@ -43,7 +54,7 @@ class Colors
         ColorRoute('red', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('redBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function red(Output $output, ColorRoute $info, string $string = ''): Output
+    public function red(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {
             $output->getStyle()->setForegroundColor('red');
@@ -57,7 +68,7 @@ class Colors
         ColorRoute('green', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('greenBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function green(Output $output, ColorRoute $info, string $string = ''): Output
+    public function green(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {
             $output->getStyle()->setForegroundColor('green');
@@ -71,7 +82,7 @@ class Colors
         ColorRoute('yellow', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('yellowBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function yellow(Output $output, ColorRoute $info, string $string = ''): Output
+    public function yellow(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {
             $output->getStyle()->setForegroundColor('yellow');
@@ -85,7 +96,7 @@ class Colors
         ColorRoute('blue', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('blueBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function blue(Output $output, ColorRoute $info, string $string = ''): Output
+    public function blue(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {
             $output->getStyle()->setForegroundColor('blue');
@@ -99,7 +110,7 @@ class Colors
         ColorRoute('magenta', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('magentaBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function magenta(Output $output, ColorRoute $info, string $string = ''): Output
+    public function magenta(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {
             $output->getStyle()->setForegroundColor('magenta');
@@ -113,7 +124,7 @@ class Colors
         ColorRoute('cyan', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('cyanBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function cyan(Output $output, ColorRoute $info, string $string = ''): Output
+    public function cyan(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {
             $output->getStyle()->setForegroundColor('cyan');
@@ -127,7 +138,7 @@ class Colors
         ColorRoute('white', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('whiteBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
     ]
-    public function white(Output $output, ColorRoute $info, string $string = ''): Output
+    public function white(OutputBuffer $output, ColorRoute $info, string $string = ''): OutputBuffer
     {
 
         if ($info->getType() === ColorRoute::COLOR_TYPE_FOREGROUND) {

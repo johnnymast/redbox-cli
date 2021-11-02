@@ -48,7 +48,7 @@ class Router
      * @return void
      * @throws \ReflectionException
      */
-    public function addRoute(string|object $route)
+    public function addRoute(string|object $route): void
     {
         $this->resolveMethods($route);
     }
@@ -61,7 +61,7 @@ class Router
      * @return void
      * @throws \ReflectionException
      */
-    public function addManyRoutes(array $routes)
+    public function addManyRoutes(array $routes): void
     {
         foreach ($routes as $route) {
             $this->addRoute($route);
@@ -115,7 +115,7 @@ class Router
         if ($this->hasRoute($route)) {
             $route = $this->getRoute($route);
 
-            call_user_func_array($route['callable'], [$this->cli->getOutput(), $route['info'], ...$arguments]);
+            call_user_func($route['callable'], $this->cli->getOutput(), $route['info'], ...$arguments);
         }
 
         return $this->cli;

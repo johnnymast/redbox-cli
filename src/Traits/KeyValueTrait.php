@@ -11,6 +11,7 @@
 namespace Redbox\Cli\Traits;
 
 /**
+ * @internal
  * @trait Redbox\Cli\traits\KeyValueTrait
  */
 trait KeyValueTrait
@@ -29,7 +30,7 @@ trait KeyValueTrait
      * @param string $key   The key for the value.
      * @param mixed  $value The value itself.
      */
-    public function set(string $key, mixed $value)
+    public function set(string $key, mixed $value): void
     {
         $this->items[$key] = $value;
     }
@@ -69,7 +70,8 @@ trait KeyValueTrait
      *
      * @return bool
      */
-    public function remove(string $key): bool {
+    public function remove(string $key): bool
+    {
         if ($this->has($key)) {
             unset($this->items[$key]);
             return true;
