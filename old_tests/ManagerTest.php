@@ -6,23 +6,23 @@ use Redbox\Cli\Arguments;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @@coversDefaultClass  \Redbox\Cli\Arguments\Manager
+ * @@coversDefaultClass  \Redbox\Cli\Arguments\Arguments
  */
 class ManagerTest extends TestCase
 {
     
     /**
-     * @var Arguments\Manager
+     * @var Arguments\Arguments
      */
     private $manager;
     
     protected function setUp(): void
     {
-        $this->manager = new Arguments\Manager();
+        $this->manager = new Arguments\Arguments();
     }
     
     /**
-     * Test if a value being set is retrievable via \Redbox\Cli\Arguments\Manager::get
+     * Test if a value being set is retrievable via \Redbox\Cli\Arguments\Arguments::get
      */
     public function test_if_get_returns_the_same_as_been_set()
     {
@@ -55,7 +55,7 @@ class ManagerTest extends TestCase
     }
     
     /**
-     * This test will ensure that \Redbox\Cli\Arguments\Manager::get returns false
+     * This test will ensure that \Redbox\Cli\Arguments\Arguments::get returns false
      * if an argument is unknown (or not parsed).
      */
     public function test_if_get_returns_false_on_unknown_argument()

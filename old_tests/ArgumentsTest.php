@@ -169,7 +169,7 @@ class ArgumentsTest extends TestCase
     
     /**
      * This test will ensure that a default value will be set even if it was not passed to the
-     * commandline and that Redbox\Cli\Arguments\Arguments\Manager::hasDefaultValue will inform us that the default value has been set.
+     * commandline and that Redbox\Cli\Arguments\Arguments\Arguments::hasDefaultValue will inform us that the default value has been set.
      */
     public function test_if_default_value_isset_when_no_argument_is_passed()
     {

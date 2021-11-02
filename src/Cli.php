@@ -17,7 +17,8 @@
 
 namespace Redbox\Cli;
 
-use Redbox\Cli\Arguments\Manager as ArgumentManager;
+use JetBrains\PhpStorm\Pure;
+use Redbox\Cli\Arguments\Arguments;
 use Redbox\Cli\Output\Output;
 use Redbox\Cli\Styling\Colors;
 use Redbox\Cli\Terminal\Box;
@@ -25,6 +26,7 @@ use Redbox\Cli\Terminal\Progress;
 use Redbox\Cli\Terminal\ProgressBar;
 use Redbox\Cli\Terminal\Table;
 
+#[Pure]
 /**
  * The main class.
  * @method reset()
@@ -32,11 +34,11 @@ use Redbox\Cli\Terminal\Table;
 class Cli
 {
     /**
-     * An instance of the Argument Manager class
+     * An instance of the Argument Arguments class
      *
-     * @var \Redbox\Cli\Arguments\Manager
+     * @var \Redbox\Cli\Arguments\Arguments
      */
-    public ArgumentManager $argumentManager;
+    public Arguments $arguments;
 
     /**
      * This is the output buffer.
@@ -54,7 +56,9 @@ class Cli
 
     public function __construct()
     {
-        $this->setArgumentManager(new ArgumentManager());
+
+        $this->arguments = new Arguments(new Output());
+
         $this->router = new Router($this);
         $this->router->addManyRoutes(
             [
@@ -67,27 +71,18 @@ class Cli
         );
 
         $this->output = new Output();
+
     }
 
-    /**
-     * Set the manager for handling arguments
-     *
-     * @param \Redbox\Cli\Arguments\Manager $manager
-     */
-    public function setArgumentManager(ArgumentManager $manager)
+    // NEw
+
+    public function setDescription(string $description): Cli
     {
-        $this->argumentManager = $manager;
+        $this->arguments->setDescription($description);
+        return $this;
     }
 
-    /**
-     * Return the argument manager.
-     *
-     * @return \Redbox\Cli\Arguments\Manager
-     */
-    public function getArgumentManager(): ArgumentManager
-    {
-        return $this->argumentManager;
-    }
+    // eof new
 
     /**
      * Return the output renderer.
