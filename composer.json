@@ -24,6 +24,9 @@
       "role": "lead"
     }
   ],
+  "scripts": {
+    "test": "pest"
+  },
   "require": {
     "php": "^8.0"
   },
