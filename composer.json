@@ -43,8 +43,5 @@
     "psr-4": {
       "Redbox\\Cli\\Tests\\": "tests/"
     }
-  },
-  "scripts": {
-    "test": "phpunit"
   }
 }
