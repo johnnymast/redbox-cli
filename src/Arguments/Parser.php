@@ -57,6 +57,7 @@ class Parser
      */
     public function parse(array $operations): void
     {
+
         foreach ($operations as $operation) {
 
             if ($operation->hasOptions() === false) {
@@ -68,19 +69,22 @@ class Parser
 
             $options = $operation->getOptions();
 
+
             foreach ($options as /* @var Option */ $option) {
                 $name = $option->name;
 
                 if (isset($results[$option->prefix]) || isset($results[$option->longPrefix])) {
-                    $value = $results[$option->prefix] ?? $results[$option->longPrefix];
 
+                    $value = $results[$option->prefix] ?? $results[$option->longPrefix];
                     $operation->set($name, $value);
-                } else if ($option->hasDefault()) {
+
+                } else if ($option->hasDefaultValue()) {
 
                     $results[$option->name] = $option->getDefaultValue();
                     $operation->set($name, $option->getDefaultValue());
 
                 } else if ($option->isRequired() === true) {
+
                     throw new \Exception(
                         'The following options are required: '
                         . print_r($option->name, true) . '.'

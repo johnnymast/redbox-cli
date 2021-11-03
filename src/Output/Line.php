@@ -18,7 +18,7 @@ class Line
     /**
      * The reset style character.
      */
-    private const ESCAPE_CHARACTER = "\u{001b}";
+    public const ESCAPE_CHARACTER = "\u{001b}";
 
     /**
      * The content for the line.
@@ -109,8 +109,9 @@ class Line
 
         $reset = sprintf("%s[%dm ", self::ESCAPE_CHARACTER, 0);
 
+
         $style = match (true) {
-            ($backgroundColor > 0 && $foregroundColor > 0) => sprintf("%s[%d;%dm", self::ESCAPE_CHARACTER, $foregroundColor, $backgroundColor),
+            ($backgroundColor > 0) => sprintf("%s[%d;%dm", self::ESCAPE_CHARACTER, $foregroundColor, $backgroundColor),
             ($backgroundColor === 0 && $foregroundColor > 0) => sprintf("%s[%dm", self::ESCAPE_CHARACTER, $foregroundColor),
             default => '',
         };
@@ -121,7 +122,16 @@ class Line
             $output .= $reset;
         }
 
-        return $output;
+        return trim($output);
+    }
+
+    /**
+     * Return the line contents.
+     *
+     * @return string
+     */
+    public function getContents(): string {
+        return $this->contents;
     }
 
     /**

@@ -47,13 +47,23 @@ class OutputBuffer
     }
 
     /**
+     * Return the lines in the output buffer.
+     *
+     * @return array|\Redbox\Cli\Output\Buffer
+     */
+    public function getLines(): array
+    {
+        return (array)$this->container;
+    }
+
+    /**
      * Add a single line.
      *
-     * @param mixed $line The line to add to the output buffer.
+     * @param string $line The line to add to the output buffer.
      *
      * @return $this
      */
-    public function addLine(mixed $line): OutputBuffer
+    public function addLine(string $line): OutputBuffer
     {
         $line = new Line($line, $this->style->withStyle($this->style));
 

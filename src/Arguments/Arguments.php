@@ -11,7 +11,6 @@
 namespace Redbox\Cli\Arguments;
 
 use Redbox\Cli\Output\OutputBuffer;
-use Redbox\Cli\Traits\KeyValueTrait;
 
 /**
  * The manager class is the main interface for interacting
@@ -25,7 +24,6 @@ use Redbox\Cli\Traits\KeyValueTrait;
  */
 class Arguments
 {
-    use KeyValueTrait;
 
     public const DEFAULT_OPERATION = "default";
 

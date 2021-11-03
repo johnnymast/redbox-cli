@@ -122,9 +122,9 @@ class Option
      *
      * @return bool
      */
-    public function hasDefault(): bool
+    public function hasDefaultValue(): bool
     {
-        return ($this->default and $this->default !== '');
+        return ($this->default and $this->default !== null);
     }
 
     /**

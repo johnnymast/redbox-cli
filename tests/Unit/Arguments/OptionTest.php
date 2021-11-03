@@ -173,11 +173,11 @@ test("Should know if option has a default value.", function () {
     );
 
     $expected = true;
-    $actual = $option1->hasDefault();
+    $actual = $option1->hasDefaultValue();
     $this->assertEquals($actual, $expected);
 
     $expected = false;
-    $actual = $option2->hasDefault();
+    $actual = $option2->hasDefaultValue();
     $this->assertEquals($actual, $expected);
 });
 

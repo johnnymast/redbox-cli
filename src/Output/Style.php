@@ -13,6 +13,12 @@ namespace Redbox\Cli\Output;
 /**
  * @method setForegroundColor(string $color);
  * @method setBackgroundColor(string $color);
+ * @method setFontStyle(string $style);
+ *
+ * @method getForegroundColor();
+ * @method getBackgroundColor();
+ * @method getFontStyle();
+ *
  *
  * @internal
  */
