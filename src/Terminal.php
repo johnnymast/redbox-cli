@@ -10,7 +10,7 @@
 
 namespace Redbox\Cli;
 
-use Redbox\Cli\Attributes\Route;
+use Redbox\Cli\Router\Attributes\Route;
 use Redbox\Cli\Output\Line;
 use Redbox\Cli\Router\Router;
 

@@ -13,6 +13,7 @@ namespace Redbox\Cli;
 use JetBrains\PhpStorm\Pure;
 use Redbox\Cli\Arguments\Arguments;
 use Redbox\Cli\Output\OutputBuffer;
+use Redbox\Cli\Router\Router;
 use Redbox\Cli\Styling\Colors;
 use Redbox\Cli\Terminal\Box;
 use Redbox\Cli\Terminal\ProgressBar;
@@ -42,7 +43,7 @@ class Cli
     /**
      * The router.
      *
-     * @var \Redbox\Cli\Router
+     * @var \Redbox\Cli\Router\Router
      */
     protected Router $router;
 

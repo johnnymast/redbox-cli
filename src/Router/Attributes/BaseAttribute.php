@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Redbox\Cli\Attributes;
+namespace Redbox\Cli\Router\Attributes;
 
 use Attribute;
 
@@ -16,7 +16,7 @@ use Attribute;
  * @internal
  */
 #[Attribute]
-class Route extends BaseAttribute
+class BaseAttribute
 {
     /**
      * The name of the method.

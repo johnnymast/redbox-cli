@@ -10,7 +10,7 @@
 
 namespace Redbox\Cli\Terminal;
 
-use Redbox\Cli\Attributes\Route;
+use Redbox\Cli\Router\Attributes\Route;
 use Redbox\Cli\Output\OutputBuffer;
 
 /**
@@ -22,9 +22,9 @@ class Table
     /**
      * Output a table to the screen.
      *
-     * @param \Redbox\Cli\Output\OutputBuffer $outputBuffer The output buffer to write to.
-     * @param \Redbox\Cli\Attributes\Route    $route        The current route.
-     * @param array                           $data         Information for the table.
+     * @param \Redbox\Cli\Output\OutputBuffer     $outputBuffer The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\Route $route        The current route.
+     * @param array                               $data         Information for the table.
      *
      * @throws \Exception
      */

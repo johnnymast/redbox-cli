@@ -16,8 +16,9 @@
  * @since    1.5
  */
 
-namespace Redbox\Cli;
+namespace Redbox\Cli\Router;
 
+use Redbox\Cli\Cli;
 use ReflectionClass;
 
 /**
@@ -115,7 +116,7 @@ class Router
         if ($this->hasRoute($route)) {
             $route = $this->getRoute($route);
 
-            call_user_func($route['callable'], $this->cli->getOutput(), $route['info'], ...$arguments);
+            call_user_func($route['callable'], $this->cli->getOutputBuffer(), $route['info'], ...$arguments);
         }
 
         return $this->cli;

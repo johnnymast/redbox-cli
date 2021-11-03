@@ -23,7 +23,6 @@ trait KeyValueTrait
      */
     protected array $items = [];
 
-
     /**
      * Set the value for a key.
      *

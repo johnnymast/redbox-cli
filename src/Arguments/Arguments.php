@@ -19,7 +19,7 @@ use Redbox\Cli\Traits\KeyValueTrait;
  *
  * @package Redbox\Cli\Arguments
  *
- * @method addOption(string|null $name, ?string $prefix, int|null $options, string $description, string $default): Redbox\Cli\Arguments\Operation
+ * @method addOption(string|null $name, ?string $prefix, int|null $options, string $description, string $default = null): Redbox\Cli\Arguments\Operation
  *
  *
  */

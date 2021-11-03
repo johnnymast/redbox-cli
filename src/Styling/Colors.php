@@ -10,8 +10,8 @@
 
 namespace Redbox\Cli\Styling;
 
-use Redbox\Cli\Attributes\ColorRoute;
-use Redbox\Cli\Attributes\Route;
+use Redbox\Cli\Router\Attributes\ColorRoute;
+use Redbox\Cli\Router\Attributes\Route;
 use Redbox\Cli\Output\OutputBuffer;
 
 /**

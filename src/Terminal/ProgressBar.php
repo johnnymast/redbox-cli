@@ -10,7 +10,7 @@
 
 namespace Redbox\Cli\Terminal;
 
-use Redbox\Cli\Attributes\Route;
+use Redbox\Cli\Router\Attributes\Route;
 use Redbox\Cli\Output\OutputBuffer;
 
 /**
@@ -26,10 +26,10 @@ class ProgressBar
     /**
      * Render a progressbar to the screen.
      *
-     * @param \Redbox\Cli\Output\OutputBuffer $outputBuffer The output buffer to write to.
-     * @param \Redbox\Cli\Attributes\Route    $route        The current route.
-     * @param int                             $at           The current progression.
-     * @param int                             $of           The max percentage.
+     * @param \Redbox\Cli\Output\OutputBuffer     $outputBuffer The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\Route $route        The current route.
+     * @param int                                 $at           The current progression.
+     * @param int                                 $of           The max percentage.
      *
      * @return void
      */

@@ -10,7 +10,7 @@
 
 namespace Redbox\Cli\Terminal;
 
-use Redbox\Cli\Attributes\Route;
+use Redbox\Cli\Router\Attributes\Route;
 use Redbox\Cli\Output\OutputBuffer;
 
 /**
@@ -22,13 +22,13 @@ class Box
     /**
      * Draw a box in the terminal.
      *
-     * @param \Redbox\Cli\Output\OutputBuffer $outputBuffer The output buffer to write to.
-     * @param \Redbox\Cli\Attributes\Route    $route        The route object.
-     * @param int                             $padding      The box padding.
-     * @param int                             $width        The box width.
-     * @param string                          $content      The box content.
-     * @param string                          $char         The box writing char '#' by default.
-     * @param string                          $align        The content alignment string left/right or center.
+     * @param \Redbox\Cli\Output\OutputBuffer     $outputBuffer The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\Route $route        The route object.
+     * @param int                                 $padding      The box padding.
+     * @param int                                 $width        The box width.
+     * @param string                              $content      The box content.
+     * @param string                              $char         The box writing char '#' by default.
+     * @param string                              $align        The content alignment string left/right or center.
      *
      * @return void
      */
