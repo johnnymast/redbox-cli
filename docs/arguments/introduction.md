@@ -25,7 +25,7 @@ $cli->arguments->addOption(
 ```
 The code above will add an optional option. 
 
-### Option types
+### Option flags
 
 You can use the following options to make your options optional/required or a flag by using the no value type.
 
