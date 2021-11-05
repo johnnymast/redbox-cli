@@ -10,7 +10,8 @@ markdown_extensions:
   - toc:
       permalink: true
 nav:
-  - About: index.md
+  - Home: index.md
+  - About:
     - License: license.md
     - Author: author.md
   - Abouting: about.md
