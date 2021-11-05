@@ -1,5 +1,8 @@
 # Introduction
 
+The whole concepts of arguments are divided in two subjects ***options*** and ***operations***. 
+Where operations could be custom actions like **login** or **download** they are not mandatory to add options to your project.
+
 ## Adding options
 
 ```php 
