@@ -115,12 +115,8 @@ $cli->arguments->addOption(
 
 $cli->arguments->usage();
 ```
+Outputs something like the following:
 
-???+ note "You can add an optional description to your application."
-
-    Use ```<?php $cli->setDescription("Description here");``` to add the application description to use usage output.
-
-### Outputs
 ```bash
 
  usage.php - Showcase of the usage function.
@@ -131,3 +127,8 @@ $cli->arguments->usage();
 
  usage.php default -u, --User=User       Username to log in with.
 ```
+
+
+???+ note "You can add an optional description to your application."
+
+    Use ```<?php $cli->setDescription("Description here");``` to add the application description to use usage output.
