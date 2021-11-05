@@ -7,8 +7,15 @@ theme:
   name: material
 docs_dir: docs/
 markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
   - toc:
       permalink: true
+
+  features:
+    - content.code.annotate
 nav:
   - Introduction: index.md
   - Installation: installation.md
