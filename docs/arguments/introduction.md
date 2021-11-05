@@ -42,7 +42,12 @@ You can use the following option flags to make your options optional/required or
 :   Using this flag means the option has no default value and is used as initiator.
 
 
-## Getting the input from the command line 
+## Reading input
+
+In the example below we added the user parameter as described above. But we also 
+add the parse function that allows the package to parse what was passed to the application
+via the command line. The second call we added was to the get() function that allows you 
+to read the value of the command line option.
 
 ```php 
 <?php
