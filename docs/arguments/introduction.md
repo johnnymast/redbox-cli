@@ -1,5 +1,22 @@
 # Introduction
 
+## Adding basic options
+
+```php 
+<?php
+
+use Redbox\Cli\Arguments\Option;
+use Redbox\Cli\Cli;
+
+$cli = new Cli;
+
+$cli->arguments->addOption(
+    'user',
+    'u',
+    Option::OPTION_OPTIONAL,
+    "Username to log in with.");
+
+```
 
 ## Displaying the usage screen
 
