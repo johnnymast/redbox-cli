@@ -1,6 +1,6 @@
 # Introduction
 
-## Adding basic options
+## Adding options
 
 ```php 
 <?php
