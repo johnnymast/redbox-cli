@@ -1,8 +1,12 @@
 ## 1.5
 
 - Upgraded supported php version to 8.0 and up.
+- Redesigned the adding of new options.
+- Added documentation
+- Added operations
+- Cleaned up the code.
 
-## 1.4 
+## 1.4 2021-09-05
 
 * moved the ci from www.travis-ci.org to www.travis-ci.com
 
