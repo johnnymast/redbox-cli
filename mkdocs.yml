@@ -11,5 +11,6 @@ markdown_extensions:
       permalink: true
 nav:
   - About: index.md
+    - License: license.md
   - Abouting: about.md
   - Test: test.md
