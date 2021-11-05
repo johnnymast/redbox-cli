@@ -11,6 +11,8 @@ markdown_extensions:
       permalink: true
 nav:
   - Home: index.md
+  - Arguments:
+      -
   - About:
     - License: license.md
     - Author: author.md
