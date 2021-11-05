@@ -6,14 +6,14 @@ repo_url: 'https://github.com/johnnymast/redbox-cli/tree/1.5'
 theme:
   name: material
 docs_dir: docs/
-markdown_extensions:
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.superfences
-  - pymdownx.snippets
-  - toc:
-      permalink: true
 
+markdown_extensions:
+    - pymdownx.highlight
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.snippets
+    - toc:
+      permalink: true
   features:
     - content.code.annotate
 nav:
