@@ -1,7 +1,9 @@
 # Introduction
 
 The whole concepts of arguments are divided in two subjects ***options*** and ***operations***. 
-Where operations could be custom actions like **login** or **download** they are not mandatory to add options to your project.
+Where operations could be custom actions like **login** or **download** they are not mandatory to add options to your application.
+
+Let's start easy by just adding to your application.
 
 ## Adding options
 
@@ -17,9 +19,22 @@ $cli->arguments->addOption(
     'user',
     'u',
     Option::OPTION_OPTIONAL,
-    "Username to log in with.");
+    "Username to log in with."
+);
 
 ```
+
+### Option types
+
+<dl>Option::OPTION_REQUIRED</dl>
+<dd>Using this flag means the option is required.</dd>
+
+<dl>Option::OPTION_OPTIONAL</dl>
+<dd>Using this flag means this option is not required.</dd>
+
+<dl>Option::OPTION_NO_VALUE</dl>
+<dd>Using this flag means the option has no default value and is used as initiator.</dd>
+
 
 ## Displaying the usage screen
 
@@ -44,7 +59,8 @@ $cli->arguments->addOption(
     'user',
     'u',
     Option::OPTION_OPTIONAL,
-    "Username to log in with.");
+    "Username to log in with."
+);
 
 $cli->arguments->usage();
 ```
