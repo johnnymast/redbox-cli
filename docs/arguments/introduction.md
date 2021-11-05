@@ -120,7 +120,7 @@ Note about setDiscription
 
 ???+ note "You can add an optional description to your application."
 
-    User ```<?php $cli->setDescription("Description here"); ``` to add the application description to use usage output.
+    User ```php <?php $cli->setDescription("Description here"); ``` to add the application description to use usage output.
 
 ### Outputs
 ```bash
