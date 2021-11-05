@@ -8,38 +8,44 @@
 # redbox-cli
 This is a command line parser based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). We share a lot of similarities but i desided to take the getopt route and downgrade the number of lines in the code by 1/4 of the original size.
 
-## Documentation
+### Documentation
 
 For detailed documentation of the project you can visit the [documentation page](https://johnnymast.github.io/redbox-cli/).
 
-## Installation
+### Installation
 
 Using [composer](https://packagist.org/packages/redbox/cli):
 
 ```bash
 $ composer require redbox-cli
 ```
-## Requirements
+### Requirements
 
 The following versions of PHP are supported by this version.
 
 + PHP >= 8.0
 
-## Unit Testing
+### Unit Testing
 
 If you wish to run any tests on this package you can run:
 
 ```bash
 $ ./vendor/bin/pest
 ```
-  
-  
-## Author
 
-This package is created and maintained by [Johnny Mast](https://github.com/johnnymast) but it was based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). For feature requests and suggestions
-you could consider e-mailing me or fill out an [issue](https://github.com/johnnymast/redbox-cli/issues).
+or 
 
-# The MIT License (MIT)
+```bash
+$ ./vendor/bin/phpunit
+```
+
+  
+### Author
+
+This package is created and maintained by Johnny Mast. For feature requests and suggestions
+you could consider [e-mailing me](mailto:mastjohnny@gmail.com) or fill out an [issue](https://github.com/johnnymast/redbox-cli/issues).
+
+### The MIT License (MIT)
 
 Copyright (c) 2020 Johnny Mast <mastjohnny@gmail.com>
 
