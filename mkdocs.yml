@@ -27,7 +27,7 @@ nav:
       - "Usage screen": arguments/usage.md
       - "Argument types": arguments/argument_types.md
   - About:
-    - License: license.md
     - Author: author.md
+    - License: license.md
   - Abouting: about.md
   - Test: test.md
