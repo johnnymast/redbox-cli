@@ -5,7 +5,7 @@ Where operations could be custom actions like **login** or **download** they are
 
 ???+ note "Operations"
 
-    If you wish to learn more about operations [follow this link]().
+    If you wish to learn more about operations [follow this link](/redbox-cli/arguments/operations).
 
 
 Let's start easy by just adding to your application.
