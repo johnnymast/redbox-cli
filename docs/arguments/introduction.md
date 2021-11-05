@@ -26,6 +26,8 @@ $cli->arguments->addOption(
 
 ### Option types
 
+You can use the following options to make your options optional/required or a flag by using the OPTION_NO_VALUE type.
+
 <dl>Option::OPTION_REQUIRED</dl>
 <dd>Using this flag means the option is required.</dd>
 
