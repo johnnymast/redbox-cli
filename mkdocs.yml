@@ -7,8 +7,14 @@ theme:
   name: material
 docs_dir: docs/
 markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+
+markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
+  - pymdownx.details
+  - admonition
   - pymdownx.superfences
   - pymdownx.snippets
   - toc:
