@@ -10,5 +10,4 @@ markdown_extensions:
       permalink: true
 nav:
   - About: index.md
-  - Getting Started: getting-started.md
-  - Concepts: concepts.md
+  - Test: test.md
