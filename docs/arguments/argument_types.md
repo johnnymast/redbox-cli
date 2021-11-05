@@ -20,6 +20,7 @@ def bubble_sort(items):
 ```
 
 ```php
+<?php
 phpinfo();
 ```
 
