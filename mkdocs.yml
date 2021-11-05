@@ -1,9 +1,8 @@
 site_name: Redbox-cli
 site_url: "https://johnnymast.github.io/redbox-cli/"
-site_description: This is a command line parser
-repo_name: johnnymast/redbox-cli
-repo_url: https://github.com/johnnymast/redbox-cli
-use_directory_urls: false
+site_description: 'This is a command line parser'
+repo_name: 'johnnymast/redbox-cli'
+repo_url: 'https://github.com/johnnymast/redbox-cli'
 theme:
   name: material
 docs_dir: docs/
