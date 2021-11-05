@@ -7,7 +7,7 @@ This package is available via composer:
 composer require redbox/cli
 ```
 
-???+ note "Be aware of the requirements"
+???+ warning "Be aware of the requirements"
 
     Redbox-cli requires PHP version 8.0 or above.
 
