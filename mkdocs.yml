@@ -17,6 +17,7 @@ markdown_extensions:
   - admonition
   - pymdownx.superfences
   - pymdownx.snippets
+  - def_list
   - toc:
       permalink: true
 nav:
