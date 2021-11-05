@@ -17,6 +17,7 @@ nav:
   - Introduction: index.md
   - Installation: installation.md
   - Arguments:
+      - "Introduction": arguments/introduction.md
       - "Usage screen": arguments/usage.md
       - "Argument types": arguments/argument_types.md
   - About:
