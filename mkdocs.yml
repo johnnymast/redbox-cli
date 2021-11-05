@@ -12,7 +12,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Arguments:
-      -
+      - "Usage screen": arguments/usage.md
+      - "Argument types": arguments/argument_types.md
   - About:
     - License: license.md
     - Author: author.md

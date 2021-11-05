@@ -9,9 +9,9 @@
 This is a command line parser based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). We share a lot of similarities but i desided to take the getopt route and downgrade the number of lines in the code by 1/4 of the original size.
 
 
-## Howto use the package
-Look in the examples folder for basic [examples](examples) of how to use the package.
+## Documentation
 
+For detailed documentation of the project you can visit the [documentation page](https://johnnymast.github.io/redbox-cli/).
 ## Installation
 
 Using [composer](https://packagist.org/packages/redbox/cli):
@@ -23,7 +23,7 @@ $ composer require redbox-cli
 
 The following versions of PHP are supported by this version.
 
-+ PHP >= 5.4
++ PHP >= 8.0
 
 ## Unit Testing
 
@@ -31,18 +31,6 @@ With the new 1.2 release we increased the test ratio from 64% in previous versio
 of Redbox-cli will run like a sunshine with any of your projects. If you want a little of what our new tests cover that was not possible before, checkout our [examples](examples) directory for some great examples on how to use this great package.
 
 
-
-## Author
-
-This package is created and maintained by [Johnny Mast](https://github.com/johnnymast) but it was based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). For feature requests and suggestions
-you could consider e-mailing me or fill out an [issue](https://github.com/johnnymast/redbox-cli/issues).
-
-## License
-
-Redbox-cli is released under the MIT public license.
-
-[LICENSE](LICENSE.md)
- 
 ## Github
 
 Project source code is [hosted on GitHub](https://github.com/johnnymast/redbox-cli).
