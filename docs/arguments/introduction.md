@@ -27,7 +27,7 @@ The code above will add an optional option.
 
 ### Option flags
 
-You can use the following options to make your options optional/required or a flag by using the no value type.
+You can use the following option flags to make your options optional/required or a flag by using the no value type.
 
 `Option::OPTION_REQUIRED`
 
@@ -42,9 +42,44 @@ You can use the following options to make your options optional/required or a fl
 :   Using this flag means the option has no default value and is used as initiator.
 
 
+## Getting the input from the command line 
+
+```php 
+<?php
+
+/**
+ * Run this example with argument -u=johnny
+ */
+use Redbox\Cli\Arguments\Option;
+use Redbox\Cli\Cli;
+
+$cli = new Cli;
+
+/**
+ * This is optional.
+ */
+$cli->setDescription("Showcase of the usage function.");
+
+/**
+ * Add an option that we can show.
+ */
+$cli->arguments->addOption(
+    'user',
+    'u',
+    Option::OPTION_OPTIONAL,
+    "Username to log in with.");
+
+$cli->arguments->parse();
+$user = $cli->arguments->get("user");
+
+echo "You provided username {$user}\n";
+
+
+```
 
 ## Displaying the usage screen
-
+ 
+Note about setDiscription
 ```php 
 <?php
 
