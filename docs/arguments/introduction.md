@@ -132,4 +132,50 @@ Outputs something like the following:
  usage.php default -u, --User=User       Username to log in with.
 ```
 
+## Required options
 
+When options are required but not passed to the application you might want to
+show the users of your application the usage screen. This task is easy to accomplish as the package throws an Exception when a user fails to provide 
+the value for a required argument. 
+
+So putting this all together we end up with the following code.
+
+
+```php 
+<?php
+
+/**
+ * Run this example without any arguments.
+ */
+use Redbox\Cli\Arguments\Option;
+use Redbox\Cli\Cli;
+
+$cli = new Cli;
+
+try {
+
+    /**
+     * This is optional.
+     */
+    $cli->setDescription("Showcase of required arguments.");
+
+    /**
+     * Add an option that we can show.
+     */
+    $cli->arguments->addOption(
+        'user',
+        'u',
+        Option::OPTION_REQUIRED,
+        "Username to log in with.");
+
+    $cli->arguments->parse();
+
+    $user = $cli->arguments->get('user');
+
+    echo "You provided username {$user}\n";
+
+} catch (\Exception) {
+    $cli->arguments->usage();
+}
+
+```
