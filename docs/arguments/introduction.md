@@ -166,7 +166,8 @@ try {
         'user',
         'u',
         Option::OPTION_REQUIRED,
-        "Username to log in with.");
+        "Username to log in with."
+     );
 
     $cli->arguments->parse();
 
@@ -179,3 +180,5 @@ try {
 }
 
 ```
+
+If you run this example without any arguments an Exception will be thrown and the usage screen will be shown to the user of your application.
