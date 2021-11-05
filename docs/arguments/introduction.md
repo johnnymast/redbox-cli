@@ -19,7 +19,8 @@ $cli->arguments->addOption(
     'user',
     'u',
     Option::OPTION_OPTIONAL,
-    "Username to log in with."
+    "Username to log in with.",
+    "Default value here"
 );
 
 ```
