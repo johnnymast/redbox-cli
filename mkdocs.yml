@@ -1,5 +1,14 @@
 site_name: Redbox-cli
-theme: material
+site_description: This is a command line parser
+repo_name: johnnymast/redbox-cli
+repo_url: https://github.com/johnnymast/redbox-cli
+theme:
+  name: material
+docs_dir: docs/
+markdown_extensions:
+  - toc:
+      permalink: true
 nav:
-  - Home: index.md
-  - About: about.md
+  - About: index.md
+  - Getting Started: getting-started.md
+  - Concepts: concepts.md
