@@ -45,7 +45,7 @@ You can use the following option flags to make your options optional/required or
 ## Reading input
 
 In the example below we added the user parameter as described above. But we also 
-add the parse function that allows the package to parse what was passed to the application
+add the parse() function that allows the package to parse what was passed to the application
 via the command line. The second call we added was to the get() function that allows you 
 to read the value of the command line option.
 
@@ -82,9 +82,13 @@ echo "You provided username {$user}\n";
 
 ```
 
-## Displaying the usage screen
- 
-Note about setDiscription
+## Usage screen
+
+When it comes to command line arguments you also might want to show the available 
+options to the users of your applications. Redbox-cli has a build in function to do 
+just that. You can use the usage() function to show the available options like so:
+
+
 ```php 
 <?php
 
@@ -111,6 +115,12 @@ $cli->arguments->addOption(
 
 $cli->arguments->usage();
 ```
+
+Note about setDiscription
+
+???+ note "You can add an optional description to your application."
+
+    User ```<?php $cli->setDescription("Description here"); ``` to add the application description to use usage output.
 
 ### Outputs
 ```bash
