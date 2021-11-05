@@ -5,7 +5,6 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master)
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Contact%20author)](https://twitter.com/intent/tweet?text=@mastjohnny)
 
-# Redbox-cli
 
 This project was started as a simple library to manage command line arguments in php. After having it 
 around in my toolbox for a while I decided to opensource the project for others to use as well.
