@@ -116,8 +116,6 @@ $cli->arguments->addOption(
 $cli->arguments->usage();
 ```
 
-Note about setDiscription
-
 ???+ note "You can add an optional description to your application."
 
     User ```php <?php $cli->setDescription("Description here"); ``` to add the application description to use usage output.
