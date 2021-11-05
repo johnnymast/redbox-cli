@@ -8,18 +8,18 @@
 # redbox-cli
 This is a command line parser based on [Climate](https://github.com/thephpleague/climate)  by [Joe Tannenbaum](https://github.com/joetannenbaum). We share a lot of similarities but i desided to take the getopt route and downgrade the number of lines in the code by 1/4 of the original size.
 
-### Documentation
+## Documentation
 
 For detailed documentation of the project you can visit the [documentation page](https://johnnymast.github.io/redbox-cli/).
 
-### Installation
+## Installation
 
 Using [composer](https://packagist.org/packages/redbox/cli):
 
 ```bash
 $ composer require redbox-cli
 ```
-### Requirements
+## Requirements
 
 The following versions of PHP are supported by this version.
 
