@@ -23,19 +23,24 @@ $cli->arguments->addOption(
 );
 
 ```
+The code above will add an optional option. 
 
 ### Option types
 
-You can use the following options to make your options optional/required or a flag by using the OPTION_NO_VALUE type.
+You can use the following options to make your options optional/required or a flag by using the no value type.
 
-<dl>Option::OPTION_REQUIRED</dl>
-<dd>Using this flag means the option is required.</dd>
+`Option::OPTION_REQUIRED`
 
-<dl>Option::OPTION_OPTIONAL</dl>
-<dd>Using this flag means this option is not required.</dd>
+:   Using this flag means the option is required.
 
-<dl>Option::OPTION_NO_VALUE</dl>
-<dd>Using this flag means the option has no default value and is used as initiator.</dd>
+`Option::OPTION_OPTIONAL`
+
+:   Using this flag means this option is not required.
+
+`Option::OPTION_NO_VALUE`
+
+:   Using this flag means the option has no default value and is used as initiator.
+
 
 
 ## Displaying the usage screen
