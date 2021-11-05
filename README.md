@@ -25,7 +25,7 @@ The following versions of PHP are supported by this version.
 
 + PHP >= 8.0
 
-### Unit Testing
+### Unit Tests
 
 If you wish to run any tests on this package you can run:
 
