@@ -183,3 +183,7 @@ try {
 ```
 
 If you run this example without any arguments an Exception will be thrown and the usage screen will be shown to the user of your application.
+
+???+ warning "Be aware of default values"
+
+    If you have provided a default value an exception will not be thrown if the option is missing. The default value will be used instead of the value a user would have passed in. 
