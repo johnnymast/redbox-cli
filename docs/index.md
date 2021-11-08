@@ -27,11 +27,6 @@ or
 $ ./vendor/bin/phpunit
 ```
 
-## Github
-
-Project source code is [hosted on GitHub](https://github.com/johnnymast/redbox-cli).
-
-
 ## The MIT License (MIT)
 
 Copyright (c) 2020 Johnny Mast <mastjohnny@gmail.com>
@@ -53,3 +48,7 @@ Copyright (c) 2020 Johnny Mast <mastjohnny@gmail.com>
 > LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 > OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 > THE SOFTWARE.
+
+## Github
+
+Project source code is [hosted on GitHub](https://github.com/johnnymast/redbox-cli).
