@@ -9,8 +9,6 @@ docs_dir: docs/
 markdown_extensions:
   - admonition
   - pymdownx.superfences
-
-markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.details
@@ -29,5 +27,3 @@ nav:
   - About:
     - Author: author.md
     - License: license.md
-  - Abouting: about.md
-  - Test: test.md
