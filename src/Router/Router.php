@@ -1,19 +1,11 @@
 <?php
-/**
- * Router.php
+/*
+ * This file is part of Redbox-Cli
  *
- * The router can take instances of classes or full classnames and read routes from
- * the objects.
+ * (c) Johnny Mast <mastjohnny@gmail.com>
  *
- * PHP version ^8.0
- *
- * @category Core
- * @package  Redbox-Cli
- * @author   Johnny Mast <mastjohnny@gmail.com>
- * @license  https://opensource.org/licenses/MIT MIT
- * @version  1.5
- * @link     https://github.com/johnnymast/redbox-cli/blob/master/LICENSE.md
- * @since    1.5
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Redbox\Cli\Router;
@@ -104,7 +96,7 @@ class Router
     }
 
     /**
-     * Run the callable of this route.
+     * Run the callback for this route.
      *
      * @param string $route     The name of the route.
      * @param mixed  $arguments The arguments for the route.
@@ -145,7 +137,8 @@ class Router
 
                 $this->routes[$info->getmethod()] = [
                     'info' => $info,
-                    'callable' => [$subject, $method->getName()]
+                    'callable' => [$subject, $method->getName()],
+                    'subject' => $subject
                 ];
             }
         }

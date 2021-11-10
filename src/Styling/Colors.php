@@ -20,6 +20,12 @@ use Redbox\Cli\Output\OutputBuffer;
 class Colors
 {
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer $output
+     * @param string                          $str
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     private function _complete(OutputBuffer $output, string $str = ''): OutputBuffer
     {
         if ($str !== '') {
@@ -29,6 +35,11 @@ class Colors
         return $output;
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer $output
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[Route('reset')]
     public function reset(OutputBuffer $output): OutputBuffer
     {
@@ -36,6 +47,13 @@ class Colors
         return $this->_complete($output);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('black', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('blackBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
@@ -50,6 +68,13 @@ class Colors
         return $this->_complete($output, $string);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('red', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('redBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
@@ -64,6 +89,13 @@ class Colors
         return $this->_complete($output, $string);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('green', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('greenBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
@@ -78,6 +110,13 @@ class Colors
         return $this->_complete($output, $string);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('yellow', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('yellowBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
@@ -92,6 +131,13 @@ class Colors
         return $this->_complete($output, $string);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('blue', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('blueBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
@@ -106,6 +152,13 @@ class Colors
         return $this->_complete($output, $string);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('magenta', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('magentaBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
@@ -120,6 +173,13 @@ class Colors
         return $this->_complete($output, $string);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('cyan', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('cyanBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
@@ -134,6 +194,13 @@ class Colors
         return $this->_complete($output, $string);
     }
 
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer          $output
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
+     * @param string                                   $string
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
     #[
         ColorRoute('white', ColorRoute::COLOR_TYPE_FOREGROUND),
         ColorRoute('whiteBackground', ColorRoute::COLOR_TYPE_BACKGROUND)
