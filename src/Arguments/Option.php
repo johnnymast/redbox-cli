@@ -10,9 +10,6 @@
 
 namespace Redbox\Cli\Arguments;
 
-use JetBrains\PhpStorm\Immutable;
-
-#[Immutable]
 class Option
 {
     /**

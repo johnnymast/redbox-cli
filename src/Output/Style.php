@@ -27,7 +27,7 @@ class Style
     /**
      * Container for the styles.
      *
-     * @var array
+     * @var array<string, string>
      */
     protected array $styles = [];
 
@@ -57,7 +57,7 @@ class Style
      * Create a new clone of the Style
      * object.
      *
-     * @return mixed
+     * @return \Redbox\Cli\Output\Style
      */
     public function createClone(): Style
     {
@@ -69,7 +69,7 @@ class Style
      *
      * @param \Redbox\Cli\Output\Style $style The style to clone.
      *
-     * @return mixed
+     * @return \Redbox\Cli\Output\Style
      */
     public function withStyle(Style $style): Style
     {
@@ -87,7 +87,7 @@ class Style
     /**
      * Return the styles.
      *
-     * @return array
+     * @return array<string, string>
      */
     public function getStyles(): array
     {
@@ -133,6 +133,8 @@ class Style
         if (isset($this->styles[$name]) === true) {
             return $this->styles[$name];
         }
+
+        return null;
     }
 
     /**
@@ -158,8 +160,8 @@ class Style
     /**
      * Bind style to magic methods.
      *
-     * @param string $name      The method name.
-     * @param array  $arguments The method arguments.
+     * @param string  $name      The method name.
+     * @param array<string> $arguments The method arguments.
      *
      * @return mixed
      */
@@ -179,6 +181,6 @@ class Style
             }
         }
 
-        trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
+        return trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
     }
 }

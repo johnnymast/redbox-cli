@@ -37,9 +37,8 @@ class Operation
 
     /**
      * @param string $name    The name.
-     * @param mixed  ...$args The arguments.
      */
-    public function __construct(public string $name, array ...$args)
+    public function __construct(public string $name)
     {
     }
 
@@ -81,7 +80,7 @@ class Operation
     /**
      * Return options having a short prefix.
      *
-     * @return array
+     * @return array<\Redbox\Cli\Arguments\Option>
      */
     public function getOptionsWithShortPrefix(): array
     {
@@ -91,7 +90,7 @@ class Operation
     /**
      * Return the options having a long prefix.
      *
-     * @return array
+     * @return array<\Redbox\Cli\Arguments\Option>
      */
     public function getOptionsWithLongPrefix(): array
     {
@@ -101,7 +100,7 @@ class Operation
     /**
      * Get all required options in this operation.
      *
-     * @return array
+     * @return array<\Redbox\Cli\Arguments\Option>
      */
     public function getRequiredOptions(): array
     {
@@ -111,7 +110,7 @@ class Operation
     /**
      * Get all optional options in this operation.
      *
-     * @return array
+     * @return array<\Redbox\Cli\Arguments\Option>
      */
     public function getOptionalOptions(): array
     {

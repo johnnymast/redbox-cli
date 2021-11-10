@@ -10,7 +10,6 @@
 
 namespace Redbox\Cli;
 
-use JetBrains\PhpStorm\Pure;
 use Redbox\Cli\Arguments\Arguments;
 use Redbox\Cli\Output\OutputBuffer;
 use Redbox\Cli\Router\Router;
@@ -19,10 +18,26 @@ use Redbox\Cli\Terminal\Box;
 use Redbox\Cli\Terminal\ProgressBar;
 use Redbox\Cli\Terminal\Table;
 
-#[Pure]
 /**
  * The main class.
- * @method reset()
+ * @method \Redbox\Cli\Output\OutputBuffer reset()
+ * @method \Redbox\Cli\Output\OutputBuffer black(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer blackBackground(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer red(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer redBackground(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer green(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer greenBackground(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer yellow(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer yellowBackground(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer blue(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer blueBackground(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer magenta(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer magentaBackground(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer cyan(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer cyanBackground(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer white(string $string = '')
+ * @method \Redbox\Cli\Output\OutputBuffer whiteBackground(string $string = '')
+ *
  */
 class Cli
 {
@@ -49,6 +64,7 @@ class Cli
 
     /**
      * @throws \ReflectionException
+     * @throws \Exception
      */
     public function __construct()
     {
@@ -59,10 +75,6 @@ class Cli
         $this->router->addManyRoutes(
             [
                 new Colors(),
-                new Terminal(),
-                new ProgressBar(),
-                new Box(),
-                new Table(),
             ]
         );
     }
@@ -123,16 +135,16 @@ class Cli
     /**
      *
      * @param string $name      The method name.
-     * @param array  $arguments The arguments.
+     * @param array<string>  $arguments The arguments.
      *
-     * @return \Redbox\Cli\Cli|void
+     * @return mixed
      */
-    public function __call(string $name, array $arguments): ?Cli
+    public function __call(string $name, array $arguments): mixed
     {
         if ($this->router->hasRoute($name) === true) {
             return $this->router->execute($name, $arguments);
         }
 
-        trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
+        return trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
     }
 }

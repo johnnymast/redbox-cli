@@ -21,7 +21,7 @@ class Parser
      *
      * @param \Redbox\Cli\Arguments\Operation $operation The operation
      *
-     * @return array
+     * @return array<int, array<int, string>|string>
      */
     private function buildOpts(Operation $operation): array
     {

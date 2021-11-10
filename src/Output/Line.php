@@ -10,9 +10,6 @@
 
 namespace Redbox\Cli\Output;
 
-/**
- * @internal
- */
 class Line
 {
     /**

@@ -26,7 +26,7 @@ class OutputBuffer
     /**
      * The buffer container.
      *
-     * @var \Redbox\Cli\Output\Buffer
+     * @var \Redbox\Cli\Output\Buffer<Line>
      */
     protected Buffer $container;
 
@@ -49,7 +49,7 @@ class OutputBuffer
     /**
      * Return the lines in the output buffer.
      *
-     * @return array|\Redbox\Cli\Output\Buffer
+     * @return array<Line>
      */
     public function getLines(): array
     {
@@ -65,9 +65,9 @@ class OutputBuffer
      */
     public function addLine(string $line): OutputBuffer
     {
-        $line = new Line($line, $this->style->withStyle($this->style));
+        $newLine = new Line($line, $this->style->withStyle($this->style));
 
-        $this->container[] = $line;
+        $this->container[] = $newLine;
 
         return $this;
     }
@@ -75,7 +75,7 @@ class OutputBuffer
     /**
      * Add an array of lines.
      *
-     * @param array<Line> $lines The array of line objects to add to the output buffer.
+     * @param array<string> $lines The array of line objects to add to the output buffer.
      *
      * @return $this
      */

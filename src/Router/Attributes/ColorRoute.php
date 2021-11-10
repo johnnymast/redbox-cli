@@ -11,8 +11,6 @@
 namespace Redbox\Cli\Router\Attributes;
 
 use Attribute;
-use JetBrains\PhpStorm\Pure;
-use Redbox\Cli\Router\Attributes\BaseAttribute;
 
 /**
  * @internal
@@ -42,7 +40,7 @@ class ColorRoute extends BaseAttribute
      * @param string $method The name of the method.
      * @param int    $type   The color type flag.
      */
-    #[Pure] public function __construct(protected string $method, protected int $type)
+    public function __construct(protected string $method, protected int $type)
     {
         parent::__construct($this->method);
     }

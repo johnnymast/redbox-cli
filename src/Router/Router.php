@@ -22,7 +22,7 @@ class Router
     /**
      * Container for the existing commands.
      *
-     * @var array<string, object>
+     * @var array<string, mixed>
      */
     protected array $routes = [];
 
@@ -49,7 +49,7 @@ class Router
     /**
      * Add many routes at once.
      *
-     * @param array $routes array of classes containing potential routes.
+     * @param array<string|object> $routes array of classes containing potential routes.
      *
      * @return void
      * @throws \ReflectionException
@@ -88,7 +88,7 @@ class Router
     /**
      * Return all known routes.
      *
-     * @return object[]
+     * @return array<string, mixed>
      */
     public function getAllRoutes(): array
     {
@@ -120,7 +120,7 @@ class Router
      *
      * @throws \ReflectionException
      */
-    private function resolveMethods(string|object $subject)
+    private function resolveMethods(string|object $subject): void
     {
 
         $reflectionClass = new ReflectionClass($subject);

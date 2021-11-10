@@ -219,16 +219,16 @@ class Arguments
      * Proxy calls to the default operation.
      *
      * @param string $name      The method
-     * @param array  $arguments Its arguments
+     * @param array<string>  $arguments Its arguments
      *
-     * @return false|mixed|void
+     * @return mixed
      */
-    public function __call(string $name, array $arguments)
+    public function __call(string $name, array $arguments): mixed
     {
         if (method_exists($this->operation, $name) === true) {
             return call_user_func_array([$this->operation, $name], $arguments);
         }
 
-        trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
+        return trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
     }
 }
