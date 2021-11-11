@@ -26,3 +26,5 @@ $cli
     ->red()
     ->whiteBackground()
     ->write("test\n");
+
+$cli->write("Other text.");
