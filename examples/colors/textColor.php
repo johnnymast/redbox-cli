@@ -28,3 +28,9 @@ $cli
     ->write("test\n");
 
 $cli->write("Other text.");
+
+$cli->red()->blueBackground('Red text blue background');
+$cli
+    ->red()
+    ->blueBackground()
+    ->write('Alternate: Red text blue background');
