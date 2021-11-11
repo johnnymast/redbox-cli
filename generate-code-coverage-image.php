@@ -1,6 +1,6 @@
 <?php
 
-$xml = simplexml_load_file('coverage.xml');
+$xml = simplexml_load_file('clover.xml');
 
 $coveredStatements = $xml->project->metrics['coveredstatements'];
 $totalStatements = $xml->project->metrics['statements'];
