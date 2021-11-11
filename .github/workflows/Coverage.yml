@@ -1,0 +1,32 @@
+name: CI for Project
+
+on:
+  push:
+    branches:
+      - 1.5
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install PHP Dependencies
+        run: "composer install --no-ansi --no-interaction --no-scripts --no-suggest --prefer-dist"
+
+      - name: Execute PHPUnit
+        run: ./vendor/bin/pest --coverage
+
+      - name: Generate code coverage image
+        run: php generate-code-coverage-image.php
+
+      - name: Commit Code Coverage Image to Repo
+        uses: EndBug/add-and-commit@v5
+        with:
+          author_name: Johnny Mast
+          author_email: mastjohnny@gmail.com
+          message: "Committing code coverage image"
+          add: "docs/code-coverage.png"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,8 @@
 ![redbox-logo-klein](https://cloud.githubusercontent.com/assets/121194/12361779/5af96e52-bbc0-11e5-91b0-2b7afbc1e5cc.png)
 
+[![Pest Unit Tests](https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml/badge.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml)
+[![Phpstan](https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml/badge.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml)
+
 [![Build Status](https://travis-ci.org/johnnymast/redbox-cli.svg)](https://travis-ci.org/johnnymast/redbox-cli) 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master)
