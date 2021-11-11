@@ -157,17 +157,25 @@ class Arguments
         ];
 
         $allOptions = [];
+        $numOperations = count($this->operations);
 
         foreach ($this->operations as $name => $operation) {
             $options = $operation->getOptions();
-            $line = "usage: {$command} {$name}";
+
 
             /**
              * For esthetics show the optional arguments first.
              */
             usort($options, static fn(Option $option) => $option->isRequired() ? 1 : 0);
 
-            if (count($options) > 0 || $operation->isDefaultOperation() === true) {
+            if (count($options) > 0) {
+
+                if ($operation->isDefaultOperation()) {
+                    $line = "usage: {$command} ";
+                } else {
+                    $line = "usage: {$command} {$name}";
+                }
+
                 foreach ($options as $option) {
                     $line .= " ";
 
@@ -199,8 +207,13 @@ class Arguments
             $description = $option->description;
             $operation = $option->getOperation();
 
+            if ($operation->isDefaultOperation()) {
+                $name = str_pad("", $longest['operation']);;
+            } else {
+                $name = str_pad($operation->name, $longest['operation']);
+            }
             // TODO: Replace with columns
-            $name = str_pad($operation->name, $longest['operation']);
+
             $usage = str_pad($option->usageInfo(), $longest['argument']);
 
             $line = "{$command} {$name} {$usage}\t{$description}";

@@ -20,6 +20,12 @@ try {
      */
     $cli->setDescription("My awesome ftp client.");
 
+    $cli->arguments->addOption("name",
+    'n',
+        Option::OPTION_OPTIONAL,
+        'Desc'
+    );
+
     $cli->arguments->registerOperation("download")
         ->addOption(
             'user',
