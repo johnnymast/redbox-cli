@@ -7,7 +7,7 @@ $totalStatements = $xml->project->metrics['statements'];
 $percentage = round(min(1, $coveredStatements / $totalStatements) * 100);
 $percentageString = $percentage . '%';
 $imageHeight = 20;
-$imageWidth = 160;
+$imageWidth = 180;
 $xMargin = 5;
 $font = 3;
 
