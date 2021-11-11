@@ -16,6 +16,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
   - def_list
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       permalink: true
 nav:
