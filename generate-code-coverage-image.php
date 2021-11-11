@@ -19,7 +19,7 @@ $borderColor = imagecolorallocate($image, 0, 190, 0);
 
 imagerectangle($image, 0, 0, $imageWidth - 1, $imageHeight - 1, $borderColor);
 
-imagestring($image, $font, $xMargin, 3, 'PHPUnit Coverage:', $foregroundColor);
+imagestring($image, $font, $xMargin, 3, 'Pest Code Coverage:', $foregroundColor);
 
 $width = imagefontwidth($font) * strlen($percentageString);
 imagestring($image, $font,$imageWidth - $xMargin - $width, 3, $percentageString, $foregroundColor);
