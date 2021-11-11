@@ -20,24 +20,23 @@ use Redbox\Cli\Terminal\Table;
 
 /**
  * The main class.
- * @method \Redbox\Cli\Output\OutputBuffer reset()
- * @method \Redbox\Cli\Output\OutputBuffer black(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer blackBackground(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer red(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer redBackground(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer green(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer greenBackground(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer yellow(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer yellowBackground(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer blue(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer blueBackground(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer magenta(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer magentaBackground(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer cyan(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer cyanBackground(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer white(string $string = '')
- * @method \Redbox\Cli\Output\OutputBuffer whiteBackground(string $string = '')
- *
+ * @method \Redbox\Cli\Cli reset()
+ * @method \Redbox\Cli\Cli black(string $string = '')
+ * @method \Redbox\Cli\Cli blackBackground(string $string = '')
+ * @method \Redbox\Cli\Cli red(string $string = '')
+ * @method \Redbox\Cli\Cli redBackground(string $string = '')
+ * @method \Redbox\Cli\Cli green(string $string = '')
+ * @method \Redbox\Cli\Cli greenBackground(string $string = '')
+ * @method \Redbox\Cli\Cli yellow(string $string = '')
+ * @method \Redbox\Cli\Cli yellowBackground(string $string = '')
+ * @method \Redbox\Cli\Cli blue(string $string = '')
+ * @method \Redbox\Cli\Cli blueBackground(string $string = '')
+ * @method \Redbox\Cli\Cli magenta(string $string = '')
+ * @method \Redbox\Cli\Cli magentaBackground(string $string = '')
+ * @method \Redbox\Cli\Cli cyan(string $string = '')
+ * @method \Redbox\Cli\Cli cyanBackground(string $string = '')
+ * @method \Redbox\Cli\Cli white(string $string = '')
+ * @method \Redbox\Cli\Cli whiteBackground(string $string = '')
  */
 class Cli
 {
@@ -69,7 +68,7 @@ class Cli
     public function __construct()
     {
         $this->outputBuffer = new OutputBuffer();
-        $this->arguments = new Arguments( $this->outputBuffer);
+        $this->arguments = new Arguments($this->outputBuffer);
 
         $this->router = new Router($this);
         $this->router->addManyRoutes(
@@ -119,6 +118,12 @@ class Cli
         return $this->outputBuffer->fetch();
     }
 
+    public function newLine(): Cli
+    {
+        $this->outputBuffer->addNewLine();
+        return $this;
+    }
+
     /**
      * Set silent mode. This means output can be fetched
      * into a variable.
@@ -134,8 +139,8 @@ class Cli
 
     /**
      *
-     * @param string $name      The method name.
-     * @param array<string>  $arguments The arguments.
+     * @param string        $name      The method name.
+     * @param array<string> $arguments The arguments.
      *
      * @return mixed
      */

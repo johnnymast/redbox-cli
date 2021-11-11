@@ -72,7 +72,7 @@ function resolveRoutes(array $namespaces)
                         $routeName = $instance->getMethod();
 
 //                        echo "@method {$routeName}({$params}): \Redbox\Cli\Output\OutputBuffer\n";
-                        echo "@method \Redbox\Cli\Output\OutputBuffer {$routeName}({$params})\n";
+                        echo "@method \Redbox\Cli\Cli {$routeName}({$params})\n";
                     }
                 }
 
