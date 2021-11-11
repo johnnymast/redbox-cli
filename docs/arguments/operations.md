@@ -17,18 +17,8 @@ would alias the following code internally inside the package.
 $cli->arguments->getOperation("default")->get('user');
 ```
 
-So let's create the scenario i mentioned above in code.
+So let's create the scenario I mentioned above in code.
 
-=== "Unordered list"
-
-    * Sed sagittis eleifend rutrum
-    * Donec vitae suscipit est
-    * Nulla tempor lobortis orci
-
-=== "Ordered list"
-
-    1. Sed sagittis eleifend rutrum
-    2. Donec vitae suscipit est
 
 ```php
 <?php

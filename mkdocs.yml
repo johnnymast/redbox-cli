@@ -26,6 +26,7 @@ nav:
   - Arguments:
       - Introduction: arguments/introduction.md
       - Operations: arguments/operations.md
+  - Arguments: colors/colors.md
   - About:
     - Author: author.md
     - License: license.md
