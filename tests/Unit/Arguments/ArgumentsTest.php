@@ -80,3 +80,14 @@ test("Should be able to output default value", function () {
 
     $this->assertStringContainsString($needle, $haystack);
 });
+
+test('setDescription should persist the description.', function() {
+    $description = 'My favo app version '.time();
+
+    $this->cli->arguments->setDescription($description);
+
+    $expected = $description;
+    $actual = $this->cli->arguments->getDescription();
+
+    $this->assertEquals($expected, $actual);
+});

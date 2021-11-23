@@ -12,6 +12,7 @@ namespace Redbox\Cli\Router;
 
 use Redbox\Cli\Cli;
 use ReflectionClass;
+use function Pest\Laravel\instance;
 
 /**
  * Class Router
@@ -113,6 +114,49 @@ class Router
 
         return $this->cli;
     }
+
+    /**
+     * @param string $class The Attribute class name.
+     *
+     * @return array
+     */
+    public function getRoutesOfAttributeType(string $class): array
+    {
+        $routes = [];
+
+        if (count($this->routes) > 0) {
+            foreach ($this->routes as $route) {
+                if ($route['info'] instanceof $class) {
+                    $routes[] = $route;
+                }
+            }
+        }
+
+        return $routes;
+    }
+
+    /**
+     * Return the routes defined on an instance of a subject.
+     *
+     * @param string $class The Attribute class name.
+     *
+     * @return array
+     */
+    public function getRoutesFromSubjectClass(string $class): array
+    {
+        $routes = [];
+
+        if (count($this->routes) > 0) {
+            foreach ($this->routes as $route) {
+                if ($route['subject'] instanceof $class) {
+                    $routes[] = $route;
+                }
+            }
+        }
+
+        return $routes;
+    }
+
 
     /**
      * Parse the methods on the added classes to see if

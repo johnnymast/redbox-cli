@@ -4,18 +4,13 @@
     <include>
       <directory>./src</directory>
     </include>
+    <report>
+      <clover outputFile="clover.xml" />
+    </report>
   </coverage>
   <testsuites>
     <testsuite name="Redbox Cli test suite">
       <directory suffix=".php">./tests/</directory>
     </testsuite>
   </testsuites>
-  <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">src</directory>
-    </include>
-    <report>
-      <clover outputFile="clover.xml" />
-    </report>
-  </coverage>
 </phpunit>

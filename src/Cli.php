@@ -78,6 +78,15 @@ class Cli
         );
     }
 
+    /**
+     * Return the router.
+     *
+     * @return \Redbox\Cli\Router\Router
+     */
+    public function getRouter(): Router {
+        return $this->router;
+    }
+
     public function setDescription(string $description): Cli
     {
         $this->arguments->setDescription($description);

@@ -150,10 +150,11 @@ class Style
         preg_match_all($pattern, $input, $matches);
         $ret = $matches[0];
         foreach ($ret as &$match) {
-            $match = $match === strtoupper($match) ?
+            $match = ($match === strtoupper($match)) ?
                 strtolower($match) :
                 lcfirst($match);
         }
+
         return implode('_', $ret);
     }
 
@@ -171,6 +172,7 @@ class Style
         $property = str_replace($action, '', $name);
         $property = $this->from_camel_case($property);
 
+
         if ($action === 'set') {
             if (isset($this->styles[$property]) === true) {
                 return $this->styles[$property] = current($arguments);
@@ -180,6 +182,7 @@ class Style
                 return $this->styles[$property];
             }
         }
+        echo "PROPERTY: {$property}\n";
 
         return trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
     }

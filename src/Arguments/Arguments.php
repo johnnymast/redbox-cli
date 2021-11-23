@@ -83,6 +83,15 @@ class Arguments
     }
 
     /**
+     * Return the app description.
+     *
+     * @return string
+     */
+    public function getDescription(): string {
+        return $this->description;
+    }
+
+    /**
      * Create a new operation.
      *
      * @param string        $name     The name of the operation.

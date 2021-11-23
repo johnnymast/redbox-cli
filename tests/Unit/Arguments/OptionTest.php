@@ -53,6 +53,13 @@ test("All constructor values should persist.", function () {
     $expected = "constructor_test";
     $actual = $option->longPrefix;
     $this->assertEquals($expected, $actual);
+
+    $expected = "-p, --constructor_test=constructor_test, (default: default value)		description\n";
+    $actual = $option->usageLine();
+    $this->assertEquals($expected, $actual);
+
+
+    $this->assertTrue($option->hasLongPrefix());
 });
 
 test("Should know if option is required.", function () {

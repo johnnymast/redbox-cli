@@ -67,3 +67,21 @@ test('Should be able to remove a key and its value.', function () {
     $actual = $this->test->has($key);
     $this->assertFalse($actual);
 });
+
+test('remove should return true if the key was found', function() {
+    $key = 'my_key';
+    $value = 'my_value';
+
+    $this->test->set($key, $value);
+
+    $actual = $this->test->remove($key);
+
+    $this->assertTrue($actual);
+});
+
+test('remove should return false if the key is not found', function() {
+    $key = 'some_non_existing_key';
+    $actual = $this->test->remove($key);
+
+    $this->assertFalse($actual);
+});

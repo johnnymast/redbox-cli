@@ -23,6 +23,12 @@ class TestRoute
         $this->called = true;
     }
 
+    #[Route('testSecondHandle')]
+    public function secondHandle()
+    {
+        $this->called = true;
+    }
+
     public function isCalled(): bool
     {
         return $this->called;
@@ -126,7 +132,7 @@ test('getAllRoutes should return the number of routed methods.', function () {
     /**
      * Be because of testHandle and testHandle2
      */
-    $expected = 2;
+    $expected = 3;
     $actual = count($this->router->getAllRoutes());
 
     $this->assertEquals($expected, $actual);
@@ -139,4 +145,21 @@ test('getRouter info should contain an instance of the attribute class', functio
 
     $expected = Route::class;
     $this->assertInstanceOf($expected, $route['info']);
+});
+
+test('getRoutesOfType should return the correct routes or empty array of non found.', function() {
+
+    $routes = $this->router->getRoutesFromSubjectClass(TestRoute::class);
+    $expected = 0;
+    $actual = count($routes);
+
+    $this->assertEquals($expected, $actual);
+
+    $this->router->addRoute(TestRoute::class);
+
+    $routes = $this->router->getRoutesFromSubjectClass(TestRoute::class);
+    $expected = 2;
+    $actual = count($routes);
+
+    $this->assertEquals($expected, $actual);
 });
