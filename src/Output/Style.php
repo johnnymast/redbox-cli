@@ -44,7 +44,7 @@ class Style
      *
      * @return void
      */
-    public function reset()
+    public function reset(): void
     {
         $this->styles = [
             'foreground_color' => '',

@@ -137,7 +137,7 @@ test('Optional option should use provided value and not default value.', functio
 });
 
 
-test('Getting argument should return false if non provided', function () {
+test('Getting argument should return false if non provided.', function () {
 
     /**
      * Some fake argument. This option is defined, but

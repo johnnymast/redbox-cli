@@ -19,12 +19,12 @@ uses()
     ->group('output');
 
 
-test('isset should return true if a style by key is defined', function() {
+test('isset should return true if a style by key is defined.', function() {
     $actual = isset($this->defaultStyle->foreground_color);
     $this->assertTrue($actual);
 });
 
-test('isset should return false if a style by key is not defined', function() {
+test('isset should return false if a style by key is not defined.', function() {
     $actual = isset($this->defaultStyle->no_existing_style_key);
     $this->assertFalse($actual);
 });

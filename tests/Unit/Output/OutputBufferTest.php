@@ -20,14 +20,13 @@ uses()
     })
     ->group('output');
 
-test('setSilentMode should enable silent mode', function() {
+test('setSilentMode should enable silent mode.', function() {
     $this->assertFalse($this->outputBuffer->isSilent());
 
     $this->outputBuffer->setSilentMode(true);
 
     $this->assertTrue($this->outputBuffer->isSilent());
 });
-
 
 test('addLine should add one new line to the output buffer.', function() {
     expect($this->outputBuffer->getLines())->toHaveCount(0);

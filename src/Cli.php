@@ -14,9 +14,6 @@ use Redbox\Cli\Arguments\Arguments;
 use Redbox\Cli\Output\OutputBuffer;
 use Redbox\Cli\Router\Router;
 use Redbox\Cli\Styling\Colors;
-use Redbox\Cli\Terminal\Box;
-use Redbox\Cli\Terminal\ProgressBar;
-use Redbox\Cli\Terminal\Table;
 
 /**
  * The main class.

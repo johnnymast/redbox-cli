@@ -86,7 +86,7 @@ test('addRoute route should work with object.', function () {
     $this->assertEquals(true, $route['subject']->isCalled());
 });
 
-test('addManyRoutes should work with strings', function () {
+test('addManyRoutes should work with strings.', function () {
     $this->router->addManyRoutes([
         TestRoute::class,
         TestRoute2::class,
@@ -99,8 +99,7 @@ test('addManyRoutes should work with strings', function () {
     $this->assertEquals(true, $actual);
 });
 
-
-test('addManyRoutes should work with objects', function () {
+test('addManyRoutes should work with objects.', function () {
     $this->router->addManyRoutes([
         new TestRoute,
         new TestRoute2,
@@ -138,7 +137,7 @@ test('getAllRoutes should return the number of routed methods.', function () {
     $this->assertEquals($expected, $actual);
 });
 
-test('getRouter info should contain an instance of the attribute class', function () {
+test('getRouter info should contain an instance of the attribute class.', function () {
     $this->router->addRoute(TestRoute::class);
 
     $route = $this->router->getRoute('testHandle');

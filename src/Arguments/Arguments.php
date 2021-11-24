@@ -49,7 +49,7 @@ class Arguments
     /**
      * @var Parser
      */
-    private Parser $parser;
+    private ?Parser $parser = null;
 
     /**
      * @var \Redbox\Cli\Output\OutputBuffer
@@ -104,7 +104,7 @@ class Arguments
     public function registerOperation(string $name, callable|null $callback = null, bool $internal = false): Operation
     {
         if (($internal === false) && $name === self::DEFAULT_OPERATION) {
-            throw new \Exception("{name} is an reserved operation name.");
+            throw new \Exception("{$name} is an reserved operation name.");
         }
         $this->operations[$name] = new Operation($name);
 

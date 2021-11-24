@@ -19,7 +19,7 @@ uses()
 
 
 
-test('Should know if it has any options', function() {
+test('Should know if it has any options.', function() {
     $operation = new Operation("some operation");
 
     $expected = false;
@@ -40,7 +40,7 @@ test('Should know if it has any options', function() {
     $this->assertEquals($expected, $actual);
 });
 
-test("Show be able to return options with short prefix", function() {
+test("Show be able to return options with short prefix.", function() {
     $operation = new Operation("short prefix operation");
 
     $operation->addOption(
@@ -63,7 +63,7 @@ test("Show be able to return options with short prefix", function() {
 
 });
 
-test("Show be able to return options with long prefix", function() {
+test("Show be able to return options with long prefix.", function() {
     $operation = new Operation("long prefix operation");
 
     $operation->addOption(
@@ -92,7 +92,7 @@ test("Show be able to return options with long prefix", function() {
     $this->assertEquals($expected, $actual);
 });
 
-test("Show be able to return required options", function() {
+test("Show be able to return required options.", function() {
     $operation = new Operation("required option operation");
 
     $operation->addOption(
@@ -121,7 +121,7 @@ test("Show be able to return required options", function() {
     $this->assertEquals($expected, $actual);
 });
 
-test("Show be able to return optional options", function() {
+test("Show be able to return optional options.", function() {
     $operation = new Operation("required option operation");
 
     $operation->addOption(
@@ -150,7 +150,7 @@ test("Show be able to return optional options", function() {
     $this->assertEquals($expected, $actual);
 });
 
-test("Show be able to return all options", function() {
+test("Show be able to return all options.", function() {
     $operation = new Operation("all options test");
 
     $operation->addOption(
@@ -179,7 +179,7 @@ test("Show be able to return all options", function() {
     $this->assertEquals($expected, $actual);
 });
 
-test("Show be able to be marked as default", function() {
+test("Show be able to be marked as default.", function() {
     $operation = new Operation("default test operation");
 
     $expected = false;

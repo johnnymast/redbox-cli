@@ -1,7 +1,13 @@
 <?php
 
+namespace Redbox\Cli\Tests\Unit\Styling;
+
 use Pest\Datasets;
+use PHPUnit\Util\Color;
 use Redbox\Cli\Cli;
+use Redbox\Cli\Output\Line;
+use Redbox\Cli\Output\OutputBuffer;
+use Redbox\Cli\Output\Style;
 use Redbox\Cli\Router\Router;
 use Redbox\Cli\Router\Attributes\ColorRoute;
 
@@ -11,7 +17,7 @@ uses()
     })
     ->group('router');
 
-test('All color foreground are defined', function($color) {
+test('All foreground colors are defined', function ($color) {
     $this->assertTrue($this->cli->getRouter()->hasRoute($color));
 
     $expected = ColorRoute::COLOR_TYPE_FOREGROUND;
@@ -21,7 +27,7 @@ test('All color foreground are defined', function($color) {
 
 })->with('colors');
 
-test('All color background are defined', function($color) {
+test('All background colors are defined', function ($color) {
     $color .= 'Background';
 
     $this->assertTrue($this->cli->getRouter()->hasRoute($color));
@@ -33,15 +39,43 @@ test('All color background are defined', function($color) {
 
 })->with('colors');
 
-test('Dataset contains all colors defined', function() {
+test('Dataset contains all colors defined.', function () {
     $colorRoutes = $this->cli->getRouter()->getRoutesOfAttributeType(ColorRoute::class);
     $dataSet = Datasets::get('colors');
 
 
-    foreach($colorRoutes as $route) {
+    foreach ($colorRoutes as $route) {
         $name = $route['info']->getMethod();
         if ($route['info']->getType() == ColorRoute::COLOR_TYPE_FOREGROUND) {
             $this->assertContains($name, $dataSet);
         }
+    }
+});
+
+test('Color functions should return instance of OutputBuffer.', function () {
+    $colorRoutes = $this->cli->getRouter()->getRoutesOfAttributeType(ColorRoute::class);
+    $outputBuffer = $this->cli->getOutputBuffer();
+
+    foreach ($colorRoutes as $route) {
+        $info = $route['info'];
+
+        $returnValue = $route['callable']($outputBuffer, $info, "");
+        expect($returnValue)->toBeInstanceOf(OutputBuffer::class);
+    }
+});
+
+test('Color call with string should directly output to screen.', function() {
+    $colorRoutes = $this->cli->getRouter()->getRoutesOfAttributeType(ColorRoute::class);
+    $outputBuffer = $this->cli->getOutputBuffer();
+
+    foreach ($colorRoutes as $index => $route) {
+        $info = $route['info'];
+        $message = "Message: ".$index;
+
+        ob_start();
+        $route['callable']($outputBuffer, $info, $message);
+        $output = ob_get_clean();
+
+        expect($output)->toContain($message);
     }
 });
