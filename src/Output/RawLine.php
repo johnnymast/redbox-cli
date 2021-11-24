@@ -13,7 +13,7 @@ namespace Redbox\Cli\Output;
 /**
  * @internal
  */
-class RawLine extends Line
+final class RawLine extends Line
 {
 
     /**

@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of Redbox-Cli
  *
@@ -16,8 +15,6 @@ use Redbox\Cli\Arguments\Option;
 
 uses()
     ->group('arguments');
-
-
 
 test('Should know if it has any options.', function() {
     $operation = new Operation("some operation");

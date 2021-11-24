@@ -1,7 +1,15 @@
 <?php
+/*
+ * This file is part of Redbox-Cli
+ *
+ * (c) Johnny Mast <mastjohnny@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-use Redbox\Cli\Output\OutputBuffer;
-use Redbox\Cli\Router\Attributes\ColorRoute;
+namespace Redbox\Cli\Tests\Unit\Router;
+
 use Redbox\Cli\Router\Attributes\Route;
 use Redbox\Cli\Router\Router;
 use Redbox\Cli\Cli;
@@ -13,7 +21,7 @@ uses()
     })
     ->group('router');
 
-class TestRoute
+final class TestRoute
 {
     protected bool $called = false;
 
@@ -35,7 +43,7 @@ class TestRoute
     }
 }
 
-class TestRoute2
+final class TestRoute2
 {
     protected bool $called = false;
 

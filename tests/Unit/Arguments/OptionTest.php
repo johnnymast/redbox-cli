@@ -19,7 +19,6 @@ uses()
     })
     ->group('arguments');
 
-
 test("All constructor values should persist.", function () {
     $option = new Option(
         $this->operation,

@@ -43,7 +43,7 @@ trait KeyValueTrait
      */
     public function get(string $key): mixed
     {
-        
+
         if ($this->has($key)) {
             return $this->items[$key];
         }

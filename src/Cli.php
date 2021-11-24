@@ -59,6 +59,8 @@ class Cli
     protected Router $router;
 
     /**
+     * Cli constructor.
+     *
      * @throws \ReflectionException
      * @throws \Exception
      */
@@ -80,10 +82,21 @@ class Cli
      *
      * @return \Redbox\Cli\Router\Router
      */
-    public function getRouter(): Router {
+    public function getRouter(): Router
+    {
         return $this->router;
     }
 
+    /**
+     * Set the description of this application.
+     *
+     * @note This function is a wrapper around
+     * the \Redbox\Cli\Arguments::setDescription() function.
+     *
+     * @param string $description The description.
+     *
+     * @return Cli
+     */
     public function setDescription(string $description): Cli
     {
         $this->arguments->setDescription($description);
@@ -124,6 +137,11 @@ class Cli
         return $this->outputBuffer->fetch();
     }
 
+    /**
+     * Quick wrapper to add a new cli to the OutputBuffer.
+     *
+     * @return Cli
+     */
     public function newLine(): Cli
     {
         $this->outputBuffer->addNewLine();
@@ -144,6 +162,7 @@ class Cli
     }
 
     /**
+     * Proxy magic methods to their routes within the library.
      *
      * @param string        $name      The method name.
      * @param array<string> $arguments The arguments.

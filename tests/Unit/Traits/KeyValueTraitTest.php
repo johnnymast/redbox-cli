@@ -20,7 +20,6 @@ uses()
     })
     ->group('traits');
 
-
 test('Setting and Getting values.', function () {
     $key = "my_key";
     $value = "My Dear Test Value.";

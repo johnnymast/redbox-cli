@@ -10,10 +10,12 @@
 
 namespace Redbox\Cli\Arguments;
 
+use Exception;
+
 /**
  * @internal
  */
-class Parser
+final class Parser
 {
 
     /**
@@ -21,7 +23,7 @@ class Parser
      *
      * @param \Redbox\Cli\Arguments\Operation $operation The operation
      *
-     * @return array<int, array<int, string>|string>
+     * @return array<int, array<int, string>|string>.
      */
     private function buildOpts(Operation $operation): array
     {
@@ -44,9 +46,9 @@ class Parser
                 $long[] = $rule;
             }
         }
+
         return [$short, $long];
     }
-
 
     /**
      * Parse the options for all operations.

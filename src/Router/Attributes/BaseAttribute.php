@@ -26,6 +26,8 @@ class BaseAttribute
     protected string $method;
 
     /**
+     * BaseAttribute constructor.
+     * 
      * @param string $method The name of the method
      */
     public function __construct(string $method)

@@ -13,7 +13,6 @@ namespace Redbox\Cli\Tests\Unit\Output;
 use Redbox\Cli\Output\Style;
 use Redbox\Cli\Output\Line;
 
-
 uses()
     ->beforeEach(function () {
 
@@ -29,8 +28,6 @@ uses()
         $this->mixedStyle->setForegroundColor('white');
         $this->mixedStyle->setBackgroundColor('red');
         $this->mixedStyle->setFontStyle('reset');
-
-
     })
     ->group('output');
 

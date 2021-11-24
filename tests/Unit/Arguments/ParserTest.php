@@ -95,7 +95,6 @@ test('Required option should use provided value and not default value.', functio
     $this->assertEquals($expected, $actual);
 });
 
-
 test('Optional option with default value should use it if non provided.', function () {
 
     $expected = "defined password default value";
@@ -135,7 +134,6 @@ test('Optional option should use provided value and not default value.', functio
 
     $this->assertEquals($expected, $actual);
 });
-
 
 test('Getting argument should return false if non provided.', function () {
 

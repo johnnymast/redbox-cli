@@ -18,7 +18,6 @@ uses()
     })
     ->group('output');
 
-
 test('isset should return true if a style by key is defined.', function() {
     $actual = isset($this->defaultStyle->foreground_color);
     $this->assertTrue($actual);
@@ -44,12 +43,10 @@ test('__get should return the if the style key is defined.', function() {
     $this->assertEquals($expected, $actual);
 });
 
-
 test('An error should be raised if a non-existing style key is called as magic function.', function() {
     $this->expectErrorMessage('Call to undefined method Redbox\Cli\Output\Style::getUndefinedProperty()');
     $this->defaultStyle->getUndefinedProperty();
 });
-
 
 test('__call should work with uppercase style keys.', function() {
     $value = 'red';

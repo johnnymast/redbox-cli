@@ -18,13 +18,17 @@ use Redbox\Cli\Output\OutputBuffer;
  *
  * @package Redbox\Cli\Arguments
  *
- * @method addOption(string|null $name, ?string $prefix, int|null $options, string $description, string $default = null): Redbox\Cli\Arguments\Operation
+ * @method addOption(string|null $name, ?string $prefix, int|null $options, string $description, string $default = null)
  *
- *
+ * @internal
  */
 class Arguments
 {
 
+    /**
+     * This default operation name will
+     * be reserved for internal usage.
+     */
     public const DEFAULT_OPERATION = "default";
 
     /**
@@ -42,19 +46,26 @@ class Arguments
     private Operation $operation;
 
     /**
+     * A container for all created Operations.
+     *
      * @var array<string, \Redbox\Cli\Arguments\Operation>
      */
     private array $operations = [];
 
     /**
-     * @var Parser
+     * The parser that will parse getopt and
+     * return parsed arguments.
+     *
+     * @var ?Parser
      */
     private ?Parser $parser = null;
 
     /**
-     * @var \Redbox\Cli\Output\OutputBuffer
+     * The output buffer writes to screen.
+     *
+     * @var \Redbox\Cli\Output\OutputBuffer|null
      */
-    private OutputBuffer $outputBuffer;
+    private ?OutputBuffer $outputBuffer = null;
 
     /**
      * Arguments constructor.
@@ -87,7 +98,8 @@ class Arguments
      *
      * @return string
      */
-    public function getDescription(): string {
+    public function getDescription(): string
+    {
         return $this->description;
     }
 
@@ -106,6 +118,7 @@ class Arguments
         if (($internal === false) && $name === self::DEFAULT_OPERATION) {
             throw new \Exception("{$name} is an reserved operation name.");
         }
+
         $this->operations[$name] = new Operation($name);
 
         if (is_callable($callback) === true) {
@@ -146,7 +159,6 @@ class Arguments
      */
     public function usage(): void
     {
-        // FIXME: Make a function of this
         global $argv;
         $command = $argv[0];
 
@@ -166,11 +178,9 @@ class Arguments
         ];
 
         $allOptions = [];
-        $numOperations = count($this->operations);
 
         foreach ($this->operations as $name => $operation) {
             $options = $operation->getOptions();
-
 
             /**
              * For esthetics show the optional arguments first.
@@ -221,8 +231,8 @@ class Arguments
             } else {
                 $name = str_pad($operation->name, $longest['operation']);
             }
-            // TODO: Replace with columns
 
+            // TODO: Replace with columns later down the line.
             $usage = str_pad($option->usageInfo(), $longest['argument']);
 
             $line = "{$command} {$name} {$usage}\t{$description}";
@@ -240,8 +250,8 @@ class Arguments
     /**
      * Proxy calls to the default operation.
      *
-     * @param string $name      The method
-     * @param array<string>  $arguments Its arguments
+     * @param string        $name      The method
+     * @param array<string> $arguments Its arguments
      *
      * @return mixed
      */

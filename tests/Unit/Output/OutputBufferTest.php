@@ -13,7 +13,6 @@ namespace Redbox\Cli\Tests\Unit\Output;
 use Redbox\Cli\Output\OutputBuffer;
 use Redbox\Cli\Output\Style;
 
-
 uses()
     ->beforeEach(function () {
         $this->outputBuffer = new OutputBuffer();

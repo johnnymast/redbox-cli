@@ -10,6 +10,9 @@
 
 namespace Redbox\Cli\Output;
 
+/**
+ * @internal
+ */
 class Line
 {
     /**
@@ -81,7 +84,7 @@ class Line
     ];
 
     /**
-     * The Line constructor.
+     * Line constructor.
      *
      * @param string                   $contents The contents of the line.
      * @param \Redbox\Cli\Output\Style $style    The style for this line.

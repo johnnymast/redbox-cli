@@ -10,7 +10,7 @@
 
 namespace Redbox\Cli\Arguments;
 
-class Option
+final class Option
 {
     /**
      * Using this flag means the option
@@ -45,9 +45,11 @@ class Option
     public string $longPrefix = '';
 
     /**
+     * Option Constructor.
+     *
      * @param \Redbox\Cli\Arguments\Operation $operation   The operation this option belongs to.
      * @param string                          $name        The name of this option.
-     * @param string|null                     $prefix       The short prefix for this option.
+     * @param string|null                     $prefix      The short prefix for this option.
      * @param int|null                        $options     The option flags for this option.
      * @param string                          $description The description for the usage output.
      * @param string|null                     $default     The default value for this option.

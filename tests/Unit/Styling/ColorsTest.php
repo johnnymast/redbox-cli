@@ -1,14 +1,18 @@
 <?php
+/*
+ * This file is part of Redbox-Cli
+ *
+ * (c) Johnny Mast <mastjohnny@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Redbox\Cli\Tests\Unit\Styling;
 
 use Pest\Datasets;
-use PHPUnit\Util\Color;
 use Redbox\Cli\Cli;
-use Redbox\Cli\Output\Line;
 use Redbox\Cli\Output\OutputBuffer;
-use Redbox\Cli\Output\Style;
-use Redbox\Cli\Router\Router;
 use Redbox\Cli\Router\Attributes\ColorRoute;
 
 uses()

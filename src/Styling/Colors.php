@@ -10,15 +10,27 @@
 
 namespace Redbox\Cli\Styling;
 
+use Redbox\Cli\Output\OutputBuffer;
 use Redbox\Cli\Router\Attributes\ColorRoute;
 use Redbox\Cli\Router\Attributes\Route;
-use Redbox\Cli\Output\OutputBuffer;
 
 /**
  * @internal
  */
-class Colors
+final class Colors
 {
+
+    /**
+     * @param \Redbox\Cli\Output\OutputBuffer $output
+     *
+     * @return \Redbox\Cli\Output\OutputBuffer
+     */
+    #[Route('reset')]
+    public function reset(OutputBuffer $output): OutputBuffer
+    {
+        $output->getStyle()->reset();
+        return $this->_complete($output);
+    }
 
     /**
      * @param \Redbox\Cli\Output\OutputBuffer $output
@@ -36,21 +48,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer $output
-     *
-     * @return \Redbox\Cli\Output\OutputBuffer
-     */
-    #[Route('reset')]
-    public function reset(OutputBuffer $output): OutputBuffer
-    {
-        $output->getStyle()->reset();
-        return $this->_complete($output);
-    }
-
-    /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */
@@ -69,9 +69,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */
@@ -90,9 +90,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */
@@ -111,9 +111,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */
@@ -132,9 +132,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */
@@ -153,9 +153,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */
@@ -174,9 +174,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */
@@ -195,9 +195,9 @@ class Colors
     }
 
     /**
-     * @param \Redbox\Cli\Output\OutputBuffer          $output
-     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info
-     * @param string                                   $string
+     * @param \Redbox\Cli\Output\OutputBuffer          $output The output buffer to write to.
+     * @param \Redbox\Cli\Router\Attributes\ColorRoute $info   Information about the route.
+     * @param string                                   $string The string to optional write in this color.
      *
      * @return \Redbox\Cli\Output\OutputBuffer
      */

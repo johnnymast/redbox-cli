@@ -12,12 +12,14 @@ namespace Redbox\Cli\Router;
 
 use Redbox\Cli\Cli;
 use ReflectionClass;
-use function Pest\Laravel\instance;
 
 /**
- * Class Router
+ * The Router class uses php8 attributes to
+ * add routes to the Redbox-cli basic application.
+ *
+ * @internal
  */
-class Router
+final class Router
 {
 
     /**
@@ -28,6 +30,8 @@ class Router
     protected array $routes = [];
 
     /**
+     * Router constructor.
+     *
      * @param \Redbox\Cli\Cli $cli
      */
     public function __construct(protected Cli $cli)
@@ -116,9 +120,12 @@ class Router
     }
 
     /**
+     * Return the routes by attribute type. For example
+     * Route::class or ColorRoute::class.
+     *
      * @param string $class The Attribute class name.
      *
-     * @return array
+     * @return array<int>
      */
     public function getRoutesOfAttributeType(string $class): array
     {
@@ -140,7 +147,7 @@ class Router
      *
      * @param string $class The Attribute class name.
      *
-     * @return array
+     * @return array<int>
      */
     public function getRoutesFromSubjectClass(string $class): array
     {

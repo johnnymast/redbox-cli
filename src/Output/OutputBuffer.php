@@ -11,9 +11,12 @@
 namespace Redbox\Cli\Output;
 
 /**
+ * The OutputBuffer contains everything that
+ * will be written to the screen stored in a buffer.
+ *
  * @internal
  */
-class OutputBuffer
+final class OutputBuffer
 {
 
     /**
@@ -35,10 +38,10 @@ class OutputBuffer
      *
      * @var \Redbox\Cli\Output\Style
      */
-    public Style $style;
+    protected Style $style;
 
     /**
-     * The constructor of the OutputBuffer.
+     * OutputBuffer constructor.
      */
     public function __construct()
     {
@@ -61,7 +64,7 @@ class OutputBuffer
      *
      * @param string $line The line to add to the output buffer.
      *
-     * @return $this
+     * @return OutputBuffer
      */
     public function addLine(string $line): OutputBuffer
     {
@@ -77,7 +80,7 @@ class OutputBuffer
      *
      * @param array<string> $lines The array of line objects to add to the output buffer.
      *
-     * @return $this
+     * @return OutputBuffer
      */
     public function addLines(array $lines): OutputBuffer
     {
@@ -92,7 +95,7 @@ class OutputBuffer
      *
      * @param string $line The line to add.
      *
-     * @return $this
+     * @return OutputBuffer
      */
     public function addRawLine(string $line): OutputBuffer
     {
@@ -105,7 +108,7 @@ class OutputBuffer
     /**
      * Add a newline to the buffer.
      *
-     * @return $this
+     * @return OutputBuffer
      */
     public function addNewLine(): OutputBuffer
     {

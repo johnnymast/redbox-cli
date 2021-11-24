@@ -19,11 +19,4 @@ use Redbox\Cli\Router\Attributes\BaseAttribute;
 #[Attribute]
 class Route extends BaseAttribute
 {
-    /**
-     * @param string $method The name of the method
-     */
-    public function __construct(string $method)
-    {
-        parent::__construct($method);
-    }
 }

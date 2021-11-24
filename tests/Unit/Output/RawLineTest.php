@@ -30,12 +30,3 @@ test('Constructed values should be remembered.', function () {
 
     $this->assertEquals($expected, $actual);
 });
-
-
-//test('show', function () {
-//    $this->acceptTrue(false);
-//});
-//
-//test('fetch', function () {
-//    $this->acceptTrue(false);
-//});

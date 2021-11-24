@@ -15,7 +15,7 @@ use Redbox\Cli\Traits\KeyValueTrait;
 /**
  * @internal
  */
-class Operation
+final class Operation
 {
     use KeyValueTrait;
 
@@ -36,7 +36,9 @@ class Operation
     protected array $options = [];
 
     /**
-     * @param string $name    The name.
+     * Operation constructor.
+     *
+     * @param string $name The name.
      */
     public function __construct(public string $name)
     {

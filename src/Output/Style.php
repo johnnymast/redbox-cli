@@ -19,10 +19,9 @@ namespace Redbox\Cli\Output;
  * @method getBackgroundColor();
  * @method getFontStyle();
  *
- *
  * @internal
  */
-class Style
+final class Style
 {
     /**
      * Container for the styles.
@@ -172,7 +171,6 @@ class Style
         $property = str_replace($action, '', $name);
         $property = $this->from_camel_case($property);
 
-
         if ($action === 'set') {
             if (isset($this->styles[$property]) === true) {
                 return $this->styles[$property] = current($arguments);
@@ -182,7 +180,6 @@ class Style
                 return $this->styles[$property];
             }
         }
-        echo "PROPERTY: {$property}\n";
 
         return trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
     }
