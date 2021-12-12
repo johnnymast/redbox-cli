@@ -30,6 +30,6 @@ jobs:
           author_name: Johnny Mast
           author_email: mastjohnny@gmail.com
           message: "Committing code coverage image"
-          add: '["coverage.json", "branch.json"]'
+          add: '["./coverage.json", "./branch.json"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
