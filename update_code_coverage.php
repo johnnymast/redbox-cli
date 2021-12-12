@@ -33,10 +33,7 @@ try {
     $percentage = 5;
 
     $badge["message"] = $percentageString;
-    $badge["color"] = match(true) {
-        $percentage > 90 => "green",
-        default => "red"
-    };
+    $badge["color"] = ($percentage > 90) ? "green" : "red";
 
     $json = json_encode($badge, JSON_THROW_ON_ERROR);
 
