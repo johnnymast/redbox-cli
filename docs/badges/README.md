@@ -1,1 +1,1 @@
-Bages folder.
+Badges folder.
