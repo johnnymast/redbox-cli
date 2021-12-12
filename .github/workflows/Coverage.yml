@@ -18,7 +18,7 @@ jobs:
       - name: Execute PHPUnit
         run: XDEBUG_MODE=coverage ./vendor/bin/pest --coverage --min=90
 
-      - name: Updating branch.json to ${GITHUB_REF##*/}
+      - name: Updating branch.json
         run: php update_branch_json.php ${GITHUB_REF##*/}
 
       - name: Updating coverage.json
