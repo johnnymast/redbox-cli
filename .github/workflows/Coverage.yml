@@ -18,8 +18,8 @@ jobs:
       - name: Execute PHPUnit
         run: XDEBUG_MODE=coverage ./vendor/bin/pest --coverage --min=90
 
-      - name: Generate code coverage image
-        run: php generate-code-coverage-image.php
+      - name: Updating coverage.json
+        run: php update_code_coverage.php
 
       - name: Commit Code Coverage Image to Repo
         uses: EndBug/add-and-commit@v5
@@ -27,6 +27,6 @@ jobs:
           author_name: Johnny Mast
           author_email: mastjohnny@gmail.com
           message: "Committing code coverage image"
-          add: "docs/code-coverage.png"
+          add: "coverage.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
