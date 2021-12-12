@@ -13,6 +13,7 @@ foreach($tags as $tag => $value) {
     $content = str_replace($marker.$tag.$marker, $content, $value);
 }
 
+echo "Readme content {$content}\n";
 
 file_put_contents($readme, $content);
 
