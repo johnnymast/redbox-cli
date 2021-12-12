@@ -28,9 +28,10 @@ try {
     $coveredStatements = $xml->project->metrics['coveredstatements'];
     $totalStatements = $xml->project->metrics['statements'];
     $percentage = round(min(1, $coveredStatements / $totalStatements) * 100);
-    $percentageString = $percentage . '%';
 
     $percentage = 5;
+    $percentageString = $percentage . '%';
+
 
     $badge["message"] = $percentageString;
     $badge["color"] = ($percentage > 90) ? "green" : "red";
