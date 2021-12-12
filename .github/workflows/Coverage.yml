@@ -43,3 +43,14 @@ jobs:
           add: "branch.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+        - name: Updating README.md
+          uses: EndBug/add-and-commit@v5
+          with:
+            author_name: Johnny Mast
+            author_email: mastjohnny@gmail.com
+            message: "Updating README.md"
+            add: "README.md"
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
