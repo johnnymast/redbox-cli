@@ -18,7 +18,7 @@ jobs:
       - name: Execute PHPUnit
         run: XDEBUG_MODE=coverage ./vendor/bin/pest --coverage --min=90
 
-      - name: Updating branch.json
+      - name: Updating branch.json to ${GITHUB_REF##*/}
         run: php update_branch_json.php ${GITHUB_REF##*/}
 
       - name: Updating coverage.json
@@ -30,6 +30,6 @@ jobs:
           author_name: Johnny Mast
           author_email: mastjohnny@gmail.com
           message: "Committing code coverage image"
-          add: "coverage.json"
+          add: ["coverage.json", "branch.json"]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
