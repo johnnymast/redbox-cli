@@ -16,7 +16,7 @@ try {
     $file = "coverage.json";
     $branch = $argv[1];
     $json = file_get_contents($file);
-    $endpoint = "https://github.com/johnnymast/redbox-cli/blob/{$branch}/{$file}";
+    $endpoint = "https://raw.githubusercontent.com/johnnymast/redbox-cli/{$branch}/{$file}";
     $imageUrl = "https://img.shields.io/endpoint?url={$endpoint}";
     $outFile = "docs/badges/coverage.svg";
 

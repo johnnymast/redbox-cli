@@ -2,7 +2,7 @@
 
 ![redbox-logo-klein](https://cloud.githubusercontent.com/assets/121194/12361779/5af96e52-bbc0-11e5-91b0-2b7afbc1e5cc.png)
 
-[![Code Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/johnnymast/redbox-cli/1.5/coverage.json)](https://github.com/johnnymast/redbox-cli/actions/workflows/Coverage.yml)
+[![Code Coverage](docs/badges/coverage.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/Coverage.yml)
 [![Pest Unit Tests](https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml/badge.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml)
 [![Phpstan](https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml/badge.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml)
 

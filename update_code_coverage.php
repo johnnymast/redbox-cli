@@ -29,7 +29,6 @@ try {
     $totalStatements = $xml->project->metrics['statements'];
     $percentage = round(min(1, $coveredStatements / $totalStatements) * 100);
 
-    $percentage = 5;
     $percentageString = $percentage . '%';
 
 
