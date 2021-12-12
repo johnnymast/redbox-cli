@@ -2,7 +2,7 @@
 $contents = '{"schemaVersion":1,"label":"Code Coverage", "message":"100.00%","color":"red","namedLogo":"github"}';
 
 file_put_contents('coverage.json', $contents);
-exit;
+exit (1);
 
 $xml = simplexml_load_file('clover.xml');
 
