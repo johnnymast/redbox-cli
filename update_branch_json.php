@@ -10,7 +10,7 @@ $branchFile = 'branch.json';
 $content = file_get_contents($readme);
 
 foreach($tags as $tag => $value) {
-    $content = str_replace($marker.$tag.$marker, $content, $value);
+    $content = str_replace($marker.$tag.$marker, $value, $content);
 }
 
 echo "Readme content {$content}\n";
