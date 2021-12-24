@@ -29,13 +29,13 @@
 
 # redbox-cli
 
-This is a command line parser based on [Climate](https://github.com/thephpleague/climate)
+This is a command-line parser based on [Climate](https://github.com/thephpleague/climate)
 by [Joe Tannenbaum](https://github.com/joetannenbaum). We share a lot of similarities, but I decided to take the getopt
 route and downgrade the number of lines in the code by 1/4 of the original size.
 
 ## Documentation
 
-For detailed documentation of the project you can visit
+For detailed documentation of the project, you can visit
 the [documentation page](https://johnnymast.github.io/redbox-cli/).
 
 ## Installation
@@ -69,7 +69,7 @@ $ ./vendor/bin/phpunit
 ### Author
 
 This package is created and maintained by Johnny Mast. For feature requests and suggestions you could
-consider [e-mailing me](mailto:mastjohnny@gmail.com) or fill out
+consider [e-mailing me](mailto:mastjohnny@gmail.com) or filling out
 an [issue](https://github.com/johnnymast/redbox-cli/issues).
 
 ### The MIT License (MIT)
