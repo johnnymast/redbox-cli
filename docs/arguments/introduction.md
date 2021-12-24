@@ -91,7 +91,7 @@ echo "You provided username {$user}\n";
 ## Usage screen
 
 When it comes to command-line arguments you also might want to show the available 
-options to the users of your applications. Redbox-cli has a build-in function to do 
+options to the users of your applications. Redbox-cli has a built-in function to do 
 just that. You can use the usage() function to show the available options like so:
 
 
