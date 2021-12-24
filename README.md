@@ -1,14 +1,31 @@
-# redbox-cli
 
-![Redbox Logo](https://cloud.githubusercontent.com/assets/121194/12361779/5af96e52-bbc0-11e5-91b0-2b7afbc1e5cc.png)
+<p align="center">
+<p align="center">
+<img alt="Redbox Logo" src="https://cloud.githubusercontent.com/assets/121194/12361779/5af96e52-bbc0-11e5-91b0-2b7afbc1e5cc.png" />
+</p>
 
-[![Code Coverage](docs/badges/coverage.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/Coverage.yml)
-[![Pest Unit Tests](https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml/badge.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml)
-[![Phpstan](https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml/badge.svg)](https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml)
+<a style="display: inline-block" title="Code Coverage" href="https://github.com/johnnymast/redbox-cli/actions/workflows/Coverage.yml">
+ <img src="docs/badges/coverage.svg" />
+</a>
 
-[![Build Status](https://travis-ci.org/johnnymast/redbox-cli.svg)](https://travis-ci.org/johnnymast/redbox-cli)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/quality-score.png?b=1.5)](https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master)
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Contact%20author)](https://twitter.com/intent/tweet?text=@mastjohnny)
+<a style="display: inline-block" title="Pest Unit Tests" href="https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml">
+ <img src="https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml/badge.svg" />
+</a>
+
+<a style="display: inline-block" title="Phpstan" href="https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml">
+ <img src="https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml/badge.svg" />
+</a>
+
+<a style="display: inline-block" title="Scrutinizer Code Quality" href="https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master">
+ <img src="https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/quality-score.png?b=master" />
+</a>
+
+
+<a style="display: inline-block" title="Twitter URL" href="https://twitter.com/intent/tweet?text=@mastjohnny">
+ <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Contact%20author" />
+</a>
+
+</p>
 
 # redbox-cli
 
