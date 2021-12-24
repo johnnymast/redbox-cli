@@ -1,6 +1,6 @@
 # Introduction
 
-The whole concepts of arguments are divided into two subjects ***options*** and ***operations***. 
+The whole concept of arguments is divided into two subjects ***options*** and ***operations***. 
 Where operations could be custom actions like **login** or **download** they are not mandatory to add options to your application.
 
 ???+ note "Operations"

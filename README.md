@@ -69,7 +69,7 @@ $ ./vendor/bin/phpunit
 ### Author
 
 This package is created and maintained by Johnny Mast. For feature requests and suggestions you could
-consider [e-mailing me](mailto:mastjohnny@gmail.com) or filling out
+consider [emailing me](mailto:mastjohnny@gmail.com) or filling out
 an [issue](https://github.com/johnnymast/redbox-cli/issues).
 
 ### The MIT License (MIT)
