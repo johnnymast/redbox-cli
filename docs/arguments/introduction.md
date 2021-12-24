@@ -1,11 +1,11 @@
 # Introduction
 
-The whole concepts of arguments are divided in two subjects ***options*** and ***operations***. 
+The whole concepts of arguments are divided into two subjects ***options*** and ***operations***. 
 Where operations could be custom actions like **login** or **download** they are not mandatory to add options to your application.
 
 ???+ note "Operations"
 
-    If you want to learn more about operations and how usefull they can be [follow this link](/redbox-cli/arguments/operations).
+    If you want to learn more about operations and how useful they can be [follow this link](/redbox-cli/arguments/operations).
 
 
 Let's start easy by just adding to your application.
@@ -45,7 +45,7 @@ You can use the following option flags to make your options optional/required or
 
 `Option::OPTION_NO_VALUE`
 
-:   Using this flag means the option has no default value and is used as initiator.
+:   Using this flag means the option has no default value and is used as the initiator.
 
 
 ## Reading input
@@ -90,8 +90,8 @@ echo "You provided username {$user}\n";
 
 ## Usage screen
 
-When it comes to command line arguments you also might want to show the available 
-options to the users of your applications. Redbox-cli has a build in function to do 
+When it comes to command-line arguments you also might want to show the available 
+options to the users of your applications. Redbox-cli has a build-in function to do 
 just that. You can use the usage() function to show the available options like so:
 
 

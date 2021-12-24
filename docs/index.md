@@ -20,7 +20,7 @@
 </a>
 
 </p>
-This project was started as a simple library to manage command line arguments in php. After having it 
+This project was started as a simple library to manage command-line arguments in php. After having it 
 around in my toolbox for a while I decided to opensource the project for others to use as well.
 
 The project was initially based on the work of [Joe Tannenbaum](https://github.com/joetannenbaum) with his [Climate](https://github.com/thephpleague/climate)

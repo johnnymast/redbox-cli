@@ -14,8 +14,8 @@ Supported colors:
 
 ## Foreground colors 
 
-The colors above are functions on your Cli instance. You can pass a text with the function but 
-this is not required. Let's have a look on how to write a red text to your command line. 
+The colors above are functions on your CLI instance. You can pass a text with the function but 
+this is not required. Let's have a look at how to write a red text to your command line. 
 
 ```php
 <?php
@@ -23,13 +23,13 @@ $cli->red('This text is now red');
 $cli->red()->write('Alternative method to write red text')
 ```
 
-As you can see the color functions chainable, so you can mix and match with background colors.
+As you can see the color functions are chainable, so you can mix and match with background colors.
 
 
 ## Background colors
 
-All supported colors have a "Background" suffix as well allowing you use background colors in your text as well. 
-And just like the foreground colors the background colors are chainable as well. 
+All supported colors have a "Background" suffix as well allowing you to use background colors in your text as well. 
+And just like the foreground colors, the background colors are chainable as well. 
 
 ```php
 <?php
