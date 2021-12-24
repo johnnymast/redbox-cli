@@ -1,27 +1,26 @@
 
 <p align="center">
-<p align="center">
 <img alt="Redbox Logo" src="https://cloud.githubusercontent.com/assets/121194/12361779/5af96e52-bbc0-11e5-91b0-2b7afbc1e5cc.png" />
 </p>
 
-<a title="Code Coverage" href="https://github.com/johnnymast/redbox-cli/actions/workflows/Coverage.yml">
+<a style="display: inline-block" title="Code Coverage" href="https://github.com/johnnymast/redbox-cli/actions/workflows/Coverage.yml">
  <img src="docs/badges/coverage.svg" />
 </a>
 
-<a title="Pest Unit Tests" href="https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml">
+<a style="display: inline-block" title="Pest Unit Tests" href="https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml">
  <img src="https://github.com/johnnymast/redbox-cli/actions/workflows/Pest.yml/badge.svg" />
 </a>
 
-<a title="Phpstan" href="https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml">
+<a style="display: inline-block" title="Phpstan" href="https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml">
  <img src="https://github.com/johnnymast/redbox-cli/actions/workflows/PhpStan.yml/badge.svg" />
 </a>
 
-<a title="Scrutinizer Code Quality" href="https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master">
+<a style="display: inline-block" title="Scrutinizer Code Quality" href="https://scrutinizer-ci.com/g/johnnymast/redbox-cli/?branch=master">
  <img src="https://scrutinizer-ci.com/g/johnnymast/redbox-cli/badges/quality-score.png?b=master" />
 </a>
 
 
-<a title="Twitter URL" href="https://twitter.com/intent/tweet?text=@mastjohnny">
+<a style="display: inline-block" title="Twitter URL" href="https://twitter.com/intent/tweet?text=@mastjohnny">
  <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Contact%20author" />
 </a>
 
